@@ -4,17 +4,45 @@ import uploadIcon from './../../../asset/Upload icon.png';
 
 const Section5 = () => {
     const [fileName, setFileName] = useState('');
+    const [file, setFile] = useState(null);
 
     const handleFileChange = (event) => {
         if (event.target.files.length > 0) {
             setFileName(event.target.files[0].name);
+            setFile(event.target.files[0]);
         } else {
             setFileName('');
+            setFile(null);
         }
     };
 
     const handleButtonClick = () => {
         document.getElementById('fileInput').click();
+    };
+
+    const handleSubmit = () => {
+        if (file) {
+            // Handle file upload logic here
+            const formData = new FormData();
+            formData.append('file', file);
+
+            // Example: Make a POST request to upload the file
+            fetch('/upload-endpoint', {
+                method: 'POST',
+                body: formData,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle success response
+                    console.log('File uploaded successfully:', data);
+                })
+                .catch(error => {
+                    // Handle error response
+                    console.error('Error uploading file:', error);
+                });
+        } else {
+            alert('Please select a file to upload.');
+        }
     };
 
     return (
@@ -44,8 +72,14 @@ const Section5 = () => {
                     Upload File
                 </button>
             </div>
+            <div>
+                <button className={styles.submit} onClick={handleSubmit}>
+                    Submit
+                </button>
+            </div>
         </div>
     );
 }
 
 export default Section5;
+

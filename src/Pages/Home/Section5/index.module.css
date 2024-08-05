@@ -8,7 +8,7 @@
 .up {
     font-weight: bold;
     font-size: 24px;
-    margin-left: 12px;
+    margin-left: 10px;
 }
 
 .upload {
@@ -43,9 +43,8 @@
     margin-top: 10px;
 }
 
-/* Hover effect for browse span */
 .browse:hover {
-    color: #0056b3;
+    color: #483EA8;
 }
 
 .fileInputBox {
@@ -59,15 +58,37 @@
 .uploadButton {
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #483EA8;
+    background-color: #218838;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 50%;
+    height: 50%;
+    transition: transform 0.3s ease;
 }
 
 .uploadButton:hover {
-    background-color: #483EA8;
+    background-color: #9CC026;
+    transform: scale(1.05);
+}
+
+.submit {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+    height: 50%;
+    transition: transform 0.3s ease;
+}
+
+.submit:hover {
+    background-color: #9CC026;
+    transform: scale(1.05);
 }
 
 body {
