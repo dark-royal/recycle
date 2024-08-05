@@ -1,0 +1,75 @@
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #E3F2E1;
+    margin-top: -10px;
+
+}
+
+.logo {
+    width: 30px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 16px;
+    margin-left: 50px;
+
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    color: green;
+}
+
+.sectionsWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 20px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    color: green;
+}
+
+
+.section,
+.section1 {
+    display: flex;
+    align-items: center;
+}
+
+.section {
+    flex-grow: 1;
+    gap: 100px;
+    margin-left: 490px;
+}
+
+.section p {
+    margin: 0;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: green;
+}
+
+.section1 {
+    flex-grow: 1;
+    gap: 50px;
+}
+
+.section1 p {
+    cursor: pointer;
+    border-radius: 60px;
+    color: white;
+    border: #9CC026;
+    padding: 10px 20px;
+    font-size: 19px;
+    background-color: #9CC026;
+}
+

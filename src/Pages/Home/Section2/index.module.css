@@ -1,0 +1,78 @@
+.key
+{
+
+    color: white;
+    border: 12px solid #007932;
+    padding: 20px;
+    font-size: 19px;
+    background-color: #007932;
+    margin-left: 169px;
+    width: 20%;
+
+
+}
+.highlight,
+.key p.reduce {
+    font-size: 24px;
+    font-weight: bold;
+    width: 20%;
+}
+.highlight {
+    color: #007932;
+}
+.keysContainer {
+    display: flex;
+    align-items: flex-start;
+    margin-left: 190px;
+    width: 90%;
+    background-color: #71BC68
+
+
+
+}
+.key1{
+
+    border: 2px solid #E5E5E5;
+    padding: 20px;
+    font-size: 19px;
+    background-color: #E5E5E5;
+    width: 20%;
+
+}
+
+.key2{
+    border: 12px solid #FFFFFF;
+    padding: 20px;
+    font-size: 19px;
+    background-color: #FFFFFF;
+    width: 20%;
+
+
+}
+
+.recycle{
+
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 20%;
+    color: #007932;
+}
+.key,
+.select,
+.logo10,
+.key1,
+.upload,
+.key2,
+.quizOption {
+    transition: transform 0.3s ease;
+}
+.key:hover,
+.upload:hover,
+.logo10:hover,
+.key1:hover,
+.key2:hover,
+.select:hover,
+.quizOption:hover {
+    transform: scale(1.05);
+}
