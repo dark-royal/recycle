@@ -8,11 +8,11 @@
 .up {
     font-weight: bold;
     font-size: 24px;
-    margin-left: 15px;
+    margin-left: 12px;
 }
 
 .upload {
-    background-color: #E5E5E5;
+    background-color: white;
     border: 2px dashed #ccc;
     border-radius: 10px;
     padding: 20px;
@@ -33,7 +33,7 @@
 }
 
 .browse {
-    color: #007BFF;
+    color: #483EA8;
     text-decoration: underline;
 }
 
@@ -43,7 +43,7 @@
     margin-top: 10px;
 }
 
-
+/* Hover effect for browse span */
 .browse:hover {
     color: #0056b3;
 }
@@ -54,6 +54,20 @@
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+.uploadButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #483EA8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.uploadButton:hover {
+    background-color: #483EA8;
 }
 
 body {

@@ -6,7 +6,15 @@ const Section5 = () => {
     const [fileName, setFileName] = useState('');
 
     const handleFileChange = (event) => {
-        setFileName(event.target.files[0].name);
+        if (event.target.files.length > 0) {
+            setFileName(event.target.files[0].name);
+        } else {
+            setFileName('');
+        }
+    };
+
+    const handleButtonClick = () => {
+        document.getElementById('fileInput').click();
     };
 
     return (
@@ -17,7 +25,13 @@ const Section5 = () => {
                 <label htmlFor="fileInput" className={styles.drag}>
                     Drag & Drop Or <span className={styles.browse}>Browse</span>
                 </label>
-                <input type="file" id="fileInput" name="file" style={{ display: 'none' }} onChange={handleFileChange} />
+                <input
+                    type="file"
+                    id="fileInput"
+                    name="file"
+                    style={{ display: 'none' }}
+                    onChange={handleFileChange}
+                />
                 <p className={styles.support}>Supported formats: JPEG, PNG, GIF, MP4, PDF, PSD, AI, Word, PPT</p>
                 <input
                     type="text"
@@ -26,6 +40,9 @@ const Section5 = () => {
                     readOnly
                     className={styles.fileInputBox}
                 />
+                <button className={styles.uploadButton} onClick={handleButtonClick}>
+                    Upload File
+                </button>
             </div>
         </div>
     );
