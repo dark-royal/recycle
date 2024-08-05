@@ -1,0 +1,61 @@
+.scan {
+    font-size: 40px;
+    color: Green;
+    font-weight: bold;
+    margin-left: 135px;
+}
+
+.up {
+    font-weight: bold;
+    font-size: 24px;
+    margin-left: 15px;
+}
+
+.upload {
+    background-color: #E5E5E5;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+.UploadIcon {
+    margin: 20px auto;
+    display: block;
+}
+
+.drag {
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.browse {
+    color: #007BFF;
+    text-decoration: underline;
+}
+
+.support {
+    font-size: 14px;
+    color: gray;
+    margin-top: 10px;
+}
+
+
+.browse:hover {
+    color: #0056b3;
+}
+
+.fileInputBox {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+body {
+    background-color: #71BC68;
+}
