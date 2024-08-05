@@ -1,11 +1,9 @@
-
 .mainContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     background: #E3F2E1;
     margin-top: -10px;
-
 }
 
 .logo {
@@ -14,7 +12,6 @@
     object-fit: contain;
     margin-right: 16px;
     margin-left: 50px;
-
 }
 
 .title {
@@ -30,13 +27,6 @@
     width: 100%;
     margin: 0 20px;
 }
-
-.title {
-    font-size: 30px;
-    font-weight: bold;
-    color: green;
-}
-
 
 .section,
 .section1 {
@@ -56,6 +46,11 @@
     font-size: 20px;
     font-weight: bold;
     color: green;
+    transition: transform 0.3s ease;
+}
+
+.section p:hover {
+    transform: scale(1.05);
 }
 
 .section1 {
@@ -71,5 +66,10 @@
     padding: 10px 20px;
     font-size: 19px;
     background-color: #9CC026;
+    transition: transform 0.3s ease;
+}
+
+.section1 p:hover {
+    transform: scale(1.05);
 }
 
