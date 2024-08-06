@@ -7,8 +7,8 @@ const HeroHeading = ()=>{
     return(
 
         <>
-            <div className="ml-[120px] flex flex-row space-x-[180px] ">
-                <div className="mt-10">
+            <div className=" flex flex-row space-x-[180px] bg-white rounded-2xl p-4">
+                <div className="mt-10 ml-[120px]">
                     <p className="text-green-500">Features</p>
                     <h3 className="text-2xl text-green-500 font-semibold mb-4">What We Do<br/> With Your Waste</h3>
                     <button className="bg-green-500 text-white p-2 rounded-2xl mb-5">Learn More</button>

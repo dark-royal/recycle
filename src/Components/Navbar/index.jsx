@@ -2,7 +2,7 @@ import logo from '../asset/Preview-removebg-preview.png'
 const Navbar = () => {
     return (
         <>
-            <div className="flex flex-col md:flex-row items-center justify-between rounded-b p-4">
+            <div className="flex flex-col md:flex-row items-center justify-between rounded-2xl p-4 bg-white">
 
                 <div className="flex items-center mb-4 md:mb-0">
                     <img src={logo} alt="logo" className="w-12 h-12" />

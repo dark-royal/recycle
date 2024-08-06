@@ -9,7 +9,7 @@ const HeroHeadingRight = () => {
 
         <>
 
-        <div className="bg-green-500 text-white flex flex-row mt-15">
+        <div className="bg-customGreen text-white flex flex-row mt-15">
 
             <div className="mt-10">
 

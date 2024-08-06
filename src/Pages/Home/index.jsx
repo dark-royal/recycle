@@ -15,10 +15,12 @@ const Home = ()=>{
 
         <>
 
-            <Hero/>
-            <HeroHeading/>
-            <HeroHeadingRight/>
-            <Flame/>
+                <Hero/>
+                <HeroHeading/>
+                <HeroHeadingRight/>
+                <Flame/>
+
+
 
         </>
     )
