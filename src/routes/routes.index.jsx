@@ -4,11 +4,11 @@ import Layout from "../Components/Layout";
 
 export const ROUTES = [
     {
-        path: '/',
+        path: '/home',
         element: <Layout/>,
         children : [
             {
-                path: '/',
+                path: '',
                 element: <Home/>
             },
 
