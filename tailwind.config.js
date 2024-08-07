@@ -8,6 +8,9 @@ module.exports = {
         colors: {
             customGreen: '#71BC68',
         },
+        fontSize: {
+            'custom-32': '32px',
+        },
     },
   },
 
