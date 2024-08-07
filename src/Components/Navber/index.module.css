@@ -5,6 +5,27 @@
     background: #E3F2E1;
     margin-top: -10px;
 }
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
 
 .logo {
     width: 30px;
@@ -12,12 +33,16 @@
     object-fit: contain;
     margin-right: 16px;
     margin-left: 50px;
+    animation: bounce 2s infinite;
+
 }
 
 .title {
     font-size: 30px;
     font-weight: bold;
     color: green;
+    animation: bounce 2s infinite;
+
 }
 
 .sectionsWrapper {
@@ -32,6 +57,7 @@
 .section1 {
     display: flex;
     align-items: center;
+    animation: slideIn 2s ease-in-out;
 }
 
 .section {
