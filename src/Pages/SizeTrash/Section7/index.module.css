@@ -1,0 +1,41 @@
+.give {
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    margin-left: 100px;
+}
+
+.main {
+    text-align: center;
+}
+
+.door,
+.plant {
+    border-radius: 30px;
+    border: 15px solid white;
+    padding: 10px;
+    font-size: 23px;
+    background-color: white;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.pickup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-left: 400px;
+    width: fit-content;
+}
+.plant{
+    margin-left: 800px;
+
+}
+.G{
+    font-weight: bold;
+    font-size: 34px;
+    color: white;
+
+}
