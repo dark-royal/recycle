@@ -1,6 +1,7 @@
 import DNavbar from "./navbar/DNavbar";
 import DSidebar from "./sidebar/DSidebar";
-import DashBarView from "./DashBarView";
+import DashBarView from "./contentbar/DashBarView";
+import RightSidebar from "./sidebar/RightSidebar";
 
 const DashBar = () => {
     return(
@@ -8,6 +9,7 @@ const DashBar = () => {
             <DNavbar/>
             <DSidebar/>
             <DashBarView/>
+            <RightSidebar/>
         </>
     )
 }
