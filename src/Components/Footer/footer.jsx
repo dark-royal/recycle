@@ -1,10 +1,10 @@
-import Tress from './../../asset/Column.png'
-import React from "react";
+
 import styles from './index.module.css'
 import Facebook from './../../asset/Facebook.png'
 import instagram from './../../asset/Instagram.png'
 import Twitter from'./../../asset/Twitter.png'
 import Linkedin from './../../asset/LinkedIn.png'
+import Tress from './../../asset/Column.png'
 
 const Footer = () => {
     return (
@@ -39,3 +39,4 @@ const Footer = () => {
 }
 
 export default Footer;
+

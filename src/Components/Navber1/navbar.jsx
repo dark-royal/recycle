@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './index.module.css';
 import logo1 from '../../asset/Vector (1).png';
 
-const Navbar = () => {
+const Navbar1 = () => {
     const [menuActive, setMenuActive] = useState(false);
 
     const toggleMenu = () => {
@@ -33,4 +33,4 @@ const Navbar = () => {
     );
 }
 
-export default Navbar;
+export default Navbar1;

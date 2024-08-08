@@ -1,15 +1,16 @@
 
-import Home from "../Pages/Home";
-import Layout from "../Components/Layout";
+import Layout1 from "../Components/Layout/layouts";
+import Client from "../Pages/Clinet/client";
+
 
 export const ROUTES = [
     {
         path: '/information',
-        element: <Layout/>,
+        element: <Layout1/>,
         children : [
             {
                 path: '',
-                element: <Home/>
+                element: <Client/>
             },
 
         ]
