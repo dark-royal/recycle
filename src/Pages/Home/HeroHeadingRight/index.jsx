@@ -6,7 +6,7 @@ const HeroHeadingRight = () => {
     return (
         <>
             <div className="bg-customGreen text-white flex flex-col md:flex-row mt-15 justify-center items-center p-4">
-                <div className="mb-[160px] text-center md:text-left md:ml-[120px]">
+                <div className="mb-[160px] text-center md:text-left md:ml-[160px]">
                     <h2 className="font-semibold text-2xl md:text-3xl">
                         What will <br /> you get by <br /> giving away <br /> your waste
                     </h2>
