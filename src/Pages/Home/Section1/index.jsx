@@ -13,6 +13,7 @@ const Section1 = () => {
             <img src={logo3} alt="Logo3" className={styles.logo3}/>
             <img src={logo4} alt="Logo4" className={styles.logo4}/>
             <img src={logo5} alt="Logo5" className={styles.logo5}/>
+
         </div>
     );
 }
