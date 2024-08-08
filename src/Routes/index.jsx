@@ -1,5 +1,6 @@
 import Layout from "../Components/Layout";
 import Home from "../Pages/Home";
+import DashBar from "../Components/dashboard/DashBar";
 
 export const ROUTES = [
     {
@@ -10,6 +11,11 @@ export const ROUTES = [
                 path: '/',
                 element: <Home/>
             },
-
         ]
-    }]
+    },
+    {
+        path: 'dashboard',
+        element: <DashBar />
+    }
+
+]

@@ -7,6 +7,10 @@ module.exports = {
     extend: {
         colors: {
             customGreen: '#71BC68',
+            customBlue: '#5D5FEF',
+            ash: '#DAF0Df',
+            customWhite: '#E3F2E1',
+
         },
         fontSize: {
             'custom-32': '32px',
