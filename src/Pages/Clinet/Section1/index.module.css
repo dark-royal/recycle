@@ -55,25 +55,25 @@
     padding-right: 30px;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
     .logos {
-        height: 300px; /* Adjust height for mobile */
+        height: 300px;
     }
 
     .logos img {
-        object-fit: fill; /* Adjust how the images fit in mobile */
+        object-fit: fill;
     }
 
     .logos p {
-        font-size: 30px; /* Adjust text size for mobile */
+        font-size: 30px;
         margin-right: -110px;
     }
 }
 
 @media (max-width: 480px) {
     .logos {
-        height: 300px; /* Further adjust height for smaller screens */
+        height: 300px;
         width: 150%;
         margin-left: -45px;
 
@@ -81,7 +81,7 @@
     }
 
     .logos p {
-        font-size: 20px; /* Adjust text size for small mobile screens */
-        padding-right: 5px;
+        font-size: 20px;
+        padding-left: -75px;
     }
 }
