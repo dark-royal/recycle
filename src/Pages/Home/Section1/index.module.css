@@ -54,3 +54,34 @@
     text-align: left;
     padding-right: 30px;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .logos {
+        height: 300px; /* Adjust height for mobile */
+    }
+
+    .logos img {
+        object-fit: fill; /* Adjust how the images fit in mobile */
+    }
+
+    .logos p {
+        font-size: 30px; /* Adjust text size for mobile */
+        margin-right: -110px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logos {
+        height: 300px; /* Further adjust height for smaller screens */
+        width: 150%;
+        margin-left: -45px;
+
+
+    }
+
+    .logos p {
+        font-size: 20px; /* Adjust text size for small mobile screens */
+        padding-right: 5px;
+    }
+}
