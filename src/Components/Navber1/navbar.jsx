@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './index.module.css';
-import logo1 from '../../asset/Vector (1).png';
+import logo1 from './../asset/Preview-removebg-preview.png';
 
 const Navbar1 = () => {
     const [menuActive, setMenuActive] = useState(false);

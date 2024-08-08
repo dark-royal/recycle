@@ -19,6 +19,7 @@
     color: white;
     border: 12px solid #007932;
     background-color: #007932;
+    height: 200px;
 
 }
 
@@ -26,7 +27,11 @@
 
     border: 2px solid #E5E5E5;
     background-color: #E5E5E5;
+    height: 220px;
 
+}
+.reduce {
+    font-weight: bold;
 }
 
 .key2 {
@@ -37,6 +42,8 @@
 
 .highlight {
     color: #007932;
+    font-weight: bold;
+
 
 }
 
@@ -45,6 +52,7 @@
     font-size: 20px;
     font-weight: bold;
     color: #007932;
+    margin-top: -34px;
 }
 
 
