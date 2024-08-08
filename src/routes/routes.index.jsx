@@ -4,7 +4,7 @@ import Layout from "../Components/Layout";
 
 export const ROUTES = [
     {
-        path: '/home',
+        path: '/information',
         element: <Layout/>,
         children : [
             {
