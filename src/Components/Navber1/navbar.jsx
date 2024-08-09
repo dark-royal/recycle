@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styles from './index.module.css';
-import logo1 from './../asset/Preview-removebg-preview.png';
+import logo1 from './../asset/Preview.png';
 
-const Navbar1 = () => {
+const Navb = () => {
     const [menuActive, setMenuActive] = useState(false);
 
     const toggleMenu = () => {
@@ -33,4 +33,4 @@ const Navbar1 = () => {
     );
 }
 
-export default Navbar1;
+export default Navb;

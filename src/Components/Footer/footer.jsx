@@ -9,7 +9,7 @@ import Tress from './../../asset/Column.png'
 const Footer = () => {
     return (
         <div className={styles.footerContainer}>
-            <hr className={styles.horizontalLine} />
+            {/*<hr className={styles.horizontalLine} />*/}
             <div className={styles.Tress}>
                 <img src={Tress} alt="Tress" className="Tress"/>
                 <div className={styles.options}>

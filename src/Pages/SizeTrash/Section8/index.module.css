@@ -1,0 +1,70 @@
+.mainCon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.phone {
+    margin-bottom: 20px;
+}
+
+.wat {
+    margin-left: 120px;
+    animation: slideIn 2s ease-in-out;
+}
+
+.maps {
+    position: relative;
+    width: fit-content;
+    margin-top: 29px;
+    margin-left: 114px;
+}
+
+.map {
+    display: block;
+    max-width: 100%;
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    margin-top: -65px;
+
+    border-radius: 10px; /* Optional: Add rounded corners */
+}
+.hunter{
+    font-weight: bold;
+    font-size: 30px;
+}
+.help{
+
+    font-size: 14px;
+}
+.become{
+    font-size: 14px;
+}
+
+.local{
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    margin-left: -100px;
+}

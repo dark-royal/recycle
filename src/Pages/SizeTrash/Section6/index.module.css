@@ -6,6 +6,17 @@
     margin-left: -600px;
 }
 
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 .mainContainer {
     text-align: center;
     position: relative;
@@ -30,11 +41,12 @@
     align-items: center;
     gap: 120px;
     max-width: 400px;
-
     margin-left: -100px;
+    animation: slideIn 2s ease-in-out;
 
 }
 .map{
     margin-left: -200px;
+    animation: slideIn 2s ease-in-out;
 }
 

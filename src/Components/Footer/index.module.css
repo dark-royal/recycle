@@ -3,7 +3,9 @@
 .footerContainer {
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
+    background-color: #333333;
+    margin-top: 150px;
 }
 
 .horizontalLine {
@@ -12,11 +14,12 @@
     left: 0;
     width: 100%;
     border-top: 3px solid white;
-    margin-top: 3000px;
+    margin-top: 3300px;
     border-radius: 100px;
 }
 
 .Tress {
+
     margin-left: 57px;
     width: 100px;
     height: auto;
