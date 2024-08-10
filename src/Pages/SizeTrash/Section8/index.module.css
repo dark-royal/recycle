@@ -4,6 +4,8 @@
     align-items: center;
     flex-direction: column;
 }
+
+/* Slide-in animation */
 @keyframes slideIn {
     0% {
         transform: translateX(-100%);
@@ -46,25 +48,49 @@
     padding: 10px;
     font-size: 18px;
     margin-top: -65px;
-
     border-radius: 10px; /* Optional: Add rounded corners */
 }
-.hunter{
+
+.hunter {
     font-weight: bold;
     font-size: 30px;
 }
-.help{
 
-    font-size: 14px;
-}
-.become{
+.help, .become {
     font-size: 14px;
 }
 
-.local{
+.local {
     font-weight: bold;
     font-size: 30px;
     color: white;
     text-align: center;
     margin-left: -100px;
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+    .wat {
+        margin-left: 33px;
+        max-width: 80%; /* Adjust the width for smaller screens */
+    }
+
+    .maps {
+        margin-left: 0;
+    }
+
+    .text {
+        font-size: 10px; /* Reduce font size for smaller screens */
+        margin-top: -68px;   /* Adjust margin to prevent overlap */
+        padding: 5px;
+    }
+
+    .hunter {
+        font-size: 10px; /* Adjust the size of the title text */
+    }
+
+    .local {
+        font-size: 20px;
+        margin-left: 0;
+    }
 }

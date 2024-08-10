@@ -11,7 +11,7 @@
     margin: 10px;
     display: inline-block;
     line-height: 1.9;
-    margin-left: 56px
+    margin-left: 56px;
 }
 
 .pickup {
@@ -22,10 +22,10 @@
     margin-left: 300px;
     width: fit-content;
 }
-.plant{
+
+.plant {
     margin-left: 759px;
 }
-
 
 .main {
     text-align: center;
@@ -43,4 +43,31 @@
     font-weight: bold;
     font-size: 34px;
     color: white;
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+    .pickup {
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .door,
+    .plant {
+        font-size: 18px;
+        padding: 10px 20px;
+        margin-left: 0;
+        width: auto;
+    }
+
+    .give {
+        font-size: 24px;
+        margin-left: 0;
+    }
+
+    .G {
+        font-size: 28px;
+    }
 }
