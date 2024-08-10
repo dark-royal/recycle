@@ -1,6 +1,7 @@
 import Layout1 from "../Components/Layout/layouts";
 import Client from "../Pages/Clinet/client";
 import TrashSize from "../Pages/SizeTrash/trash";
+import Pickup from "../Pages/PickupRequest/pickup";
 
 
 export const ROUTES = [
@@ -20,6 +21,16 @@ export const ROUTES = [
             {
                 path: '/size',
                  element: <TrashSize />
+            },
+        ]
+    },
+
+    {
+        element: <Layout1 />,
+        children: [
+            {
+                path: '/pickup',
+                element: <Pickup />
             },
         ]
     }
