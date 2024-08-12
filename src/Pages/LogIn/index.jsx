@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { Icon } from '@iconify/react';
 import loadingLoop from '@iconify/icons-line-md/loading-loop';
+import Navbar from "../../Components/Navbar";
 
 
 const LogIn = () => {
@@ -74,6 +75,8 @@ const LogIn = () => {
     };
 
     return (
+        <div>
+            <Navbar/>
         <div className={style.mainContainer}>
             <Formik
                 initialValues={{ email: '', password: ''}}
@@ -134,6 +137,7 @@ const LogIn = () => {
                 )}
             </Formik>
             <ToastContainer/>
+        </div>
         </div>
     );
 };
