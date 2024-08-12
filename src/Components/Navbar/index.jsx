@@ -21,8 +21,8 @@ const Navbar = () => {
                 </div>
 
                 <div className={`flex flex-col md:flex-row items-center gap-4 mb-4 md:mb-0 ${isOpen ? 'block' : 'hidden'} md:flex`}>
-                    <p className="text-green-500"><a href="/home">{t("Home")}</a></p>
-                    <p className="text-green-500"><a href="/about">{t("About us")}</a></p>
+                    <p className="text-black"><a href="/home">{t("Home")}</a></p>
+                    <p className="text-black"><a href="/about">{t("About us")}</a></p>
                     <p className="text-green-500"><a href="/locate">{t("Locate")}</a></p>
                     <p className="text-green-500"><a href="/blog">{t("Blog")}</a></p>
                     <button className="text-green-600 border-green-500 border p-2 rounded-full">Sign in</button>

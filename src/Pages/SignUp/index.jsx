@@ -80,6 +80,8 @@ const SignUp = () => {
     };
 
     return (
+        <div>
+
         <div className={style.mainContainer}>
             <img src={shape} alt="shape" className={style.shape}/>
             <img src={shape1} alt="shape1" className={style.shape1}/>
@@ -168,6 +170,7 @@ const SignUp = () => {
                 )}
             </Formik>
             <ToastContainer/>
+        </div>
         </div>
     );
 };

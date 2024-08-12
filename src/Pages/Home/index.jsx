@@ -14,18 +14,13 @@ const Home = ()=>{
 
     return(
 
-
-
         <>
-                <Navbar/>
+            <Navbar />
                 <Hero/>
                 <HeroHeading/>
                 <HeroHeadingRight/>
                 <Flame/>
                 <Footer/>
-
-
-
         </>
     )
 
