@@ -1,10 +1,10 @@
 
-import styles from './Footer.css'
-import Facebook from './../../asset/Facebook.png'
-import instagram from './../../asset/Instagram.png'
-import Twitter from'./../../asset/Twitter.png'
-import Linkedin from './../../asset/LinkedIn.png'
-import Tress from './../../asset/Column.png'
+import styles from './index.module.css'
+import Facebook from './../../Components/asset/Facebook.png'
+import instagram from './../../Components/asset/Instagram.png'
+import Twitter from'./../../Components/asset/Twitter.png'
+import Linkedin from './../../Components/asset/LinkedIn.png'
+import Tress from './../../Components/asset/Column.png'
 
 const Footer = () => {
     return (

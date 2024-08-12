@@ -1,7 +1,7 @@
-import styles from './Section8.css';
+import styles from './index.module.css';
 import React from "react";
-import wat from './../../../asset/Frame 29.png';
-import map from './../../../asset/image 13.png';
+import wat from './../../../Components/asset/Frame 29.png';
+import map from './../../../Components/asset/image 13.png';
 
 const Section8 = () => {
     return (

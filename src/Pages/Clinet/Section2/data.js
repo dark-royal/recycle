@@ -1,4 +1,4 @@
-import styles from './Section2.css'
+import styles from './index.module.css'
 export const keys = [
     {
         id: 'reduce',

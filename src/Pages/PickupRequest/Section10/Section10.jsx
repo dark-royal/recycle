@@ -1,4 +1,4 @@
-import styles from './Section10.css';
+import styles from './index.module.css';
 
 const Section10 = () => {
     return (

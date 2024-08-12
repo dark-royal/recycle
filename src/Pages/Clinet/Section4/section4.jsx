@@ -1,14 +1,15 @@
 import React from "react";
-import styles from './Section4.css'
-import Item1 from '../../../asset/Item.png'
-import Item2 from '../../../asset/Item (1).png'
-import Item3 from '../../../asset/Item (2).png'
-import Item4 from '../../../asset/Item (3).png'
-import Item5 from '../../../asset/Item (4).png'
-import Item6 from '../../../asset/Item (5).png'
-import Item7 from '../../../asset/Item (6).png'
-import Item8 from '../../../asset/Item (7).png'
-import Item9 from '../../../asset/Item (8).png'
+import styles from './index.module.css'
+import Item1 from '../../../Components/asset/Item.png'
+import Item2 from '../../../Components/asset/Item (1).png'
+import Item3 from '../../../Components/asset/Item (2).png'
+import Item4 from '../../../Components/asset/Item (3).png'
+import Item5 from '../../../Components/asset/Item (4).png'
+import Item6 from '../../../Components/asset/Item (5).png'
+import Item7 from '../../../Components/asset/Item (6).png'
+import Item8 from '../../../Components/asset/Item (7).png'
+import Item9 from '../../../Components/asset/Item (8).png'
+
 
 const Section4 = () => {
     return (
