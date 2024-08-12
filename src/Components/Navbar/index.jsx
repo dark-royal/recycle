@@ -17,7 +17,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-4">
-                    <button className="text-green-600 border-green-500 border p-2 rounded-full">Sign in</button>
+                    <button className="text-green-600 border-green-500 bg-ash p-2 rounded-full">Sign in</button>
                     <button className="bg-green-500 text-amber-50 rounded-full p-2">Register</button>
                     <select className="bg-white border rounded-md p-1">
                         <option>English</option>
