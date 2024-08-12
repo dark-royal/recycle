@@ -1,11 +1,11 @@
+
+
 .footerContainer {
     display: flex;
     align-items: center;
-    padding: 20px;
-
-
-
-
+    padding: 10px;
+    background-color: #333333;
+    margin-top: 150px;
 
 }
 
@@ -15,18 +15,16 @@
     left: 0;
     width: 100%;
     border-top: 3px solid white;
-    margin-top: 3000px;
+    margin-top: 3300px;
     border-radius: 100px;
 }
+
 .Tress {
+
     margin-left: 57px;
     width: 100px;
     height: auto;
     gap: 76px;
-}
-
-
-.Tress {
     display: flex;
     align-items: center;
 }
@@ -48,7 +46,6 @@
 
 .options {
     margin-top: 188px;
-
 }
 
 .options p,
@@ -57,13 +54,14 @@
     margin: 0;
     cursor: pointer;
     font-size: 23px;
-
 }
-.options1{
+
+.options1 {
     margin-top: 38px;
     padding-left: 145px;
 }
-.email{
+
+.email {
     margin-top: -48px;
     flex-direction: row;
     padding-left: 795px;
@@ -72,14 +70,15 @@
     color: white;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
-
 }
+
 .email p:hover,
 .options p:hover,
 .options1 p:hover {
     transform: scale(1.2);
 }
-.feed{
+
+.feed {
     margin-top: -48px;
     font-size: 23px;
     font-weight: bold;
@@ -90,18 +89,82 @@
     padding: 10px 20px;
     transition: transform 0.3s ease;
     margin-left: 290px;
-
-
 }
 
 .feed p:hover {
     transform: scale(1.05);
 }
-.social{
+
+.social {
     margin-top: 623px;
     flex-direction: row;
     margin-left: -123px;
-
-
 }
+
+
+@media (max-width: 768px) {
+    .footerContainer {
+        flex-direction: column;
+        padding: 10px;
+        align-items: center;
+    }
+
+    .horizontalLine {
+        margin-top: 3600px;
+    }
+
+    .Tress {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+    }
+
+    .Tress img {
+        margin: 10px 0;
+        margin-top: 0;
+    }
+
+    .options,
+    .options1 {
+        gap: 10px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .options {
+        margin-top: 20px;
+    }
+
+    .options1 {
+        margin-top: 10px;
+        padding-left: 0;
+    }
+
+    .email {
+        margin-top: 10px;
+        padding-left: 0;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .feed {
+        font-size: 18px;
+        margin-left: 0;
+        border-radius: 30px;
+        margin-top: 10px;
+    }
+
+    .social {
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 20px;
+        margin-left: 0;
+    }
+
+    .social img {
+        width: 30px;
+        height: auto;
+    }
+}
+
 

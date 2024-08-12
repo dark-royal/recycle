@@ -1,15 +1,15 @@
-import Tress from './../../asset/Column.png'
-import React from "react";
-import styles from './index.module.css'
+
+import styles from './Footer.css'
 import Facebook from './../../asset/Facebook.png'
 import instagram from './../../asset/Instagram.png'
 import Twitter from'./../../asset/Twitter.png'
 import Linkedin from './../../asset/LinkedIn.png'
+import Tress from './../../asset/Column.png'
 
 const Footer = () => {
     return (
         <div className={styles.footerContainer}>
-            <hr className={styles.horizontalLine} />
+            {/*<hr className={styles.horizontalLine} />*/}
             <div className={styles.Tress}>
                 <img src={Tress} alt="Tress" className="Tress"/>
                 <div className={styles.options}>
@@ -39,3 +39,4 @@ const Footer = () => {
 }
 
 export default Footer;
+

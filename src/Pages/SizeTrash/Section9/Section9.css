@@ -1,6 +1,6 @@
 .scan {
     font-size: 40px;
-    color: Green;
+    color: green;
     font-weight: bold;
     margin-left: 135px;
 }
@@ -93,4 +93,30 @@
 
 body {
     background-color: #71BC68;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .upload {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .UploadIcon {
+        width: 80px;
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .drag, .up, .support, .browse, .fileInputBox, .uploadButton, .submit {
+        font-size: 18px;
+    }
+
+    .fileInputBox {
+        width: calc(100% - 20px); /* Adjust width to fit mobile screens */
+    }
+
+    .uploadButton, .submit {
+        width: 100%;
+        height: auto; /* Adjust height for mobile */
+    }
 }
