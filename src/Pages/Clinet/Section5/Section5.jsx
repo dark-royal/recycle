@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './Section5.css';
+import styles from './section5.css';
 import uploadIcon from '../../../asset/Upload icon.png';
 
 const Section5 = () => {
