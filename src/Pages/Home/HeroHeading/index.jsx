@@ -12,7 +12,7 @@ const HeroHeading = () => {
                         What We Do
                         <br /> With Your Waste
                     </h3>
-                    <button className="bg-green-500 text-white p-3 rounded-2xl mb-5">
+                    <button className="bg-green-500 text-white p-4 rounded-2xl mb-5">
                         Learn More
                     </button>
                 </div>

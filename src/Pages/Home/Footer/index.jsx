@@ -1,20 +1,23 @@
-import logo from '../Footer/asset/Preview-removebg-preview.png';
+import image1 from "../../../Components/asset/Preview-removebg-preview.png"
+import image2 from "../../../Components/asset/Facebook.png"
+import image3 from "../../../Components/asset/Instagram.png"
+import image4 from "../../../Components/asset/LinkedIn.png"
+import image5 from "../../../Components/asset/Twitter.png"
 
 const Footer = () => {
-    return (
-        <>
-            <div className="flex flex-col md:flex-row text-white gap-8 mt-10 justify-center items-center">
-                <div className="flex flex-col md:flex-row mt-5 justify-normal gap-4 md:gap-[90px]">
-                    <div className="flex flex-row gap-4 ml-4">
-                        <div>
-                            <img src={logo} alt="logo" className="mr-14 w-10" />
-                        </div>
-                        <div>
-                            <p>G-Cycle</p>
-                        </div>
+    return(
+        <div className="p-20 ">
+            <div className="flex">
+                <div className="flex ml-20 gap-5">
+                    <div className="flex">
+                        <img
+                            src={image1}
+                            alt=""
+                            className="w-[58%] h-[40%]"
+                        />
+                        <p className="text-white mt-8">g-cycle</p>
                     </div>
-
-                    <div className="flex flex-col gap-4 mr-10">
+                    <div className="flex flex-col justify-center gap-5 text-white mt-6">
                         <p>Contact</p>
                         <p>Careers</p>
                         <p>Benefits</p>
@@ -22,26 +25,28 @@ const Footer = () => {
                         <p>Explore</p>
                         <p>Trails</p>
                     </div>
-
-                    <div className="flex flex-col">
+                    <div className="flex flex-col justify-center gap-5 ml-36 text-white mb-16">
                         <p>Company</p>
                         <p>About</p>
                         <p>Jobs</p>
                         <p>Support</p>
                     </div>
                 </div>
-
-                <div className="flex flex-col md:flex-row ml-0 md:ml-[250px] mb-[102px] gap-5">
-                    <div className="border-none">
-                        <input placeholder="Enter your email" className="bg-customGreen placeholder-white" />
-                    </div>
-                    <div>
-                        <button className="rounded-2xl bg-white text-customGreen p-1 mt-2 md:mt-[-20px]">FeedBack</button>
-                    </div>
+                <div className="flex items-center ml-[25%] mb-48">
+                    <input type="email" placeholder="Enter your email"
+                           className="ml-auto text-left w-80 h-10 rounded-xl border-none bg-customGreen input-email"/>
+                    <button className="p-4 bg-ash rounded-full ml-2">FEEDBACK</button>
                 </div>
             </div>
-        </>
-    );
-};
+            <hr className="border-t-2 border-white my-20"/>
+            <div className="flex ml-[90%] gap-2">
+                <img src={image2} alt=""/>
+                <img src={image3} alt=""/>
+                <img src={image5} alt=""/>
+                <img src={image4} alt=""/>
+            </div>
+        </div>
 
+    )
+}
 export default Footer;
