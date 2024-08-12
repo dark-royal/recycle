@@ -1,5 +1,5 @@
 import React from "react";
-import logo10 from './../../../Components/asset/Frame 21.png'
+import logo10 from '../../asset/Frame 21.png'
 import styles from './index.module.css'
 
 const Section3 = () => {
