@@ -19,7 +19,7 @@ const Hero = () => {
                         </p>
                     </div>
                     <div className="md:ml-[90px] mt-5">
-                        <button className="bg-white text-green-600 rounded-2xl p-1">
+                        <button className="bg-white text-green-600 rounded-2xl p-2">
                             Earn from G-cycle
                         </button>
                     </div>

@@ -29,7 +29,7 @@ const HeroHeadingRight = () => {
                     </div>
 
                     <div className="text-center justify-center">
-                        <img src={image3} alt="image3" className="w-[150px] md:w-[200px] ml-7 " />
+                        <img src={image3} alt="image3" className="w-[150px] md:w-[200px] ml-10 " />
                         <p className="mt-5 md:mt-12">Support nature</p>
                         <p className="mt-3">Your valuable contribution in saving<br /> nature</p>
                     </div>

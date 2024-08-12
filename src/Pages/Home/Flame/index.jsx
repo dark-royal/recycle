@@ -22,11 +22,12 @@ const Flame = () => {
                     How Does The Process Work
                 </h2>
             </div>
-            <div className="bg-customGreen box-border flex flex-col md:flex-row mt-10 rounded-[30px] mb-3 p-2 justify-center items-center">
+            <div
+                className="bg-customGreen box-border flex flex-col md:flex-row mt-10 rounded-[30px] mb-3 p-2 justify-center items-center">
                 <div className="ml-4 md:ml-[-150px] space-y-4 mt-12">
                     <div className="flex flex-row gap-4">
                         <div>
-                            <img src={vector1} alt="vector1" className="w-10" />
+                            <img src={vector1} alt="vector1" className="w-10"/>
                         </div>
                         <div>
                             <p className="text-2xl md:text-3xl text-white">Locate</p>
@@ -34,7 +35,7 @@ const Flame = () => {
                     </div>
                     <div className="flex flex-row gap-4">
                         <div>
-                            <img src={vector2} alt="vector2" className="w-10" />
+                            <img src={vector2} alt="vector2" className="w-10"/>
                         </div>
                         <div>
                             <p className="text-2xl md:text-3xl text-white">Collect</p>
@@ -42,7 +43,7 @@ const Flame = () => {
                     </div>
                     <div className="flex flex-row gap-4">
                         <div>
-                            <img src={vector3} alt="vector3" className="w-10" />
+                            <img src={vector3} alt="vector3" className="w-10"/>
                         </div>
                         <div>
                             <p className="text-2xl md:text-3xl text-white">Pick Up</p>
@@ -50,7 +51,7 @@ const Flame = () => {
                     </div>
                     <div className="flex flex-row gap-4">
                         <div>
-                            <img src={vector4} alt="vector4" className="w-8" />
+                            <img src={vector4} alt="vector4" className="w-8"/>
                         </div>
                         <div>
                             <p className="text-2xl md:text-3xl text-white">Earn</p>
@@ -59,8 +60,8 @@ const Flame = () => {
                 </div>
                 <div className="flex flex-col md:flex-row items-center">
                     <div>
-                        <img src={search} alt="search" className="ml-1 bg-customGreen mr-4"/>
-                        <input placeholder="search" className="bg-customGreen mr-6 p-2 rounded"/>
+                        <img src={search} alt="search" className="ml-1 bg-customGreen translate-y-7"/>
+                        <input placeholder="search" className="bg-customGreen mr-6 p-2 rounded placeholder-white "/>
 
                     </div>
                     <div className="flex flex-row items-center mt-4 md:mt-0">
@@ -79,53 +80,52 @@ const Flame = () => {
                     </div>
 
                     <div>
-                        <p className="text-center text-white">We offer total solution for End to end Recycle of G-cycle with state of art recycling.We also support CSR Services,Epr<br/>implementation and Date Destruction Service </p>
+                        <p className="text-center text-white">We offer total solution for End to end Recycle of G-cycle
+                            with state of art recycling.We also support CSR Services,Epr<br/>implementation and Date
+                            Destruction Service </p>
 
                     </div>
 
                 </div>
 
 
-                <div className="flex flex-row mt-10 p-10 justify-center items-center">
-                    <div>
-                        <div className=" flex justify-center">
+                <div className="flex flex-col md:flex-row mt-10 p-10 justify-center items-center">
+                    <div className="mt-5 md:w-1/3 p-4">
+                        <div className="flex justify-center">
                             <img src={link1} alt="link1" className="justify-items-center"/>
                         </div>
                         <div>
                             <h4 className="text-center text-white mt-5">Recycling of G-Cycle</h4>
                         </div>
                         <div>
-                            <p className="text-center text-white mt-5">Envirocare is engage in Recycling of Electrical and Electronic
+                            <p className="text-center text-white mt-5">Envirocare is engage in Recycling of Electrical
+                                and Electronic
                                 Equipment Waste (WEEE). The aim of the company is to
                                 conserve the environment and natural resources.</p>
                         </div>
-
                     </div>
 
-
-                    <div className="mt-5">
-                        <div className=" flex justify-center">
-                            <img src={link2} alt="link2" />
+                    <div className="mt-5 md:w-1/3 p-4">
+                        <div className="flex justify-center">
+                            <img src={link2} alt="link2" className="justify-items-center"/>
                         </div>
                         <div>
-                            <h4  className="text-center text-white mt-5">Pick up from your home</h4>
+                            <h4 className="text-center text-white mt-5">Pick up from your home</h4>
                         </div>
                         <div>
-                            <p className="text-center text-white mt-5">Envirocare support Manufacturer, Importer of Electronics
+                            <p className="text-center text-white mt-5">Envirocare support Manufacturer, Importer of
+                                Electronics
                                 equipments , for implementing their EPR plan and achieving
                                 their target by recycling of e-waste.</p>
                         </div>
-
                     </div>
 
-
-                    <div className="mb-11">
-
-                        <div className=" flex justify-center">
-                            <img src={link3} alt="link3"/>
+                    <div className="mt-5 md:w-1/3 p-4">
+                        <div className="flex justify-center">
+                            <img src={link3} alt="link3" className="justify-items-center rounded-2xl"/>
                         </div>
                         <div>
-                            <h4  className="text-center text-white mt-5">CSR Services</h4>
+                            <h4 className="text-center text-white mt-5">CSR Services</h4>
                         </div>
                         <div>
                             <h4 className="text-center text-white mt-5">
@@ -134,70 +134,66 @@ const Flame = () => {
                                 e-waste, conducting training and awareness program.
                             </h4>
                         </div>
-
                     </div>
                 </div>
 
-                <div className="flex flex-row justify-center items-center mt-10 ">
-
-                    <div>
-
-                        <div className=" flex justify-center">
+                <div className="flex flex-col md:flex-row justify-center items-center mt-10">
+                    <div className="mb-6 md:w-1/2 p-4">
+                        <div className="flex justify-center">
                             <img src={link4} alt="link4"/>
                         </div>
                         <div>
-                            <h4  className="text-center text-white mt-5">Data Destruction</h4>
+                            <h4 className="text-center text-white mt-5">Data Destruction</h4>
                         </div>
                         <div>
-                            <p className="text-center text-white mt-5">Envirocare offer services of Data Destruction for its customer
+                            <p className="text-center text-white mt-5">Envirocare offer services of Data Destruction for
+                                its customer
                                 by destroying data store on tapes, hard Disk and other forms
                                 of electronic media.</p>
                         </div>
-
-
                     </div>
 
-                    <div>
-
-                        <div className=" flex justify-center">
+                    <div className="mb-6 md:w-1/2 p-4">
+                        <div className="flex justify-center">
                             <img src={link5} alt="link5"/>
                         </div>
                         <div>
-                            <h4  className="text-center text-white mt-5">Recycling and Refining</h4>
+                            <h4 className="text-center text-white mt-5">Recycling and Refining</h4>
                         </div>
                         <div>
                             <p className="text-center text-white mt-5">
                                 E-waste consist more than 35 substance in which some are
-                                recyclable, Precious, Special, & Hazardous metals These
-                                metals require special process for recovery and refining.
+                                recyclable, Precious, Special, & Hazardous metals.
                             </p>
                         </div>
 
+                </div>
 
-                    </div>
-
-                    <div>
-                        <div className=" flex justify-center">
-                            <img src={link6} alt="link6"/>
-                        </div>
-                        <div>
-                            <h4  className="text-center text-white mt-5">Refurbishing</h4>
-                        </div>
-                        <div>
-
-                            <p className="text-center text-white mt-5">Envirocare has its own Repair and Refurbishing centre for E-
-                                waste received from generator. We have a skilled team of
-                                Engineers Technicians.</p>
+                    <div className="flex flex-col md:flex-row justify-center items-center mt-10">
+                        <div className="mb-6 md:w-1/3 p-4">
+                            <div className="flex justify-center">
+                                <img src={link6} alt="link6"/>
+                            </div>
+                            <div>
+                                <h4 className="text-center text-white mt-5">Refurbishing</h4>
+                            </div>
+                            <div>
+                                <p className="text-center text-white mt-5">Envirocare has its own Repair and Refurbishing centre
+                                    for E-waste received from generator. We have a skilled team of
+                                    Engineers Technicians.</p>
+                            </div>
                         </div>
 
                     </div>
                 </div>
             </div>
         </div>
-        </>
 
 
-    )
+</>
+
+
+)
 
 
 };
