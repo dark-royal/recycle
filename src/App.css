@@ -27,6 +27,54 @@
 .App-link {
   color: #61dafb;
 }
+input[type="email"] {
+  text-align: left;
+  padding-left: 12px;
+}
+.input-email::placeholder {
+  color: white; /* Change the placeholder text color to white */
+}
+.animated-text {
+  overflow: hidden; /* Hide overflow to crop text */
+  position: relative; /* Create a positioning context for pseudo-elements */
+}
+
+.animated-text::before,
+.animated-text::after {
+  content: ''; /* Necessary for pseudo-elements */
+  position: absolute; /* Allow positioning of lines */
+  left: 0;
+  right: 0;
+  height: 1px; /* Thickness of the line */
+  background-color: black; /* Color of the line */
+}
+
+.animated-text::before {
+  top: 0; /* Position at the top */
+}
+
+.animated-text::after {
+  bottom: 0; /* Position at the bottom */
+}
+
+.scrolling-container {
+  display: flex;
+  animation: scroll-text 20s linear infinite; /* Adjust animation duration as necessary */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.scrolling-container p {
+  margin-right: 50px; /* Space between paragraphs */
+}
+
+@keyframes scroll-text {
+  0% {
+    transform: translateX(0); /* Start at the initial position */
+  }
+  100% {
+    transform: translateX(-50%); /* Move left by half of the duplicated content */
+  }
+}
 
 @keyframes App-logo-spin {
   from {
