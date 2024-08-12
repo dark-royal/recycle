@@ -1,24 +1,16 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { useTranslation } from 'react-i18next';
 import logo from '../asset/Preview-removebg-preview.png';
+import {useTranslation} from "react-i18next";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { t, i18n } = useTranslation();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
 
-    const changeLanguage = (lng) => {
-        i18n.changeLanguage(lng).then((t) => {
-            console.log(`Language changed to ${lng}`);
-        }).catch((error) => {
-            console.error('Error changing language:', error);
-        });
-    };
-
+    const {t} = useTranslation()
 
     return (
         <>
@@ -29,17 +21,17 @@ const Navbar = () => {
                 </div>
 
                 <div className={`flex flex-col md:flex-row items-center gap-4 mb-4 md:mb-0 ${isOpen ? 'block' : 'hidden'} md:flex`}>
-                    <p className="text-green-500">{t('home')}</p>
-                    <p className="text-green-500">{t('about_us')}</p>
-                    <p className="text-green-500">{t('locate')}</p>
-                    <p className="text-green-500">{t('blog')}</p>
-                    <button className="text-green-600 border-green-500 border p-2 rounded-full">{t('sign_in')}</button>
-                    <button className="bg-green-500 text-amber-50 rounded-full p-2">{t('register')}</button>
-                    <select className="bg-white border rounded-md p-1" onChange={(e) => changeLanguage(e.target.value)}>
-                        <option value="en">English</option>
-                        <option value="ar">Arabic</option>
-                        <option value="es">Spanish</option>
-                        <option value="hi">Hindi</option>
+                    <p className="text-green-500"><a href="/home">{t("Home")}</a></p>
+                    <p className="text-green-500"><a href="/about">{t("About us")}</a></p>
+                    <p className="text-green-500"><a href="/locate">{t("Locate")}</a></p>
+                    <p className="text-green-500"><a href="/blog">{t("Blog")}</a></p>
+                    <button className="text-green-600 border-green-500 border p-2 rounded-full">Sign in</button>
+                    <button className="bg-green-500 text-amber-50 rounded-full p-2">Register</button>
+                    <select className="bg-white border rounded-md p-1">
+                        <option>English</option>
+                        <option>Arabic</option>
+                        <option>Spanish</option>
+                        <option>Indian</option>
                     </select>
                 </div>
 
