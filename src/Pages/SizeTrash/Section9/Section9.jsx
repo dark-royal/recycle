@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Section9.css";
-import uploadIcon from "../../../asset/Upload icon.png";
+import uploadIcon from "../../../Components/asset/Upload icon.png";
 
 const Section9 = () => {
     const [fileName, setFileName] = useState('');
