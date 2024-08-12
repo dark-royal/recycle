@@ -1,7 +1,7 @@
 import Layout from "../Components/Layout";
 import Home from "../Pages/Home";
-import DashBar from "../Components/dashboard/DashBar";
-import About from "../Components/about/About";
+import SignUp from "../Pages/SignUp/index.jsx";
+import LogIn from "../Pages/LogIn/index.jsx";
 
 export const ROUTES = [
     {
@@ -12,16 +12,19 @@ export const ROUTES = [
                 path: '/',
                 element: <Home/>
             },
+            {
+                path: 'home',
+                element: <Home/>
+            },
+            {
+                path: 'signup',
+                element: <SignUp/>
+            },
+            {
+                path: 'login',
+                element: <LogIn/>
+            }
+
 
         ]
-    },
-    {
-        path: 'dashboard',
-        element: <DashBar />
-    },
-    {
-        path: 'about',
-        element: <About />
-    }
-
-]
+    }]
