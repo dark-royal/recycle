@@ -10,8 +10,10 @@ module.exports = {
             customBlue: '#5D5FEF',
             ash: '#DAF0Df',
             customWhite: '#E3F2E1',
+            customG: 'rgb(154,205,76)',
+            customOrange: 'rgb(227, 111, 52)',
 
-        },
+    },
         fontSize: {
             'custom-32': '32px',
         },
