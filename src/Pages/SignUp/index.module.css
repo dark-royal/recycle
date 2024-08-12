@@ -17,6 +17,9 @@
     height: auto;
     z-index: -21;
 }
+.inputSection{
+    width: 100%;
+}
 
 .shape1 {
     position: fixed;
@@ -81,7 +84,9 @@ body {
         height: 400px;
         margin: 20px auto;
         display: block;
-
+}
+.error{
+    color: red;
 }
 
 h2 {

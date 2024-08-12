@@ -10,7 +10,7 @@ const HeroHeadingRight = () => {
                     <h2 className="font-semibold text-2xl md:text-3xl">
                         What will <br /> you get by <br /> giving away <br /> your waste
                     </h2>
-                    <button className="text-green-500 bg-white p-2 rounded-2xl mt-5 md:mt-10">
+                    <button className="text-green-500 bg-white p-4 rounded-2xl mt-5 md:mt-10">
                         Learn More
                     </button>
                 </div>
