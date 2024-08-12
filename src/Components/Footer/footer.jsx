@@ -1,5 +1,5 @@
 
-import styles from './index.module.css'
+import styles from './Footer.css'
 import Facebook from './../../asset/Facebook.png'
 import instagram from './../../asset/Instagram.png'
 import Twitter from'./../../asset/Twitter.png'

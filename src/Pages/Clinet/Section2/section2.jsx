@@ -1,4 +1,4 @@
-import styles from './index.module.css'
+import styles from './Section2.css'
 import { keys } from './data'
 
 const Section2 = () => {

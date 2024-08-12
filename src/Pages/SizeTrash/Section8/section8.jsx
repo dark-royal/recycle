@@ -1,4 +1,4 @@
-import styles from './index.module.css';
+import styles from './Section8.css';
 import React from "react";
 import wat from './../../../asset/Frame 29.png';
 import map from './../../../asset/image 13.png';

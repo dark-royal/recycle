@@ -103,7 +103,7 @@ body {
     }
 
     .UploadIcon {
-        width: 80px; /* Adjust size for mobile */
+        width: 80px;
         height: auto; /* Maintain aspect ratio */
     }
 

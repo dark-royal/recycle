@@ -1,5 +1,5 @@
 import {useState} from "react";
-import styles from './index.module.css'
+import styles from './Section11.css'
 
 const Forms = () => {
     const [formData, setFormData] = useState({
