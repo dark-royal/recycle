@@ -20,8 +20,8 @@
 
 .quizOption {
     margin: 5px;
-    width: 40px; /* Adjust size to make the button circular */
-    height: 40px; /* Adjust size to make the button circular */
+    width: 40px;
+    height: 40px;
     font-size: 18px;
     color: #007932;
     background-color: white;
