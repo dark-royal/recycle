@@ -1,8 +1,5 @@
 import Hero from "./Hero";
-import HeroHeading from "./HeroHeading";
-import HeroHeadingRight from "./HeroHeadingRight";
-import Flame from "./Flame";
-import Footer from "./Footer";
+import Footer from "../../Components/Footer/footer.jsx";
 
 
 
