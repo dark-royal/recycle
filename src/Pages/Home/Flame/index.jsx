@@ -69,6 +69,15 @@ const Flame = () => {
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
             <div className="bg-customGreen rounded-2xl p-14">
 
 
@@ -89,7 +98,7 @@ const Flame = () => {
                 <div className="flex flex-row mt-10 p-10 justify-center items-center">
                     <div>
                         <div className=" flex justify-center">
-                            <img src={link1} alt="link1" className="justify-items-center"/>
+                            <img src={link1} alt="link1" />
                         </div>
                         <div>
                             <h4 className="text-center text-white mt-5">Recycling of G-Cycle</h4>
@@ -137,6 +146,13 @@ const Flame = () => {
 
                     </div>
                 </div>
+
+
+
+
+
+
+                
 
                 <div className="flex flex-row justify-center items-center mt-10 ">
 
@@ -193,6 +209,19 @@ const Flame = () => {
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
         </>
 

@@ -6,3 +6,9 @@ body{
 
     @apply bg-customGreen
 }
+
+@layer components {
+    .placeholder-white::placeholder {
+        @apply text-white;
+    }
+}
