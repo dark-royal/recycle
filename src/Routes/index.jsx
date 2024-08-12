@@ -21,7 +21,6 @@ export const ROUTES = [
                 path: 'login',
                 element: <LogIn/>
             },
-
         ]
     },
     {

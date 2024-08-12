@@ -1,0 +1,30 @@
+@keyframes slideLeft {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.content {
+    margin-left: 123px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 600px;
+    background-color: #e0f7e0;
+    margin-top: 28px;
+    animation: slideLeft 1.9s ease-out;
+}
+
+.pickupTitle {
+    font-size: 60px;
+    color: green;
+}
+
+.boldText {
+    font-weight: bold;
+}

@@ -1,4 +1,4 @@
-import logo from '../Footer/asset/Preview-removebg-preview.png';
+import logo from '/home/michael/recycle/src/Components/asset/Preview-removebg-preview.png';
 
 const Footer = () => {
     return (
