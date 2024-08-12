@@ -3,7 +3,6 @@ import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 import { useEffect, useState } from 'react';
 
-// Register necessary components
 Chart.register(...registerables);
 
 const Graph = () => {

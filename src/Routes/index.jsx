@@ -12,7 +12,6 @@ export const ROUTES = [
                 path: '/',
                 element: <Home/>
             },
-
         ]
     },
     {
