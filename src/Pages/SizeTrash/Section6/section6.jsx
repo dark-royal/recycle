@@ -1,4 +1,4 @@
-import styles from './Section6.css'
+import styles from './index.module.css'
 import money from './../../../Components/asset/Money.png'
 import bike from './../../../Components/asset/bike.png'
 import truck from './../../../Components/asset/Truck.png'

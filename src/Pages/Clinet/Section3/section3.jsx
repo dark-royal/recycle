@@ -1,6 +1,6 @@
 import React from "react";
 import logo10 from './../../../Components/asset/Frame 21.png'
-import styles from './Section3.css'
+import styles from './index.module.css'
 
 const Section3 = () => {
     return (

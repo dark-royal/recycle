@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './Section4.css'
+import styles from './index.module.css'
 import Item1 from '../../../Components/asset/Item.png'
 import Item2 from '../../../Components/asset/Item (1).png'
 import Item3 from '../../../Components/asset/Item (2).png'

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './Section5.css';
+import styles from './index.module.css';
 import uploadIcon from '../../../Components/asset/Upload icon.png';
 
 
