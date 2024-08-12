@@ -20,7 +20,7 @@ const Navbar = () => {
                     <h4 className="text-green-500 font-bold text-2xl ml-2">g-cycle</h4>
                 </div>
 
-                <div className={`flex flex-col md:flex-row items-center gap-4 mb-4 md:mb-0 ${isOpen ? 'block' : 'hidden'} md:flex`}>
+                <div className="flex flex-col md:flex-row items-center gap-4 mb-4 md:mb-0 ${isOpen ? 'block' : 'hidden'} md:flex">
                     <p className="text-green-500"><a href="/home">{t("Home")}</a></p>
                     <p className="text-green-500"><a href="/about">{t("About us")}</a></p>
                     <p className="text-green-500"><a href="/locate">{t("Locate")}</a></p>

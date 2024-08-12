@@ -9,6 +9,7 @@ import { Icon } from '@iconify/react';
 import loadingLoop from '@iconify/icons-line-md/loading-loop';
 import shape from './assert/Rectangle 5 (1).png';
 import shape1 from './assert/Rectangle 6.png';
+import Navbar from "../../Components/Navbar";
 
 const SignUp = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -80,6 +81,9 @@ const SignUp = () => {
     };
 
     return (
+        <div>
+            <Navbar/>
+
         <div className={style.mainContainer}>
             <img src={shape} alt="shape" className={style.shape}/>
             <img src={shape1} alt="shape1" className={style.shape1}/>
@@ -168,6 +172,7 @@ const SignUp = () => {
                 )}
             </Formik>
             <ToastContainer/>
+        </div>
         </div>
     );
 };
