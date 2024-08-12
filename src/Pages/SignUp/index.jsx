@@ -7,7 +7,6 @@ import axios from 'axios';
 import { Icon } from '@iconify/react';
 import loadingLoop from '@iconify/icons-line-md/loading-loop';
 import Navbar from "../../Components/Navbar";
-import image1 from "../../Components/asset/Rectangle 5.png"
 
 const SignUp = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -82,14 +81,9 @@ const SignUp = () => {
 
     return (
         <div className="min-h-screen flex flex-col">
-            {/*<img*/}
-            {/*    src={image1}*/}
-            {/*     alt=""*/}
-            {/*    className="w-[50%] translate-y-2/3"*/}
-            {/*/>*/}
             <Navbar/>
-            <div className="flex items-center  flex-grow">
-                <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+            <div className="flex items-center ml-48 flex-grow">
+                <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md">
                     <h2 className="text-2xl font-bold mb-6 text-center">Create an Account</h2>
                     <Formik
                         initialValues={{username: '', email: '', password: '', phoneNumber: ''}}
