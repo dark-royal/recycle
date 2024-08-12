@@ -1,6 +1,6 @@
-import logo from '../Footer/asset/Preview-removebg-preview.png';
+import logo from "../../../asset/Preview-removebg-preview.png";
 
-const Footer = () => {
+const Foot = () => {
     return (
         <>
             <div className="flex flex-col md:flex-row text-white gap-8 mt-10 justify-center items-center">
@@ -44,4 +44,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default Foot;
