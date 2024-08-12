@@ -1,7 +1,7 @@
 import Layout1 from "../Components/Layout/layouts";
-import Client from "../Pages/Clinet/client";
-import TrashSize from "../Pages/SizeTrash/trash";
-import Pickup from "../Pages/PickupRequest/pickup";
+import Client from "../Components/AllPages/client";
+import TrashSize from "../Components/AllPages/trash";
+import Pickup from "../Components/AllPages/pickup";
 
 
 export const ROUTES = [
