@@ -1,0 +1,42 @@
+.select {
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    margin-left: 271px;
+    transition: transform 0.3s ease;
+}
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.type {
+    margin-left: 295px;
+}
+
+.images, .images1, .images2 {
+
+    gap: 20px;
+    margin-top: 10px;
+    animation: slideIn 2s ease-in-out;
+}
+
+img {
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+.scan{
+    font-size: 40px;
+    color: White;
+    font-weight: bold;
+    margin-left: 185px;
+}

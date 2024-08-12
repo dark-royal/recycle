@@ -1,7 +1,7 @@
 
 import './App.css';
 import {useRoutes} from "react-router-dom";
-import {ROUTES} from "./Routes/index";
+import {ROUTES} from "./routes/routes.index";
 
 function App() {
   return (
