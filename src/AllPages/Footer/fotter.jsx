@@ -35,7 +35,7 @@ const Footer = () => {
                 <div className="flex items-center ml-[25%] mb-48">
                     <input type="email" placeholder="Enter your email"
                            className="ml-auto text-left w-80 h-10 rounded-xl border-none bg-customGreen input-email"/>
-                    <button className="p-4 bg-ash rounded-full ml-2">FEEDBACK</button>
+                    <button className="p-4 bg-ash text-black rounded-full ml-2">FEEDBACK</button>
                 </div>
             </div>
             <hr className="border-t-2 border-white my-20"/>

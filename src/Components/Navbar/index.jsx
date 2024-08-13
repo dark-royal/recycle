@@ -27,10 +27,10 @@ const Navbar = () => {
                 <div className={`flex flex-col md:flex-row items-center gap-4 mb-4 md:mb-0 ${isOpen ? 'block' : 'hidden'} md:flex`}>
                     <p className="text-green-500"><Link to="/home" className="text-green-500">{t("Home")}</Link></p>
                     <p className="text-black"><Link to="/about" className="text-green-500">{t("About us")}</Link></p>
-                    <p className="text-black"><Link to="/locate" className="text-green-500">{t("Locate")}</Link></p>
+                    <p className="text-black"><Link to="/size" className="text-green-500">{t("Locate")}</Link></p>
                     <p className="text-black"><Link to="/blog" className="text-green-500">{t("Blog")}</Link></p>
                     <Link to="/login">
-                        <button className="text-green-600 border-2 p-4 rounded-full bg-white shadow-md">
+                        <button className="text-green-600 border-2 p-4 rounded-full bg-white shadow-md hover:bg-white">
                             SIGN IN
                         </button>
                     </Link>

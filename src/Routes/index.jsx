@@ -19,11 +19,11 @@ export const ROUTES = [
                 element: <Home/>
             },
             {
-                path: 'signup',
+                path: '/signup',
                 element: <SignUp/>
             },
             {
-                path: 'login',
+                path: '/login',
                 element: <LogIn/>
             },
 

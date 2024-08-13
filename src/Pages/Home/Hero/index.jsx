@@ -21,7 +21,7 @@ const Hero = () => {
                     </div>
                     <div className="md:ml-[90px] mt-5">
                         <Link to="/signup">
-                        <button className="bg-white text-green-600 rounded-2xl p-4">
+                        <button className="bg-white text-green-600 hover:bg-white rounded-2xl w-[50%] p-4">
                             Earn from G-cycle
                         </button>
                         </Link>

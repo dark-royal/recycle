@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './index.module.css';
 import logo1 from '../../Components/asset/Preview-removebg-preview.png';
+import {Link} from "react-router-dom";
 
 const Navb = () => {
     const [menuActive, setMenuActive] = useState(false);
@@ -20,13 +21,23 @@ const Navb = () => {
                     <div></div>
                 </div>
                 <div className={styles.section}>
-                    <p>Home</p>
-                    <p>Dashboard</p>
-                    <p>About Us</p>
+                    <Link to="/home">
+                        <p>Home</p>
+                    </Link>
+                    <Link to="/dashboard">
+                        <p>Dashboard</p>
+                    </Link>
+                    <Link to="/about">
+                        <p>About Us</p>
+                    </Link>
                 </div>
                 <div className={styles.section1}>
-                    <p>LOCATE</p>
-                    <p>PICKUP REQUEST</p>
+                    <Link to="/size">
+                        <p>LOCATE</p>
+                    </Link>
+                    <Link to="/pickup">
+                        <p>PICKUP REQUEST</p>
+                    </Link>
                 </div>
             </div>
         </div>
