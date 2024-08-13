@@ -1,0 +1,84 @@
+.text {
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    margin-left: -600px;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.mainContainer {
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 120px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.money,
+.bike,
+.truck {
+    max-width: 100px;
+}
+
+.pics {
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 120px;
+    max-width: 400px;
+    margin-left: -100px;
+    animation: slideIn 2s ease-in-out;
+}
+
+.map {
+    margin-left: -200px;
+    animation: slideIn 2s ease-in-out;
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+    .mainContainer {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        max-width: 100%;
+    }
+
+    .pics {
+        flex-direction: column;
+        gap: 20px;
+        margin-left: 0;
+    }
+
+    .money,
+    .bike,
+    .truck {
+        max-width: 80px;
+    }
+
+    .text {
+        font-size: 24px;
+        margin-left: 0;
+    }
+
+    .map {
+        margin-left: 0;
+        width:100%;
+    }
+}
