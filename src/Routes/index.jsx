@@ -4,6 +4,10 @@ import DashBar from "../Components/dashboard/DashBar";
 import About from "../Components/about/About";
 import SignUp from "../Pages/SignUp";
 import LogIn from "../Pages/LogIn";
+import Layouts from "../AllPages/Layouts";
+import Client from "../AllPages/Client";
+import TrashSize from "../AllPages/Trash";
+import Pickup from "../AllPages/PickUp";
 
 export const ROUTES = [
     {
@@ -32,6 +36,35 @@ export const ROUTES = [
     {
         path: 'about',
         element: <About />
+    },
+    {
+        path: '/information',
+        element: <Layouts />,
+        children: [
+            {
+                path: '',
+                element: <Client />
+            },
+        ]
+    },
+    {
+        element: <Layouts />,
+        children: [
+            {
+                path: '/size',
+                element: <TrashSize />
+            },
+        ]
+    },
+
+    {
+        element: <Layouts/>,
+        children: [
+            {
+                path: '/pickup',
+                element: <Pickup />
+            },
+        ]
     }
 
 ]
