@@ -29,8 +29,9 @@ const Section4 = () => {
                 <img src={Item7} alt="Item7" className="Item7"/>
                 <img src={Item8} alt="Item8" className="Item8"/>
                 <img src={Item9} alt="Item9" className="Item9"/>
-                <p className={styles.scan}>SCAN OR UPLOAD YOUR E-WASTE</p>
             </div>
+
+            <p className={styles.scan}>SCAN OR UPLOAD YOUR E-WASTE</p>
         </div>
     );
 };

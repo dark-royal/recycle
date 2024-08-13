@@ -1,14 +1,14 @@
 .quiz {
     margin-top: 22px;
-    width: fit-content;
+    width: 1552px;
     border-radius: 10px;
-    margin-left: 56px;
-    border: 2px solid #E5E5E5;
+    margin-left: 111px;
+    border: 2px solid #007932; /* Changed to a darker color for better visibility */
     background-color: #E5E5E5;
+    padding: 10px; /* Added padding to space out the content from the border */
     animation: fadeIn 3s ease-in-out;
-
-
 }
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -17,17 +17,15 @@
 .quiz p {
     font-size: 30px;
     margin-bottom: 10px;
-
 }
 
 .quizOption {
-
     margin: 5px;
-    width: 40px; /* Adjust size to make the button circular */
-    height: 40px; /* Adjust size to make the button circular */
+    width: 40px;
+    height: 40px;
     font-size: 18px;
     color: #007932;
-    background-color: white;
+    background-color: honeydew;
     border: 2px solid #007932;
     border-radius: 50%;
     cursor: pointer;
@@ -46,11 +44,15 @@
     font-size: 18px;
     color: #007932;
 }
-.logo10{
-    margin-left: 1269px;
-    margin-top: -24900px;
 
+.logo10 {
+    margin-left: 1105px;
+    margin-right: -401px;
+    margin-top: 20px; /* Adjust margin to position the image properly */
+    display: block; /* Ensure image is a block element for centering */
+    max-width: 100%; /* Ensure image doesn't exceed its container */
 }
+
 .key,
 .select,
 .logo10,
@@ -70,6 +72,34 @@
 .quizOption:hover {
     transform: scale(1.05);
 }
-body{
-    background-color:#71BC68;
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .quiz {
+        width: 90%;
+        margin-left: 0;
+        padding: 20px;
+        border: 1px solid #007932; /* Consistent border color */
+        background-color: #E5E5E5;
+    }
+
+    .quiz p {
+        font-size: 24px;
+    }
+
+    .quizOption {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    .quizText {
+        font-size: 16px;
+    }
+
+    .logo10 {
+        margin-top: 20px; /* Adjust margin to position the image properly */
+        display: block; /* Ensure image is a block element for centering */
+    }
 }

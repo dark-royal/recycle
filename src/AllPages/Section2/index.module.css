@@ -1,14 +1,14 @@
 .keysContainer {
     display: flex;
     align-items: flex-start;
-    margin-left: 380px;
+    margin-left: 220px;
     width: 120%;
     background-color: #71BC68;
 }
 
 
 .key, .key1, .key2 {
-    padding: 20px;
+    padding: 30px;
     font-size: 19px;
     width: 20%;
     animation: slideIn 2s ease-in-out;
@@ -19,7 +19,7 @@
     color: white;
     border: 12px solid #007932;
     background-color: #007932;
-    height: 200px;
+    height: 220px;
 
 }
 
@@ -37,7 +37,7 @@
 .key2 {
     border: 12px solid #FFFFFF;
     background-color: #FFFFFF;
-    height: 200px;
+    height: 220px;
 }
 
 .highlight {

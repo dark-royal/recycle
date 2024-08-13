@@ -3,7 +3,7 @@
     font-size: 30px;
     color: white;
     text-align: center;
-    margin-left: -600px;
+    margin-left: -90px;
 }
 
 @keyframes slideIn {
@@ -44,11 +44,15 @@
     max-width: 400px;
     margin-left: -100px;
     animation: slideIn 2s ease-in-out;
+    margin-top: 50px;
 }
 
 .map {
     margin-left: -200px;
     animation: slideIn 2s ease-in-out;
+    height: 600px; /* Increased height */
+    width: 300%;   /* Set to 100% of the container width */
+    object-fit: cover
 }
 
 /* Media query for mobile responsiveness */
