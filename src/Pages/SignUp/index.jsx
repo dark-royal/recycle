@@ -147,7 +147,7 @@ const SignUp = () => {
 
                                     <div>
                                         <button type="submit"
-                                                className="w-full py-2 bg-blue-500 text-white rounded-lg focus:outline-none hover:bg-blue-600"
+                                                className="w-full py-2 bg-ash text-black rounded-lg focus:outline-none hover:bg-customGreen"
                                                 disabled={isLoading}>
                                             {isLoading ? (
                                                 <div className="flex items-center justify-center">

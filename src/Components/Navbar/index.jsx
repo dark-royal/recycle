@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import logo from '../asset/Preview-removebg-preview.png';
 import {useTranslation} from "react-i18next";
+import {Link} from "react-router-dom";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -26,10 +27,14 @@ const Navbar = () => {
                 <p className="text-black"><a href="/about" className="text-green-500">{t("About us")}</a></p>
                 <p className="text-black"><a href="/locate" className="text-green-500">{t("Locate")}</a></p>
                 <p className="text-black"><a href="/blog" className="text-green-500">{t("Blog")}</a></p>
-                <button className="text-green-600 border-2  p-4 rounded-full bg-white shadow-md">
-                    SIGN IN
-                </button>
+                <Link to="/login">
+                    <button className="text-green-600 border-2 p-4 rounded-full bg-white shadow-md">
+                        SIGN IN
+                    </button>
+                </Link>
+                <Link to="/signup">
                 <button className="bg-green-500 text-amber-50 rounded-full p-4">REGISTER</button>
+                </Link>
                 <select className="bg-white border rounded-md p-1">
                     <option>English</option>
                     <option>Arabic</option>

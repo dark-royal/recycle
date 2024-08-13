@@ -1,4 +1,5 @@
 import myImage from './asset/Column.png';
+import {Link} from "react-router-dom";
 
 const Hero = () => {
     return (
@@ -19,9 +20,11 @@ const Hero = () => {
                         </p>
                     </div>
                     <div className="md:ml-[90px] mt-5">
+                        <Link to="/signup">
                         <button className="bg-white text-green-600 rounded-2xl p-4">
                             Earn from G-cycle
                         </button>
+                        </Link>
                     </div>
                 </div>
                 <div className="mt-5 md:mt-0">
