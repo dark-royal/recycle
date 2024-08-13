@@ -1,142 +1,78 @@
 import React, { useState } from 'react';
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
-import { Icon } from '@iconify/react';
-import loadingLoop from '@iconify/icons-line-md/loading-loop';
 import Navbar from "../../Components/Navbar";
 
-const LogIn = () => {
-    const [isLoading, setIsLoading] = useState(false);
-
-    const validationSchema = Yup.object().shape({
-        email: Yup.string()
-            .email('Invalid email address')
-            .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Must be a valid email address')
-            .required('Email Address is required'),
-        password: Yup.string()
-            .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, 'Password must be at least 8 characters long.')
-            .required('Password is required'),
+const SignIn = () => {
+    const [formData, setFormData] = useState({
+        email: '',
+        password: '',
     });
 
-    const handleSubscribe = async (values, { resetForm }) => {
-        setIsLoading(true);
-        try {
-            const payload = {
-                email_address: values.email,
-                status: 'LogIn',
-                merge_fields: {
-                    PASSWORD: values.password,
-                },
-            };
-            const response = await axios.post("", payload);
+    const [showPassword, setShowPassword] = useState(false);
 
-            if (response.data.success) {
-                toast.success(`Hi ${values.username}, You are now a citizen`, {
-                    position: 'top-right',
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-                resetForm();
-            } else {
-                toast.error('Subscription failed. Please try again', {
-                    position: 'top-right',
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-            }
-        } catch (error) {
-            console.error('Error during subscription:', error);
-            toast.error('Subscription failed. Please try again', {
-                position: 'top-right',
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-        } finally {
-            setIsLoading(false);
-        }
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle sign-in logic here
     };
 
     return (
         <div>
-            <Navbar />
-            <div className="flex items-center ml-52 mt-32 bg-customGreen">
-                <div className="bg-white shadow-md rounded-3xl p-8 w-96  h-[70%]">
-                    <Formik
-                        initialValues={{ email: '', password: '' }}
-                        validationSchema={validationSchema}
-                        onSubmit={handleSubscribe}
+            <Navbar/>
+        <div className="flex items-center justify-center min-h-screen bg-customGreen">
+            <div className="bg-white rounded-lg shadow-lg p-8 w-96">
+                <h2 className="text-center text-2xl font-bold mb-6">Glad to see you again!</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium mb-1" htmlFor="email">Email Address</label>
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="w-full border border-gray-300 rounded-md p-2"
+                            required
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium mb-1" htmlFor="password">Password</label>
+                        <div className="relative">
+                            <input
+                                type={showPassword ? 'text' : 'password'}
+                                name="password"
+                                id="password"
+                                value={formData.password}
+                                onChange={handleChange}
+                                className="w-full border border-gray-300 rounded-md p-2"
+                                required
+                            />
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                className="absolute right-2 top-2 text-gray-500"
+                            >
+                                {showPassword ? 'Hide' : 'Show'}
+                            </button>
+                        </div>
+                    </div>
+                    <button
+                        type="submit"
+                        className="w-full bg-green-500 text-white font-bold py-2 rounded-md hover:bg-green-600"
                     >
-                        {({ values, errors, touched, handleChange, handleBlur }) => (
-                            <Form className="space-y-4">
-                                <div className="text-center">
-                                    <p className="text-xl font-semibold">Glad to see you again!</p>
-                                </div>
-                                <div>
-                                    <Field
-                                        type="email"
-                                        name="email"
-                                        placeholder="Enter Email Address"
-                                        className={`block w-full p-2 border rounded ${errors.email && touched.email ? 'border-red-500' : 'border-gray-300'}`}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                        value={values.email}
-                                    />
-                                    {errors.email && touched.email && (
-                                        <div className="text-red-500 text-sm">{errors.email}</div>
-                                    )}
-                                </div>
-                                <div>
-                                    <Field
-                                        type="password"
-                                        name="password"
-                                        placeholder="Enter Password"
-                                        className={`block w-full p-2 border rounded ${errors.password && touched.password ? 'border-red-500' : 'border-gray-300'}`}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                        value={values.password}
-                                    />
-                                    {errors.password && touched.password && (
-                                        <div className="text-red-500 text-sm">{errors.password}</div>
-                                    )}
-                                </div>
-                                <div>
-                                    <button
-                                        type="submit"
-                                        className={`w-full bg-ash text-black font-semibold py-2 rounded ${isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-customGreen'}`}
-                                        disabled={isLoading}
-                                    >
-                                        {isLoading ? (
-                                            <div className="flex items-center justify-center">
-                                                <Icon width={24} height={24} icon={loadingLoop} />
-                                            </div>
-                                        ) : (
-                                            'Sign In'
-                                        )}
-                                    </button>
-                                </div>
-                            </Form>
-                        )}
-                    </Formik>
-                    <ToastContainer />
-                </div>
+                        Sign In
+                    </button>
+                </form>
+                <p className="text-center mt-4">
+                    Don't Have An Account? <a href="/signup" className="text-green-500">Sign Up</a>
+                </p>
             </div>
+        </div>
         </div>
     );
 };
 
-export default LogIn;
+export default SignIn;
