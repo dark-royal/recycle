@@ -23,8 +23,8 @@ const Flame = () => {
                 </h2>
             </div>
             <div
-                className="bg-customGreen box-border flex flex-col md:flex-row mt-10 rounded-[30px] mb-3 p-2 justify-center items-center">
-                <div className="ml-4 md:ml-[-150px] space-y-4 mt-12">
+                className="bg-customGreen box-border flex h-[80%] flex-col md:flex-row mt-10 rounded-[30px] mb-5 p-10 justify-center items-center">
+                <div className="ml-4 md:ml-[-150px] space-y-4 mt-5">
                     <div className="flex flex-row gap-4">
                         <div>
                             <img src={vector1} alt="vector1" className="w-10"/>
@@ -65,7 +65,7 @@ const Flame = () => {
 
                     </div>
                     <div className="flex flex-row items-center mt-4 md:mt-0">
-                        <img src={maps} alt="maps" className="w-[250px] md:w-[350px] mt-10"/>
+                        <img src={maps} alt="maps" className="w-[250px] md:w-[350px] mt-7"/>
 
                     </div>
                 </div>
