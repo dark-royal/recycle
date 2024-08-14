@@ -15,7 +15,7 @@ export const ROUTES = [
         element: <Layout/>,
         children : [
             {
-                path: '/',
+                path: '/home',
                 element: <Home/>
             },
         ]
