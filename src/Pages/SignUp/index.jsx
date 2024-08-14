@@ -25,12 +25,13 @@ const SignUp = () => {
     const validationSchema = Yup.object({
         username: Yup.string()
             .required('Required'),
-        phoneNumber: Yup.string().matches()
+        phoneNumber: Yup.string()
+            .matches(/^(\+234|0)?[789]\d{9}$/)
             .required('Required'),
         email: Yup.string().email('Invalid email format')
             .required('Required'),
         password: Yup.string().min(8, 'Password must be at least 8 characters long')
-            .matches()
+            .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
             .required('Required'),
     });
 
