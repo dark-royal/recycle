@@ -16,7 +16,6 @@ const SignIn = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle sign-in logic here
     };
 
     return (

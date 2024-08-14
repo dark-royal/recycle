@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { EyeIcon, EyeOffIcon } from '@heroicons/react/solid';
-import Navbar from "../../Components/Navbar";
-import {signupApi} from "../../api";
+import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline';
+import Navbar from "../../Components/Navbar"; // Adjust import as needed
 
 const SignUp = () => {
-    const [loading, setLoading] = useState(false);
-    const [successMessage, setSuccessMessage] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(prevState => !prevState);
+    };
+
     const initialValues = {
         username: '',
         phoneNumber: '',
@@ -20,62 +23,30 @@ const SignUp = () => {
     };
 
     const validationSchema = Yup.object({
-        username: Yup.string().required('Username is required'),
-        phoneNumber: Yup.string().required('Phone number is required'),
-        email: Yup.string().email('Invalid email address').required('Email is required'),
-        password: Yup.string().required('Password is required'),
+        username: Yup.string().required('Required'),
+        phoneNumber: Yup.string().required('Required'),
+        email: Yup.string().email('Invalid email format').required('Required'),
+        password: Yup.string().min(8, 'Password must be at least 8 characters long').required('Required'),
     });
 
     const handleSubmit = async (values) => {
         setLoading(true);
-        setSuccessMessage('');
-        setErrorMessage('');
-
         try {
-            const response = await signupApi(values); // Call the signup API with form values
-
-            const successMessage = response.data?.message || 'Registration successful!';
-            setSuccessMessage(successMessage);
-
-            console.log('Response data:', response.data); // Debugging to check the response data
-
-            setTimeout(() => {
-                navigate('/login');
-            }, 2000);
-        } catch (error) {
-            if (error.response && error.response.data) {
-                const backendMessage = error.response.data.message;
-                setErrorMessage(backendMessage);
-            } else {
-                setErrorMessage('An unexpected error occurred. Please try again.');
+            const response = await axios.post('http://localhost:8080/api/v1/auth/register', values);
+            console.log(response.data);
+            if (response.status === 200) {
+                navigate('/dashboard');
             }
+        } catch (error) {
+            console.error(error.response.data);
         } finally {
             setLoading(false);
         }
     };
 
-
-
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
-
     return (
         <div>
-            <Navbar />
-            {/* Container for messages */}
-            <div className="fixed top-14 right-5 m-10 p-5 h-[100%] z-50">
-                {successMessage && (
-                    <div className="bg-customWhite text-3xl text-green-500  p-5 h-20 rounded-xl shadow-md">
-                        {successMessage}
-                    </div>
-                )}
-                {errorMessage && (
-                    <div className="bg-red-600 text-3xl text-white p-5 h-20 rounded-xl shadow-md">
-                        {errorMessage}
-                    </div>
-                )}
-            </div>
+            <Navbar/>
             <div className="flex items-center justify-center min-h-screen bg-customGreen">
                 <div className="bg-white rounded-lg shadow-lg p-8 w-[30%]">
                     <h2 className="text-2xl font-bold text-center mb-6">Create an account</h2>
@@ -87,7 +58,7 @@ const SignUp = () => {
                         {() => (
                             <Form>
                                 <div className="mb-4">
-                                    <label className="block text-sm font-medium text-gray-700">Username</label>
+                                    <label className="block text-sm font-medium text-gray-700">Name</label>
                                     <Field
                                         name="username"
                                         type="text"
@@ -98,11 +69,11 @@ const SignUp = () => {
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium text-gray-700">Phone Number</label>
                                     <Field
-                                        name="phoneNumber"
+                                        name="phone"
                                         type="tel"
                                         className="mt-1 block w-full border border-gray-300 rounded-md p-2"
                                     />
-                                    <ErrorMessage name="phoneNumber" component="div" className="text-red-500 text-sm" />
+                                    <ErrorMessage name="phone" component="div" className="text-red-500 text-sm" />
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium text-gray-700">Email</label>
@@ -140,7 +111,7 @@ const SignUp = () => {
                                     className={`w-full bg-green-500 text-white font-bold py-2 rounded-md ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-green-600'}`}
                                     disabled={loading}
                                 >
-                                    {loading ? 'Loading...' : 'Sign Up'}
+                                    {loading ? 'Loading...' : 'Sign Up'} {}
                                 </button>
                             </Form>
                         )}

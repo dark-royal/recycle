@@ -12,14 +12,14 @@ const NavBar = () => {
                 className="absolute top-96 left-3/4 mt-10 ml-10 p-5 bg-customG w-[30%] rounded-3xl transform -translate-x-1/2 -translate-y-1/2">
                 <p>
                     Who We Are <br/><br/>
-                    E-TREASURE TROVE e-Waste is a sustainable and cost-effective <br/>
-                    company for disposing electronic waste across the country. We provide <br/>
+                    g-cycle is a sustainable and environmentally friendly  <br/>
+                    company for disposing waste across Lagos. We provide <br/>
                     comprehensive recycling services for getting rid of waste <br/>
-                    efficiently and in an environmentally friendly way, making our <br/>
+                    efficiently and in an  way, making our <br/>
                     facility one of the most sustainable in the country with zero <br/>
                     waste discharge technology. Our team is committed to <br/>
                     providing you with reliable, affordable, and sustainable <br/>
-                    solutions for managing your waste.
+                    solutions for managing your waste and making money.
                 </p>
             </div>
             <div className="flex mt-5 space-x-6">
