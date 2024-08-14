@@ -1,27 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { EyeIcon, EyeOffIcon } from '@heroicons/react/solid';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Navbar from "../../Components/Navbar";
-import axios from "axios"; // Adjust the import based on your version
+import axios from "axios";
 
 const SignUpForm = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [initialValues, setInitialValues] = useState({
+        username: '',
+        phone: '',
+        email: '',
+        password: '',
+    });
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
 
-    const initialValues = {
-        username: '',
-        phone: '',
-        email: '',
-        password: '',
-        terms: false,
+    // Fetch the initial values from the backend API
+    const fetchInitialValues = async () => {
+        try {
+            const response = await axios.get('http://localhost:8080/api/v1/auth/register');
+            const data = response.data;
+
+            setInitialValues({
+                username: data.username || '',
+                phone: data.phoneNumber || '',
+                email: data.email || '',
+                password: '',
+            });
+        } catch (error) {
+            console.error('Error fetching initial values:', error);
+        }
     };
 
+    useEffect(() => {
+        fetchInitialValues();
+    }, []);
+
     const validationSchema = Yup.object({
-        name: Yup.string().required('Name is required'),
+        username: Yup.string().required('Name is required'),
         phone: Yup.string().required('Phone number is required'),
         email: Yup.string().email('Invalid email format').required('Email is required'),
         password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
@@ -35,7 +54,6 @@ const SignUpForm = () => {
             // Handle success (e.g., redirect user or show a success message)
         } catch (error) {
             console.error('There was an error registering!', error);
-            
         }
     };
 
@@ -103,6 +121,10 @@ const SignUpForm = () => {
                                 </div>
                                 <div className="mb-4">
                                     <ErrorMessage name="terms" component="div" className="text-red-500 text-sm" />
+                                    <label className="flex items-center">
+                                        <Field type="checkbox" name="terms" className="mr-2" />
+                                        I accept the terms and conditions
+                                    </label>
                                 </div>
                                 <button type="submit" className="w-full bg-green-500 text-white font-bold py-2 rounded-md hover:bg-green-600">
                                     Sign Up
