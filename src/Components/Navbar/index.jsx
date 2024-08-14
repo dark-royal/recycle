@@ -25,7 +25,7 @@ const Navbar = () => {
                 </div>
 
                 <div className={`flex flex-col md:flex-row items-center gap-4 mb-4 md:mb-0 ${isOpen ? 'block' : 'hidden'} md:flex`}>
-                    <p className="text-green-500"><Link to="/home" className="text-green-500">{t("Home")}</Link></p>
+                    <p className="text-green-500"><Link to="/" className="text-green-500">{t("Home")}</Link></p>
                     <p className="text-black"><Link to="/about" className="text-green-500">{t("About us")}</Link></p>
                     <p className="text-black"><Link to="/size" className="text-green-500">{t("Locate")}</Link></p>
                     <p className="text-black"><Link to="/blog" className="text-green-500">{t("Blog")}</Link></p>

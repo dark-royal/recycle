@@ -18,16 +18,15 @@ export const ROUTES = [
                 path: '/',
                 element: <Home/>
             },
-            {
-                path: '/signup',
-                element: <SignUp/>
-            },
-            {
-                path: '/login',
-                element: <LogIn/>
-            },
-
         ]
+    },
+    {
+        path: '/signup',
+        element: <SignUp/>
+    },
+    {
+        path: '/login',
+        element: <LogIn/>
     },
     {
         path: 'dashboard',
@@ -37,6 +36,7 @@ export const ROUTES = [
         path: 'about',
         element: <About />
     },
+
     {
         path: '/information',
         element: <Layouts />,
