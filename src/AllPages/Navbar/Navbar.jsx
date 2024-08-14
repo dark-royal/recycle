@@ -21,7 +21,7 @@ const Navb = () => {
                     <div></div>
                 </div>
                 <div className={styles.section}>
-                    <Link to="/home">
+                    <Link to="/">
                         <p>Home</p>
                     </Link>
                     <Link to="/dashboard">

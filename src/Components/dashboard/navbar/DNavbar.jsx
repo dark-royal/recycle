@@ -6,7 +6,7 @@ const DNavbar = () => {
         <>
             <div className="flex flex-col md:flex-row items-center p-4 bg-white">
                 <div className="flex flex-col md:flex-row items-center gap-12 mb-4 md:mb-0 ml-auto">
-                    <Link to="/home">
+                    <Link to="/">
                         <p className="text-green-500">Home</p>
                     </Link>
                     <Link to="/size">

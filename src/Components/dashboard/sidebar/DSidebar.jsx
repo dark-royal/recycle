@@ -46,7 +46,7 @@ const DSidebar = () => {
                         <span className="font-light text-sm">Earnings and <br /> rewards</span>
                     </NavLink>
                     <NavLink
-                        to="/locate"
+                        to="/size"
                         className={({ isActive }) =>
                             `flex items-center gap-4 w-full p-2 rounded-2xl transition-colors duration-300 ${
                                 isActive ? 'bg-green-300 text-black' : 'bg-ash text-black hover:bg-green-200 hover:text-black'
@@ -113,7 +113,7 @@ const DSidebar = () => {
                     </NavLink>
                 </div>
                 <NavLink
-                    to="/signout"
+                    to="/signup"
                     className={({ isActive }) =>
                         `flex gap-3 items-center mt-auto p-3 rounded-2xl transition-colors duration-300 ${
                             isActive ? 'bg-green-300 text-black' : 'bg-ash text-black hover:bg-green-200 hover:text-black'

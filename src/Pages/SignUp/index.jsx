@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { EyeIcon, EyeOffIcon } from '@heroicons/react/solid';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import Navbar from "../../Components/Navbar"; // Adjust the import based on your version
+import Navbar from "../../Components/Navbar";
+import axios from "axios"; // Adjust the import based on your version
 
 const SignUpForm = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -12,7 +13,7 @@ const SignUpForm = () => {
     };
 
     const initialValues = {
-        name: '',
+        username: '',
         phone: '',
         email: '',
         password: '',
@@ -27,10 +28,15 @@ const SignUpForm = () => {
         terms: Yup.bool().oneOf([true], 'You must accept the terms and conditions'),
     });
 
-    const handleSubmit = (values) => {
-        console.log(values);
-        // Here you can link your backend with a POST request
-        // For example: axios.post('/your-endpoint', values)
+    const handleSubmit = async (values) => {
+        try {
+            const response = await axios.post('https://your-api-endpoint.com/api/register', values);
+            console.log('Registration successful', response.data);
+            // Handle success (e.g., redirect user or show a success message)
+        } catch (error) {
+            console.error('There was an error registering!', error);
+            
+        }
     };
 
     return (
@@ -49,11 +55,11 @@ const SignUpForm = () => {
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium text-gray-700">Name</label>
                                     <Field
-                                        name="name"
+                                        name="username"
                                         type="text"
                                         className="mt-1 block w-full border border-gray-300 rounded-md p-2"
                                     />
-                                    <ErrorMessage name="name" component="div" className="text-red-500 text-sm" />
+                                    <ErrorMessage name="username" component="div" className="text-red-500 text-sm" />
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium text-gray-700">Phone Number</label>
