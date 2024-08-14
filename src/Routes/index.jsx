@@ -29,7 +29,7 @@ export const ROUTES = [
         element: <LogIn/>
     },
     {
-        path: 'dashboard',
+        path: '/dashboard',
         element: <DashBar />
     },
     {
@@ -66,5 +66,8 @@ export const ROUTES = [
             },
         ]
     }
-
+    // {
+    //     path: '*',
+    //     element: <NotFound /> // Assuming you have a NotFound component
+    // }
 ]
