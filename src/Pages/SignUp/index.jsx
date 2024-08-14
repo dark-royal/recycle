@@ -1,65 +1,52 @@
-import React, { useState, useEffect } from 'react';
-import { EyeIcon, EyeOffIcon } from '@heroicons/react/solid';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import Navbar from "../../Components/Navbar";
-import axios from "axios";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline';
+import Navbar from "../../Components/Navbar"; // Adjust import as needed
 
-const SignUpForm = () => {
+const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const [initialValues, setInitialValues] = useState({
-        username: '',
-        phone: '',
-        email: '',
-        password: '',
-    });
+    const [loading, setLoading] = useState(false); // Loading state
+    const navigate = useNavigate();
 
     const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
+        setShowPassword(prevState => !prevState);
     };
 
-    // Fetch the initial values from the backend API
-    const fetchInitialValues = async () => {
-        try {
-            const response = await axios.get('http://localhost:8080/api/v1/auth/register');
-            const data = response.data;
-
-            setInitialValues({
-                username: data.username || '',
-                phone: data.phoneNumber || '',
-                email: data.email || '',
-                password: '',
-            });
-        } catch (error) {
-            console.error('Error fetching initial values:', error);
-        }
+    const initialValues = {
+        username: '',
+        phoneNumber: '',
+        email: '',
+        password: '',
     };
-
-    useEffect(() => {
-        fetchInitialValues();
-    }, []);
 
     const validationSchema = Yup.object({
-        username: Yup.string().required('Name is required'),
-        phone: Yup.string().required('Phone number is required'),
-        email: Yup.string().email('Invalid email format').required('Email is required'),
-        password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
-        terms: Yup.bool().oneOf([true], 'You must accept the terms and conditions'),
+        username: Yup.string().required('Required'),
+        phoneNumber: Yup.string().required('Required'),
+        email: Yup.string().email('Invalid email format').required('Required'),
+        password: Yup.string().min(6, 'Password must be at least 6 characters long').required('Required'),
     });
 
     const handleSubmit = async (values) => {
+        setLoading(true);
         try {
-            const response = await axios.post('https://your-api-endpoint.com/api/register', values);
-            console.log('Registration successful', response.data);
-            // Handle success (e.g., redirect user or show a success message)
+            const response = await axios.post('http://localhost:8080/api/v1/auth/register', values);
+            console.log(response.data);
+            if (response.status === 200) {
+                navigate('/dashboard'); // Change '/dashboard' to your actual dashboard route
+            }
         } catch (error) {
-            console.error('There was an error registering!', error);
+            console.error(error.response.data);
+        } finally {
+            setLoading(false);
         }
     };
 
     return (
         <div>
-            <Navbar />
+            <Navbar/>
             <div className="flex items-center justify-center min-h-screen bg-customGreen">
                 <div className="bg-white rounded-lg shadow-lg p-8 w-[30%]">
                     <h2 className="text-2xl font-bold text-center mb-6">Create an account</h2>
@@ -119,15 +106,12 @@ const SignUpForm = () => {
                                         <ErrorMessage name="password" component="div" className="text-red-500 text-sm" />
                                     </div>
                                 </div>
-                                <div className="mb-4">
-                                    <ErrorMessage name="terms" component="div" className="text-red-500 text-sm" />
-                                    <label className="flex items-center">
-                                        <Field type="checkbox" name="terms" className="mr-2" />
-                                        I accept the terms and conditions
-                                    </label>
-                                </div>
-                                <button type="submit" className="w-full bg-green-500 text-white font-bold py-2 rounded-md hover:bg-green-600">
-                                    Sign Up
+                                <button
+                                    type="submit"
+                                    className={`w-full bg-green-500 text-white font-bold py-2 rounded-md ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-green-600'}`}
+                                    disabled={loading} // Disable the button while loading
+                                >
+                                    {loading ? 'Loading...' : 'Sign Up'} {/* Change button text based on loading state */}
                                 </button>
                             </Form>
                         )}
@@ -141,4 +125,4 @@ const SignUpForm = () => {
     );
 };
 
-export default SignUpForm;
+export default SignUp;
