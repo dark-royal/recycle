@@ -1,8 +1,7 @@
 import image from "../asset/plant.png"
 import image2 from "../asset/Graphic-elements.png.png"
 import image3 from "../asset/Group-759.png.png"
-import image4 from "../asset/sign.png"
-import image5 from "../asset/image 14.png"
+
 
 const NavBar = () => {
     return (

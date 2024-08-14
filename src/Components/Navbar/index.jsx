@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
 import logo from '../asset/Preview-removebg-preview.png';
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import {FaBars, FaTimes} from "react-icons/fa";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
