@@ -8,6 +8,7 @@ import Layouts from "../AllPages/Layouts";
 import Client from "../AllPages/Client";
 import TrashSize from "../AllPages/Trash";
 import Pickup from "../AllPages/PickUp";
+import SubmittedImages from "../AllPages/ImagePage/image.index";
 
 export const ROUTES = [
     {
@@ -64,7 +65,12 @@ export const ROUTES = [
                 path: '/pickup',
                 element: <Pickup />
             },
+            {
+                path: '/submitted-images',
+                element: <SubmittedImages />,
+            },
         ]
+
     }
     // {
     //     path: '*',

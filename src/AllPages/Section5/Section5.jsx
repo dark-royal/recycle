@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import styles from './index.module.css';
 import uploadIcon from '../../Components/asset/Upload icon.png';
-
 
 const Section5 = () => {
     const [fileName, setFileName] = useState('');
     const [file, setFile] = useState(null);
+    const [imageURL, setImageURL] = useState('');
+    const [uploadStatus, setUploadStatus] = useState('');
+    const navigate = useNavigate();
 
     const handleFileChange = (event) => {
         if (event.target.files.length > 0) {
             setFileName(event.target.files[0].name);
             setFile(event.target.files[0]);
+            setImageURL(URL.createObjectURL(event.target.files[0]));
         } else {
             setFileName('');
             setFile(null);
+            setImageURL('');
         }
     };
 
@@ -23,24 +28,29 @@ const Section5 = () => {
 
     const handleSubmit = () => {
         if (file) {
-            // Handle file upload logic here
-            const formData = new FormData();
-            formData.append('file', file);
 
-            // Example: Make a POST request to upload the file
-            fetch('/upload-endpoint', {
-                method: 'POST',
-                body: formData,
-            })
-                .then(response => response.json())
-                .then(data => {
-                    // Handle success response
-                    console.log('File uploaded successfully:', data);
-                })
-                .catch(error => {
-                    // Handle error response
-                    console.error('Error uploading file:', error);
-                });
+            setTimeout(() => {
+
+                const existingImages = JSON.parse(localStorage.getItem('submittedImages')) || [];
+
+
+                const newImage = { url: imageURL, name: fileName };
+                const updatedImages = [...existingImages, newImage];
+
+
+                localStorage.setItem('submittedImages', JSON.stringify(updatedImages));
+
+
+                setUploadStatus('Submit successful!');
+
+
+                setFileName('');
+                setFile(null);
+                setImageURL('');
+
+
+                navigate('/submitted-images');
+            }, 1000);
         } else {
             alert('Please select a file to upload.');
         }
@@ -78,8 +88,20 @@ const Section5 = () => {
                     Submit
                 </button>
             </div>
+            {imageURL && (
+                <div className={styles.imagePreview}>
+                    <h3>Preview:</h3>
+                    <img src={imageURL} alt="Uploaded" className={styles.previewImage} />
+                </div>
+            )}
+            {uploadStatus && (
+                <div className={styles.uploadStatus}>
+                    <p>{uploadStatus}</p>
+                </div>
+            )}
         </div>
     );
-}
+};
 
 export default Section5;
+
