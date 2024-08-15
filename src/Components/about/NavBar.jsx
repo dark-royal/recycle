@@ -11,28 +11,27 @@ const NavBar = () => {
             <div
                 className="absolute top-96 left-3/4 mt-10 ml-10 p-5 bg-customG w-[30%] rounded-3xl transform -translate-x-1/2 -translate-y-1/2">
                 <p>
-                    Who We Are <br/><br/>
-                    g-cycle is a sustainable and environmentally friendly  <br/>
-                    company for disposing waste across Lagos. We provide <br/>
-                    comprehensive recycling services for getting rid of waste <br/>
-                    efficiently and in an  way, making our <br/>
-                    facility one of the most sustainable in the country with zero <br/>
-                    waste discharge technology. Our team is committed to <br/>
-                    providing you with reliable, affordable, and sustainable <br/>
-                    solutions for managing your waste and making money.
+                    <h2>Who We Are</h2>
+                        g-cycle is an environmentally conscious company  <br/>
+                        dedicated to sustainable waste disposal across  <br/>
+                        Lagos.  We offer comprehensive recycling services  <br/>
+                        designed to effectively manage waste, utilizing  <br/>
+                        zero-waste discharge pattern.Our dedicated team <br/>
+                        strives to provide reliable solutions for waste  <br/>
+                        management while empowering you to turn waste into value.
                 </p>
             </div>
             <div className="flex mt-5 space-x-6">
                 <div className="p-5 rounded-3xl bg-customOrange ml-60 w-[30%] mt-24 translate-x-2/3 flex text-white">
                     <p>
                         OUR MISSION <br/><br/>
-                        Namo E-waste Management believes in three principles: <br/>
-                        reduce, reuse and recycle. Our goal is to create awareness <br/>
-                        around the need for responsible eWaste disposal in India. <br/>
-                        While many people know about electronics recycling, we are <br/>
-                        committed to the task of creating an enabling environment <br/>
-                        for informal recyclers by providing them with training on <br/>
-                        disposal techniques and safe practices. <br/>
+                        g-cycle company believes in three principles: <br/>
+                        reduce, reuse, and recycle. Our goal is to create  <br/>
+                        awareness around the need for responsible eWaste  <br/>
+                        disposal in Lagos. We are committed to the task of <br/>
+                        creating an enabling environment for informal<br/>
+                        recyclers by providing them with training on <br/>
+                        disposal techniques, and safe practices. <br/>
                     </p>
                 </div>
                 <div className="p-5 rounded-3xl bg-customOrange w-[30%] mt-24 translate-x-2/3 flex text-white">
