@@ -35,11 +35,21 @@ const NavBar = () => {
                     </p>
                 </div>
                 <div className="p-5 rounded-3xl bg-customOrange w-[30%] mt-24 translate-x-2/3 flex text-white">
+                    <h2>Our Vision</h2>
+                    <p>
+                        We are dedicated to leveraging our expertise, resources, and experience to build a sustainable
+                        future for our planet. We believe that managing e-waste is crucial to achieving environmental
+                        sustainability. As awareness grows about the damage caused by improper waste management, we are
+                        committed to making a meaningful difference and creating a cleaner, greener future for
+                        generations to come.
+                    </p>
+
                     <p>
                         OUR VISION <br/><br/>
-                        We are committed to using our expertise, resources and<br/>
-                        experience to build a sustainable future for the planet. We <br/>
-                        believe that e-waste is one of the most important issues to <br/>
+                        We are committed to using our expertise, resources <br/>
+                        experience to build a sustainable future for the <br/>
+                        planet. We believe that e-waste is one of the most <br/>
+                        important ways to reach out
                         We have reached a point where we have become aware of<br/>
                         the damage caused by a waste and are committed to <br/>
                         making a difference <br/>
