@@ -2,8 +2,6 @@ import image from "../../asset/Vector.png"
 import image2 from "../../asset/bank.png"
 import image3 from "../../asset/Group 2.png"
 import image4 from "../../asset/Group 3.png"
-import image5 from "../../asset/Up Trend.png"
-import image6 from "../../asset/Down Trend.png"
 import Graph from "./Graph";
 import Badge from "./Badge";
 

@@ -8,6 +8,7 @@ import Layouts from "../AllPages/Layouts";
 import Client from "../AllPages/Client";
 import TrashSize from "../AllPages/Trash";
 import Pickup from "../AllPages/PickUp";
+import Earnings from "../Components/earnings/Earnings";
 
 export const ROUTES = [
     {
@@ -31,6 +32,10 @@ export const ROUTES = [
     {
         path: '/dashboard',
         element: <DashBar />
+    },
+    {
+        path: '/earnings',
+        element: <Earnings />
     },
     {
         path: 'about',

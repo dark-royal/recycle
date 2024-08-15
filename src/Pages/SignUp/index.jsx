@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { EyeIcon, EyeOffIcon } from '@heroicons/react/solid';
 import Navbar from "../../Components/Navbar";
-import {signupApi} from "../../api";
+import { signupApi } from "../../api";
 
 const SignUp = () => {
     const [loading, setLoading] = useState(false);
@@ -12,6 +12,7 @@ const SignUp = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+
     const initialValues = {
         username: '',
         phoneNumber: '',
@@ -32,7 +33,7 @@ const SignUp = () => {
         setErrorMessage('');
 
         try {
-            const response = await signupApi(values); // Call the signup API with form values
+            const response = await signupApi(values);
 
             const successMessage = response.data?.message || 'Registration successful!';
             setSuccessMessage(successMessage);
@@ -54,24 +55,34 @@ const SignUp = () => {
         }
     };
 
-
-
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
+
+    // Automatically clear the success and error messages after 3 seconds
+    useEffect(() => {
+        if (successMessage || errorMessage) {
+            const timer = setTimeout(() => {
+                setSuccessMessage('');
+                setErrorMessage('');
+            }, 3000); // Clear the messages after 3 seconds
+
+            return () => clearTimeout(timer); // Clear the timeout if the component unmounts or messages change
+        }
+    }, [successMessage, errorMessage]);
 
     return (
         <div>
             <Navbar />
             {/* Container for messages */}
-            <div className="fixed top-14 right-5 m-10 p-5 h-[100%] z-50">
+            <div className="fixed top-14 right-5 m-10 p-3 h-[100%] z-50">
                 {successMessage && (
-                    <div className="bg-customWhite text-3xl text-green-500  p-5 h-20 rounded-xl shadow-md">
+                    <div className="bg-customWhite text-lg text-green-500 p-3 h-20 rounded-xl shadow-md">
                         {successMessage}
                     </div>
                 )}
                 {errorMessage && (
-                    <div className="bg-red-600 text-3xl text-white p-5 h-20 rounded-xl shadow-md">
+                    <div className="bg-white text-xl text-red-600 p-5 h-20 rounded-xl shadow-md">
                         {errorMessage}
                     </div>
                 )}
