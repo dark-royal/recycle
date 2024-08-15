@@ -26,34 +26,41 @@ const Section5 = () => {
         document.getElementById('fileInput').click();
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (file) {
+            try {
+                // Create a FormData object to send multipart/form-data
+                const formData = new FormData();
+                formData.append('file', file); // Append the file
+                formData.append('name', fileName); // Append any additional fields if needed
 
-            setTimeout(() => {
+                // Send a POST request to the backend API
+                const response = await fetch('http:// http://localhost:8080/api/v1/waste', {
+                    method: 'POST',
+                    body: formData,
 
-                const existingImages = JSON.parse(localStorage.getItem('submittedImages')) || [];
+                });
 
+                if (response.ok) {
+                    setUploadStatus('Submit successful!');
+                    setFileName('');
+                    setFile(null);
+                    setImageURL('');
 
-                const newImage = { url: imageURL, name: fileName };
-                const updatedImages = [...existingImages, newImage];
-
-
-                localStorage.setItem('submittedImages', JSON.stringify(updatedImages));
-
-
-                setUploadStatus('Submit successful!');
-
-
-                setFileName('');
-                setFile(null);
-                setImageURL('');
-
-
-                navigate('/submitted-images');
-            }, 1000);
+                    // Navigate or refresh the image list
+                    navigate('/submitted-images');
+                } else {
+                    const error = await response.text();
+                    setUploadStatus(`Upload failed: ${error}`);
+                }
+            } catch (error) {
+                console.error('Error uploading file:', error);
+                setUploadStatus('Upload failed.');
+            }
         } else {
             alert('Please select a file to upload.');
         }
+
     };
 
     return (

@@ -1,3 +1,4 @@
+/* index.module.css */
 .imageContainer {
     display: flex;
     flex-wrap: wrap;
@@ -16,8 +17,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     background-color: #f9f9f9;
+    position: relative; /* Keeps relative positioning for the card */
 }
 
 .imageCard img {
@@ -36,3 +37,26 @@
     border-radius: 3px;
     font-size: 12px;
 }
+
+.deleteButton {
+    background-color: green; /* Changed to red for delete action */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 10; /* Ensures the button is on top */
+    margin-top: 9px; /* Adjust margin as needed */
+}
+
+.deleteButton:hover {
+    background-color: gray;
+}
+/* index.module.css */
+.imageCardWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between image and button */
+}
+
