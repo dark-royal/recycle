@@ -24,15 +24,23 @@ const SignUp = () => {
 
     const validationSchema = Yup.object({
         username: Yup.string()
-            .required('Required'),
+            .required('Username is required'),
+
         phoneNumber: Yup.string()
-            .matches(/^(\+234|0)?[789]\d{9}$/)
-            .required('Required'),
-        email: Yup.string().email('Invalid email format')
-            .required('Required'),
-        password: Yup.string().min(8, 'Password must be at least 8 characters long')
-            .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
-            .required('Required'),
+            .matches(/^(\+234|0)?[789]\d{9}$/, 'Invalid phone number')
+            .required('Phone number is required'),
+
+        email: Yup.string()
+            .email('Invalid email format')
+            .required('Email is required'),
+
+        password: Yup.string()
+            .min(8, 'Password must be at least 8 characters long')
+            .matches(
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                'Password must include at least one uppercase letter, one lowercase letter, one number, and one special character'
+            )
+            .required('Password is required'),
     });
 
     const handleSubmit = async (values) => {
@@ -52,7 +60,7 @@ const SignUp = () => {
 
     return (
         <div>
-            <Navbar/>
+            <Navbar />
             <div className="flex items-center justify-center min-h-screen bg-customGreen">
                 <div className="bg-white rounded-lg shadow-lg p-8 w-[30%]">
                     <h2 className="text-2xl font-bold text-center mb-6">Create an account</h2>
@@ -64,7 +72,7 @@ const SignUp = () => {
                         {() => (
                             <Form>
                                 <div className="mb-4">
-                                    <label className="block text-sm font-medium text-gray-700">Name</label>
+                                    <label className="block text-sm font-medium text-gray-700">Username</label>
                                     <Field
                                         name="username"
                                         type="text"
@@ -75,11 +83,11 @@ const SignUp = () => {
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium text-gray-700">Phone Number</label>
                                     <Field
-                                        name="phone"
+                                        name="phoneNumber" // Updated to "phoneNumber"
                                         type="tel"
                                         className="mt-1 block w-full border border-gray-300 rounded-md p-2"
                                     />
-                                    <ErrorMessage name="phone" component="div" className="text-red-500 text-sm" />
+                                    <ErrorMessage name="phoneNumber" component="div" className="text-red-500 text-sm" />
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium text-gray-700">Email</label>
@@ -117,7 +125,7 @@ const SignUp = () => {
                                     className={`w-full bg-green-500 text-white font-bold py-2 rounded-md ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-green-600'}`}
                                     disabled={loading}
                                 >
-                                    {loading ? 'Loading...' : 'Sign Up'} {}
+                                    {loading ? 'Loading...' : 'Sign Up'}
                                 </button>
                             </Form>
                         )}
