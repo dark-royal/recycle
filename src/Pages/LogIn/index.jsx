@@ -32,7 +32,6 @@ const SignIn = () => {
             const successMessage = response.data?.message || 'Login successful!';
             console.log('Response data:', response.data);
 
-
             // Store both tokens
             const { token, userId, refreshToken } = response.data.data;
             localStorage.setItem('accessToken', token);
@@ -80,7 +79,7 @@ const SignIn = () => {
                 )}
             </div>
             <div className="flex items-center justify-center min-h-screen bg-customGreen">
-                <div className="bg-white rounded-lg shadow-lg p-8 w-[30%]">
+                <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 w-[90%] sm:w-[70%] md:w-[50%] lg:w-[30%]">
                     <h2 className="text-2xl font-bold text-center mb-6">Sign In</h2>
                     <Formik
                         initialValues={initialValues}

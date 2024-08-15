@@ -10,10 +10,9 @@ import logo8 from "../../asset/grp.png";
 import logo9 from "../../asset/message.png";
 import logos from "../../asset/signout.png";
 
-
 const DSidebar = () => {
     return (
-        <div className="fixed top-0 left-0 h-full w-80 p-6 bg-white flex flex-col">
+        <div className="fixed top-0 left-0 h-full w-80 p-6 bg-white flex flex-col hidden md:flex">
             <div className="flex items-center mb-4">
                 <img src={logo} alt="logo" className="w-12 h-12" />
                 <h4 className="text-green-500 font-bold text-2xl ml-2">g-cycle</h4>
@@ -127,7 +126,5 @@ const DSidebar = () => {
         </div>
     );
 };
-
-
 
 export default DSidebar;

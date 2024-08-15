@@ -38,7 +38,7 @@ const SignUp = () => {
             const successMessage = response.data?.message || 'Registration successful!';
             setSuccessMessage(successMessage);
 
-            console.log('Response data:', response.data); // Debugging to check the response data
+            console.log('Response data:', response.data);
 
             setTimeout(() => {
                 navigate('/login');
@@ -88,7 +88,7 @@ const SignUp = () => {
                 )}
             </div>
             <div className="flex items-center justify-center min-h-screen bg-customGreen">
-                <div className="bg-white rounded-lg shadow-lg p-8 w-[30%]">
+                <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 w-[90%] sm:w-[70%] md:w-[50%] lg:w-[30%]">
                     <h2 className="text-2xl font-bold text-center mb-6">Create an account</h2>
                     <Formik
                         initialValues={initialValues}
