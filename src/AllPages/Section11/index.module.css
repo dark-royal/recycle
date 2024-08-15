@@ -31,7 +31,7 @@ button:hover {
     background-color: #45a049;
 }
 
-/* Media query for mobile responsiveness */
+
 @media (max-width: 768px) {
     .formContainer {
         padding: 15px;

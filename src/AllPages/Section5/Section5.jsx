@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import styles from './index.module.css';
 import uploadIcon from '../../Components/asset/Upload icon.png';
-
 
 const Section5 = () => {
     const [fileName, setFileName] = useState('');
     const [file, setFile] = useState(null);
+    const [imageURL, setImageURL] = useState('');
+    const [uploadStatus, setUploadStatus] = useState('');
+    const navigate = useNavigate();
 
     const handleFileChange = (event) => {
         if (event.target.files.length > 0) {
             setFileName(event.target.files[0].name);
             setFile(event.target.files[0]);
+            setImageURL(URL.createObjectURL(event.target.files[0]));
         } else {
             setFileName('');
             setFile(null);
+            setImageURL('');
         }
     };
 
@@ -21,29 +26,41 @@ const Section5 = () => {
         document.getElementById('fileInput').click();
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (file) {
-            // Handle file upload logic here
-            const formData = new FormData();
-            formData.append('file', file);
+            try {
+                // Create a FormData object to send multipart/form-data
+                const formData = new FormData();
+                formData.append('file', file); // Append the file
+                formData.append('name', fileName); // Append any additional fields if needed
 
-            // Example: Make a POST request to upload the file
-            fetch('/upload-endpoint', {
-                method: 'POST',
-                body: formData,
-            })
-                .then(response => response.json())
-                .then(data => {
-                    // Handle success response
-                    console.log('File uploaded successfully:', data);
-                })
-                .catch(error => {
-                    // Handle error response
-                    console.error('Error uploading file:', error);
+                // Send a POST request to the backend API
+                const response = await fetch('http:// http://localhost:8080/api/v1/waste', {
+                    method: 'POST',
+                    body: formData,
+
                 });
+
+                if (response.ok) {
+                    setUploadStatus('Submit successful!');
+                    setFileName('');
+                    setFile(null);
+                    setImageURL('');
+
+                    // Navigate or refresh the image list
+                    navigate('/submitted-images');
+                } else {
+                    const error = await response.text();
+                    setUploadStatus(`Upload failed: ${error}`);
+                }
+            } catch (error) {
+                console.error('Error uploading file:', error);
+                setUploadStatus('Upload failed.');
+            }
         } else {
             alert('Please select a file to upload.');
         }
+
     };
 
     return (
@@ -78,8 +95,20 @@ const Section5 = () => {
                     Submit
                 </button>
             </div>
+            {imageURL && (
+                <div className={styles.imagePreview}>
+                    <h3>Preview:</h3>
+                    <img src={imageURL} alt="Uploaded" className={styles.previewImage} />
+                </div>
+            )}
+            {uploadStatus && (
+                <div className={styles.uploadStatus}>
+                    <p>{uploadStatus}</p>
+                </div>
+            )}
         </div>
     );
-}
+};
 
 export default Section5;
+
