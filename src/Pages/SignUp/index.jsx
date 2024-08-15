@@ -65,9 +65,9 @@ const SignUp = () => {
             const timer = setTimeout(() => {
                 setSuccessMessage('');
                 setErrorMessage('');
-            }, 3000); // Clear the messages after 3 seconds
+            }, 3000);
 
-            return () => clearTimeout(timer); // Clear the timeout if the component unmounts or messages change
+            return () => clearTimeout(timer);
         }
     }, [successMessage, errorMessage]);
 

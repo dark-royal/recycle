@@ -90,7 +90,7 @@ const DSidebar = () => {
                         <span className="font-light text-sm">Badge</span>
                     </NavLink>
                     <NavLink
-                        to="/shop"
+                        to="/registerWaste"
                         className={({ isActive }) =>
                             `flex items-center gap-4 w-full p-2 rounded-2xl transition-colors duration-300 ${
                                 isActive ? 'bg-green-300 text-black' : 'bg-ash text-black hover:bg-green-200 hover:text-black'

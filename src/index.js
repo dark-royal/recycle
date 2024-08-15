@@ -9,6 +9,7 @@ import translationEN from './locales/en/translation.json';
 import translationAR from './locales/ar/translation.json';
 import translationES from './locales/es/translation.json';
 import translationHI from './locales/hi/translation.json';
+import {UserProvider} from "./AllPages/RegisterWasteForSale/waste";
 
 
 i18n.init({
@@ -29,7 +30,9 @@ root.render(
   <React.StrictMode>
       <BrowserRouter>
           <I18nextProvider i18n={i18n}>
+              <UserProvider>
               <App />
+              </UserProvider>
           </I18nextProvider>,
       </BrowserRouter>
   </React.StrictMode>

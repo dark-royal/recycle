@@ -8,23 +8,28 @@ Chart.register(...registerables);
 const Graph = () => {
   const [userContribution, setUserContribution] = useState([]);
   const [totalPoints, setTotalPoints] = useState(0);
-  const [dailyWasteData, setDailyWasteData] = useState([]);
+  const [accumulatedWaste, setAccumulatedWaste] = useState(0); // State for accumulated waste
   const [loadingWasteData, setLoadingWasteData] = useState(true);
   const [loadingUserPoints, setLoadingUserPoints] = useState(true);
 
   useEffect(() => {
-    const fetchWasteData = async () => {
+    const fetchAccumulatedWaste = async () => {
       try {
-        const userId = 1; // Use the actual user ID
-        const response = await axios.get(`/api/waste/collected/${userId}`);
-        setDailyWasteData(response.data.dailyWasteCollected);
+        const userId = localStorage.getItem('userId');
+        if (!userId) {
+          throw new Error("User ID not found. Please log in.");
+        }
+
+        const response = await axios.get(`http://localhost:8080/api/v1/user/totalWeight/${userId}`);
+
+        setAccumulatedWaste(response.data.weight);
       } catch (error) {
-        console.error("Error fetching waste data: ", error);
+        console.error("Error fetching accumulated waste data: ", error);
       } finally {
         setLoadingWasteData(false);
       }
     };
-    fetchWasteData();
+    fetchAccumulatedWaste();
   }, []);
 
   useEffect(() => {
@@ -42,17 +47,12 @@ const Graph = () => {
     fetchUserPoints();
   }, []);
 
-  const cumulativeWasteData = dailyWasteData.reduce((acc, cur, idx) => {
-    acc.push((acc[idx - 1] || 0) + cur);
-    return acc;
-  }, []);
-
   const eWasteDataChart = {
     labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
     datasets: [
       {
         label: 'E-Waste Collected (kg)',
-        data: cumulativeWasteData.length ? cumulativeWasteData : Array(7).fill(0),
+        data: Array(7).fill(accumulatedWaste), // Display the accumulated waste
         backgroundColor: 'rgba(75, 122, 192, 0.5)',
         borderColor: 'rgba(75, 192, 192, 1)',
       },
@@ -88,7 +88,7 @@ const Graph = () => {
         <div className="flex-1 p-4 bg-customWhite w-80 shadow-md flex flex-col items-baseline rounded-2xl">
           <h2 className="text-lg font-extralight">E-Waste Collected</h2>
           <h3 className="text-lg font-semibold mt-4">
-            {cumulativeWasteData.length ? cumulativeWasteData[cumulativeWasteData.length - 1] : 0} kg
+            {accumulatedWaste} kg
           </h3>
           {loadingWasteData ? (
               <p>Loading...</p>

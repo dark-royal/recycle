@@ -13,12 +13,12 @@ const SignIn = () => {
     const navigate = useNavigate();
 
     const initialValues = {
-        email: '',
+        username: '',
         password: '',
     };
 
     const validationSchema = Yup.object({
-        email: Yup.string().email('Invalid email address').required('Email is required'),
+        username: Yup.string().required('Username is required'),
         password: Yup.string().required('Password is required'),
     });
 
@@ -27,13 +27,21 @@ const SignIn = () => {
         setErrorMessage('');
 
         try {
-            const response = await loginApi(values); // Call the login API with form values
+            const response = await loginApi(values);
 
             const successMessage = response.data?.message || 'Login successful!';
-            console.log('Response data:', response.data); // Debugging to check the response data
+            console.log('Response data:', response.data);
+
+
+            // Store both tokens
+            const { token, userId, refreshToken } = response.data.data;
+            localStorage.setItem('accessToken', token);
+            localStorage.setItem('refreshToken', refreshToken);
+            console.log('Access token:', token);
+            localStorage.setItem('userId', userId);
 
             setTimeout(() => {
-                navigate('/dashboard'); // Navigate to the dashboard or desired page after login
+                navigate('/dashboard');
             }, 2000);
         } catch (error) {
             if (error.response && error.response.data) {
@@ -51,14 +59,13 @@ const SignIn = () => {
         setShowPassword(!showPassword);
     };
 
-    // Automatically clear the error message after 3 seconds
     useEffect(() => {
         if (errorMessage) {
             const timer = setTimeout(() => {
                 setErrorMessage('');
-            }, 3000); // Clear the error message after 3 seconds
+            }, 3000);
 
-            return () => clearTimeout(timer); // Clear the timeout if component unmounts or if the errorMessage changes
+            return () => clearTimeout(timer);
         }
     }, [errorMessage]);
 
@@ -83,13 +90,13 @@ const SignIn = () => {
                         {() => (
                             <Form>
                                 <div className="mb-4">
-                                    <label className="block text-sm font-medium text-gray-700">Email</label>
+                                    <label className="block text-sm font-medium text-gray-700">Username</label>
                                     <Field
-                                        name="email"
-                                        type="email"
+                                        name="username"
+                                        type="text"
                                         className="mt-1 block w-full border border-gray-300 rounded-md p-2"
                                     />
-                                    <FormikErrorMessage name="email" component="div" className="text-red-500 text-sm" />
+                                    <FormikErrorMessage name="username" component="div" className="text-red-500 text-sm" />
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium text-gray-700">Password</label>

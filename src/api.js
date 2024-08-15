@@ -19,8 +19,8 @@ export const signupApi = async (userData) => {
 };
 export const loginApi = async (loginData) => {
     try {
-        const response = await axios.post('http://localhost:8080/api/auth/login', loginData); // Replace with your actual login endpoint
-        return response;
+         // Replace with your actual login endpoint
+        return await axios.post('http://localhost:8080/api/v1/auth/login', loginData);
     } catch (error) {
         throw error;
     }

@@ -1,21 +1,16 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import styles from './index.module.css';
 
 const wasteCategories = [
-    'Nylon',
-    'Paper',
-    'Iron',
-    'Plastic',
-    'Glass',
-    'Organic',
-    'Electronic',
-
+    'POLYTHENEBAG',
+    'PLASTIC',
+    'PAPER',
 ];
 
 const RegisterWasteForSale = () => {
     const [wasteType, setWasteType] = useState('');
     const [quantity, setQuantity] = useState('');
-    const [price, setPrice] = useState('');
     const [response, setResponse] = useState(null);
     const [error, setError] = useState(null);
 
@@ -27,31 +22,44 @@ const RegisterWasteForSale = () => {
         setQuantity(event.target.value);
     };
 
-    const handlePriceChange = (event) => {
-        setPrice(event.target.value);
-    };
-
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if (!wasteType || !quantity || !price) {
+        // Checking if fields are filled
+        if (!wasteType || !quantity) {
             setError('All fields are required.');
             setResponse(null);
             return;
         }
 
-        // Simulate waste registration
-        const simulatedResponse = {
-            message: 'Waste registered for sale successfully!',
-            waste: {
-                wasteType,
-                quantity,
-                price
-            }
-        };
+        try {
+            const sellWasteRequest = {
+                type: wasteType,
+                quantity: quantity,
+            };
 
-        setResponse(simulatedResponse);
-        setError(null);
+            // Retrieve the token from local storage
+            const token = localStorage.getItem('accessToken');
+            console.log("Access token:", token)
+            const config = {
+                headers: {
+                    'Authorization': `Bearer ${token}`, // Use the token in the Authorization header
+                }
+            };
+
+            const res = await axios.post('http://localhost:8080/api/v1/user/sellWaste', sellWasteRequest, config);
+
+            const registeredWaste = {
+                id: res.data.id,
+                ...sellWasteRequest
+            };
+
+            setResponse({ message: res.data.message, waste: registeredWaste });
+            setError(null);
+        } catch (err) {
+            setError('Failed to register waste: ' + (err.response?.data?.message || err.message));
+            setResponse(null);
+        }
     };
 
     return (
@@ -84,25 +92,15 @@ const RegisterWasteForSale = () => {
                         required
                     />
                 </div>
-                <div className={styles.formGroup}>
-                    <label htmlFor="price">Price ($):</label>
-                    <input
-                        type="number"
-                        id="price"
-                        value={price}
-                        onChange={handlePriceChange}
-                        required
-                    />
-                </div>
+
                 <button type="submit" className={styles.registerWasteForSaleSubmit}>Register Waste</button>
             </form>
 
             {response && (
                 <div className={styles.responseMessage}>
                     <h3>{response.message}</h3>
-                    <p><strong>Waste Type:</strong> {response.waste.wasteType}</p>
+                    <p><strong>Waste Type:</strong> {response.waste.type}</p>
                     <p><strong>Quantity:</strong> {response.waste.quantity} kg</p>
-                    <p><strong>Price:</strong> ${response.waste.price}</p>
                 </div>
             )}
             {error && (
