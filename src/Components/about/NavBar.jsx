@@ -27,7 +27,7 @@ const NavBar = () => {
                         OUR MISSION <br/><br/>
                         g-cycle company believes in three principles: <br/>
                         reduce, reuse, and recycle. Our goal is to create  <br/>
-                        awareness around the need for responsible eWaste  <br/>
+                        awareness around the need for responsible waste  <br/>
                         disposal in Lagos. We are committed to the task of <br/>
                         creating an enabling environment for informal<br/>
                         recyclers by providing them with training on <br/>
@@ -35,25 +35,19 @@ const NavBar = () => {
                     </p>
                 </div>
                 <div className="p-5 rounded-3xl bg-customOrange w-[30%] mt-24 translate-x-2/3 flex text-white">
-                    <h2>Our Vision</h2>
-                    <p>
-                        We are dedicated to leveraging our expertise, resources, and experience to build a sustainable
-                        future for our planet. We believe that managing e-waste is crucial to achieving environmental
-                        sustainability. As awareness grows about the damage caused by improper waste management, we are
-                        committed to making a meaningful difference and creating a cleaner, greener future for
-                        generations to come.
-                    </p>
 
                     <p>
                         OUR VISION <br/><br/>
-                        We are committed to using our expertise, resources <br/>
-                        experience to build a sustainable future for the <br/>
-                        planet. We believe that e-waste is one of the most <br/>
-                        important ways to reach out
-                        We have reached a point where we have become aware of<br/>
-                        the damage caused by a waste and are committed to <br/>
-                        making a difference <br/>
+                        We are dedicated to leveraging our expertise <br/>
+                        to build a sustainable future for our planet.<br/>
+                        We believe that managing waste is crucial to <br/>
+                        achieving environmental sustainability. As <br/>
+                        awareness grows about the damage caused by <br/>
+                        improper waste management, we are committed <br/>
+                        to making a meaningful difference and creating <br/>
+                        a cleaner, greener future for generations to come.<br/>
                     </p>
+
                 </div>
             </div>
             <div className="flex">
