@@ -36,23 +36,25 @@ const DSidebar = () => {
 
             {/* Sidebar */}
             <div
-                className={`fixed top-0 left-0 h-full w-80 p-6 bg-transparent flex flex-col z-40 transform transition-transform duration-300 ease-in-out ${
+                className={`fixed top-0 left-0 h-full w-80 p-6 bg-transparent flex flex-col z-40 transform transition-transform duration-300 ease-in-out sidebar ${
                     isOpen ? "translate-x-0" : "-translate-x-full"
-                } md:translate-x-0 md:left-0 md:flex`}
+                } md:translate-x-0 md:left-0 md:flex md:bg-white`}
             >
                 {/* Hide the "g-cycle" text and logo when the sidebar is open */}
                 {!isOpen && (
-                    <div className="flex items-center mb-4">
-                        <img src={logo} alt="logo" className="w-8 h-8 md:w-12 md:h-12"/>
-                        <h4 className="text-green-500 font-bold text-xl ml-2 md:text-2xl">g-cycle</h4>
-                        <p className="text-green-500 mb-4 text-sm md:text-base">Michael</p>
+                    <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center">
+                            <img src={logo} alt="logo" className="w-8 h-8 md:w-12 md:h-12"/>
+                            <h4 className="text-green-500 font-bold text-xl ml-2 md:text-2xl">g-cycle</h4>
+                        </div>
+                        <p className="text-green-500 text-sm md:text-base">Michael</p>
                     </div>
                 )}
-                <div className="flex flex-col flex-grow bg-ash rounded-lg p-3 md:p-5 shadow-lg shadow-gray-900">
+                <div className="flex flex-col flex-grow bg-ash rounded-lg p-3 md:p-5 shadow-lg shadow-gray-900 md:bg-transparent">
                     <div className="flex flex-col gap-2 md:gap-4 flex-grow">
                         <NavLink
                             to="/dashboard"
-                            className="flex items-center gap-2 md:gap-4 w-full p-2 bg-customBlue text-white rounded-lg md:rounded-2xl hover:bg-green-300 hover:text-black transition-colors duration-300"
+                            className="flex items-center gap-2 md:gap-4 w-full p-3 bg-customBlue text-white rounded-lg md:rounded-2xl hover:bg-green-300 hover:text-black transition-colors duration-300"
                         >
                             <img
                                 src={logo2}
@@ -66,7 +68,7 @@ const DSidebar = () => {
                         <NavLink
                             to="/earnings"
                             className={({ isActive }) =>
-                                `flex items-center gap-2 md:gap-4 w-full p-2 rounded-lg md:rounded-2xl transition-colors duration-300 ${
+                                `flex items-center gap-2 md:gap-4 w-full p-3 rounded-lg md:rounded-2xl transition-colors duration-300 ${
                                     isActive
                                         ? "bg-green-300 text-black"
                                         : "bg-ash text-black hover:bg-green-200 hover:text-black"
@@ -79,7 +81,7 @@ const DSidebar = () => {
                         <NavLink
                             to="/size"
                             className={({ isActive }) =>
-                                `flex items-center gap-2 md:gap-4 w-full p-2 rounded-lg md:rounded-2xl transition-colors duration-300 ${
+                                `flex items-center gap-2 md:gap-4 w-full p-3 rounded-lg md:rounded-2xl transition-colors duration-300 ${
                                     isActive
                                         ? "bg-green-300 text-black"
                                         : "bg-ash text-black hover:bg-green-200 hover:text-black"
@@ -92,7 +94,7 @@ const DSidebar = () => {
                         <NavLink
                             to="/dispatch"
                             className={({ isActive }) =>
-                                `flex items-center gap-2 md:gap-4 w-full p-2 rounded-lg md:rounded-2xl transition-colors duration-300 ${
+                                `flex items-center gap-2 md:gap-4 w-full p-3 rounded-lg md:rounded-2xl transition-colors duration-300 ${
                                     isActive
                                         ? "bg-green-300 text-black"
                                         : "bg-ash text-black hover:bg-green-200 hover:text-black"
@@ -105,7 +107,7 @@ const DSidebar = () => {
                         <NavLink
                             to="/cart"
                             className={({ isActive }) =>
-                                `flex items-center gap-2 md:gap-4 w-full p-2 rounded-lg md:rounded-2xl transition-colors duration-300 ${
+                                `flex items-center gap-2 md:gap-4 w-full p-3 rounded-lg md:rounded-2xl transition-colors duration-300 ${
                                     isActive
                                         ? "bg-green-300 text-black"
                                         : "bg-ash text-black hover:bg-green-200 hover:text-black"
@@ -118,7 +120,7 @@ const DSidebar = () => {
                         <NavLink
                             to="/badge"
                             className={({ isActive }) =>
-                                `flex items-center gap-2 md:gap-4 w-full p-2 rounded-lg md:rounded-2xl transition-colors duration-300 ${
+                                `flex items-center gap-2 md:gap-4 w-full p-3 rounded-lg md:rounded-2xl transition-colors duration-300 ${
                                     isActive
                                         ? "bg-green-300 text-black"
                                         : "bg-ash text-black hover:bg-green-200 hover:text-black"
@@ -131,7 +133,7 @@ const DSidebar = () => {
                         <NavLink
                             to="/registerWaste"
                             className={({ isActive }) =>
-                                `flex items-center gap-2 md:gap-4 w-full p-2 rounded-lg md:rounded-2xl transition-colors duration-300 ${
+                                `flex items-center gap-2 md:gap-4 w-full p-3 rounded-lg md:rounded-2xl transition-colors duration-300 ${
                                     isActive
                                         ? "bg-green-300 text-black"
                                         : "bg-ash text-black hover:bg-green-200 hover:text-black"
@@ -144,7 +146,7 @@ const DSidebar = () => {
                         <NavLink
                             to="/notice"
                             className={({ isActive }) =>
-                                `flex items-center gap-2 md:gap-4 w-full p-2 rounded-lg md:rounded-2xl transition-colors duration-300 ${
+                                `flex items-center gap-2 md:gap-4 w-full p-3 rounded-lg md:rounded-2xl transition-colors duration-300 ${
                                     isActive
                                         ? "bg-green-300 text-black"
                                         : "bg-ash text-black hover:bg-green-200 hover:text-black"
@@ -158,7 +160,7 @@ const DSidebar = () => {
                     <NavLink
                         to="/signup"
                         className={({ isActive }) =>
-                            `flex gap-2 md:gap-3 items-center mt-auto p-2 md:p-3 rounded-lg md:rounded-2xl transition-colors duration-300 ${
+                            `flex gap-2 md:gap-3 items-center mt-auto p-3 md:p-3 rounded-lg md:rounded-2xl transition-colors duration-300 ${
                                 isActive
                                     ? "bg-green-300 text-black"
                                     : "bg-ash text-black hover:bg-green-200 hover:text-black"
