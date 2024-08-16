@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@heroicons/react": "^1.0.6",
+    "@heroicons/react": "^2.1.5",
     "@iconify/icons-line-md": "^1.2.30",
     "@iconify/react": "^5.0.2",
     "@react-google-maps/api": "^2.19.3",

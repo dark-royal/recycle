@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-import { EyeIcon, EyeOffIcon } from '@heroicons/react/solid';
+import {EyeIcon, EyeSlashIcon} from "@heroicons/react/24/solid";
 import Navbar from "../../Components/Navbar";
-import {signupApi} from "../../api";
+import { signupApi } from "../../api";
 
 const SignUp = () => {
     const [loading, setLoading] = useState(false);
@@ -12,6 +12,7 @@ const SignUp = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+
     const initialValues = {
         username: '',
         phoneNumber: '',
@@ -32,12 +33,15 @@ const SignUp = () => {
         setErrorMessage('');
 
         try {
-            const response = await signupApi(values); // Call the signup API with form values
+            const response = await signupApi(values);
 
             const successMessage = response.data?.message || 'Registration successful!';
             setSuccessMessage(successMessage);
 
-            console.log('Response data:', response.data); // Debugging to check the response data
+            console.log('Response data:', response.data);
+
+            localStorage.setItem('userId', response.data.user_id);
+            localStorage.setItem('username', response.data.username);
 
             setTimeout(() => {
                 navigate('/login');
@@ -54,30 +58,40 @@ const SignUp = () => {
         }
     };
 
-
-
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
+
+    // Automatically clear the success and error messages after 3 seconds
+    useEffect(() => {
+        if (successMessage || errorMessage) {
+            const timer = setTimeout(() => {
+                setSuccessMessage('');
+                setErrorMessage('');
+            }, 3000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [successMessage, errorMessage]);
 
     return (
         <div>
             <Navbar />
             {/* Container for messages */}
-            <div className="fixed top-14 right-5 m-10 p-5 h-[100%] z-50">
+            <div className="fixed top-14 right-5 m-10 p-3 h-[100%] z-50">
                 {successMessage && (
-                    <div className="bg-customWhite text-3xl text-green-500  p-5 h-20 rounded-xl shadow-md">
+                    <div className="bg-customWhite text-lg text-green-500 p-3 h-20 rounded-xl shadow-md">
                         {successMessage}
                     </div>
                 )}
                 {errorMessage && (
-                    <div className="bg-red-600 text-3xl text-white p-5 h-20 rounded-xl shadow-md">
+                    <div className="bg-white text-xl text-red-600 p-5 h-20 rounded-xl shadow-md">
                         {errorMessage}
                     </div>
                 )}
             </div>
             <div className="flex items-center justify-center min-h-screen bg-customGreen">
-                <div className="bg-white rounded-lg shadow-lg p-8 w-[30%]">
+                <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 w-[90%] sm:w-[70%] md:w-[50%] lg:w-[30%]">
                     <h2 className="text-2xl font-bold text-center mb-6">Create an account</h2>
                     <Formik
                         initialValues={initialValues}
@@ -127,7 +141,7 @@ const SignUp = () => {
                                             className="absolute inset-y-0 right-0 flex bg-transparent p-0 -translate-y-1 hover:bg-transparent translate-x-[90%] items-center pr-3"
                                         >
                                             {showPassword ? (
-                                                <EyeOffIcon className="h-5 w-5 bg-transparent text-gray-500" />
+                                                <EyeSlashIcon className="h-5 w-5 bg-transparent text-gray-500" />
                                             ) : (
                                                 <EyeIcon className="h-5 w-5 text-gray-500" />
                                             )}

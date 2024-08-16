@@ -3,7 +3,7 @@
     font-size: 30px;
     color: white;
     text-align: center;
-    margin-left: -90px;
+    margin-left: -90px; /* Adjusted for alignment */
 }
 
 @keyframes slideIn {
@@ -24,35 +24,36 @@
     justify-content: space-between;
     align-items: center;
     gap: 120px;
-    max-width: 400px;
+    max-width: 100%; /* Changed to 100% to ensure full width usage */
     margin: 0 auto;
+    padding: 20px; /* Added padding for better spacing */
 }
 
 .money,
 .bike,
 .truck {
-    max-width: 100px;
+    max-width: 100px; /* Maintained consistent image size */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .pics {
     text-align: center;
-    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 120px;
-    max-width: 400px;
-    margin-left: -100px;
+    gap: 20px; /* Adjusted gap for better spacing */
+    max-width: 100%; /* Adjusted to ensure responsiveness */
+    margin-left: 20%; /* Center the container */
     animation: slideIn 2s ease-in-out;
-    margin-top: 50px;
 }
 
 .map {
-    margin-left: -200px;
+    width: 100%; /* Adjusted width to fit container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover;
+    margin-left: 10%;
+    margin-top: 20px; /* Adjust margin for spacing */
     animation: slideIn 2s ease-in-out;
-    height: 600px; /* Increased height */
-    width: 300%;   /* Set to 100% of the container width */
-    object-fit: cover
 }
 
 /* Media query for mobile responsiveness */
@@ -61,7 +62,7 @@
         flex-direction: column;
         align-items: center;
         gap: 20px;
-        max-width: 100%;
+        padding: 10px; /* Adjusted padding for mobile */
     }
 
     .pics {
@@ -73,16 +74,17 @@
     .money,
     .bike,
     .truck {
-        max-width: 80px;
+        max-width: 80px; /* Adjusted size for mobile */
     }
 
     .text {
         font-size: 24px;
-        margin-left: 0;
+        margin-left: 0; /* Reset margin for mobile */
     }
 
     .map {
-        margin-left: 0;
-        width:100%;
+        width: 100%; /* Ensure map fits the screen width */
+        height: auto; /* Adjust height to maintain aspect ratio */
+        margin-left: 0; /* Reset margin for mobile */
     }
 }

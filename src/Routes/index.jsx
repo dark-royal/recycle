@@ -8,6 +8,14 @@ import Layouts from "../AllPages/Layouts";
 import Client from "../AllPages/Client";
 import TrashSize from "../AllPages/Trash";
 import Pickup from "../AllPages/PickUp";
+import Earnings from "../Components/earnings/Earnings";
+import SubmittedImages from "../AllPages/ImagePage/image.index";
+import ManageUsers from "../AllPages/manageUser/ManageUsers";
+import View from "../AllPages/views";
+import AssignWasteToAgent from "../AllPages/AssignWatseToAgent/assignToAnent";
+import WasteReport from "../AllPages/wasteReport";
+import RegisterAgents from "../AllPages/RegisterAgent/registerAgent";
+import RegisterWasteForSale from "../AllPages/RegisterWasteForSale/wasteSale";
 
 export const ROUTES = [
     {
@@ -31,6 +39,10 @@ export const ROUTES = [
     {
         path: '/dashboard',
         element: <DashBar />
+    },
+    {
+        path: '/earnings',
+        element: <Earnings />
     },
     {
         path: 'about',
@@ -64,8 +76,37 @@ export const ROUTES = [
                 path: '/pickup',
                 element: <Pickup />
             },
+            {
+                path: '/submitted-images',
+                element: <SubmittedImages />,
+            },
+            {
+                path: '/manage-users',
+                element: <ManageUsers />,
+            },
+            {
+                path: '/viewAll',
+                element: <View/>,
+            },
+            {
+                path: '/assign',
+                element: <AssignWasteToAgent/>,
+            },
+            {
+                path: '/wasteReport',
+                element: <WasteReport/>,
+            },
+
+            {
+                path: '/registerAgent',
+                element: <RegisterAgents/>,
+            },
         ]
-    }
+    },
+    {
+        path: '/registerWaste',
+        element: <RegisterWasteForSale/>,
+    },
     // {
     //     path: '*',
     //     element: <NotFound /> // Assuming you have a NotFound component

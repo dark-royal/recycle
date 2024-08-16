@@ -120,3 +120,31 @@ body {
         height: auto;
     }
 }
+
+.imagePreview {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.previewImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.uploadStatus {
+    font-size: 18px;
+    font-weight: bold;
+    color: green; /* Change to red if you want a failure message to stand out */
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Optional: Different colors for success and failure */
+.uploadStatus.success {
+    color: green;
+}
+
+.uploadStatus.failure {
+    color: red;
+}

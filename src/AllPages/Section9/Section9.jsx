@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import styles from "./index.module.css";
 import uploadIcon from "../../Components/asset/Upload icon.png";
 
 const Section9 = () => {
     const [fileName, setFileName] = useState('');
     const [file, setFile] = useState(null);
+    const navigate = useNavigate();
 
     const handleFileChange = (event) => {
         if (event.target.files.length > 0) {
@@ -22,31 +24,34 @@ const Section9 = () => {
 
     const handleSubmit = () => {
         if (file) {
-            // Handle file upload logic here
-            const formData = new FormData();
-            formData.append('file', file);
 
-            // Example: Make a POST request to upload the file
-            fetch('/upload-endpoint', {
-                method: 'POST',
-                body: formData,
-            })
-                .then(response => response.json())
-                .then(data => {
-                    // Handle success response
-                    console.log('File uploaded successfully:', data);
-                })
-                .catch(error => {
-                    // Handle error response
-                    console.error('Error uploading file:', error);
-                });
+            setTimeout(() => {
+
+                const existingImages = JSON.parse(localStorage.getItem('submittedImages')) || [];
+
+
+                const newImage = { url: URL.createObjectURL(file), name: fileName };
+                const updatedImages = [...existingImages, newImage];
+
+
+                localStorage.setItem('submittedImages', JSON.stringify(updatedImages));
+
+                console.log('File uploaded successfully');
+                alert('Submit successful!');
+
+
+                setFileName('');
+                setFile(null);
+
+
+                navigate('/submitted-images');
+            }, 1000);
         } else {
             alert('Please select a file to upload.');
         }
     };
 
     return (
-
         <div className={styles.upload}>
             <div className={styles.upload1}>
                 <p className={styles.up}>Upload</p>
@@ -82,6 +87,6 @@ const Section9 = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Section9;

@@ -1,4 +1,6 @@
 // Example fetch call
+import axios from "axios";
+
 export const signupApi = async (userData) => {
     const response = await fetch('http://localhost:8080/api/v1/auth/register', {
         method: 'POST',
@@ -14,4 +16,12 @@ export const signupApi = async (userData) => {
     }
 
     return await response.json();
+};
+export const loginApi = async (loginData) => {
+    try {
+         // Replace with your actual login endpoint
+        return await axios.post('http://localhost:8080/api/v1/auth/login', loginData);
+    } catch (error) {
+        throw error;
+    }
 };
