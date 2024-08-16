@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './index.module.css';
-
+import image from "../../Components/asset/waste.png"
+import Navbar from "../Navbar/Navbar";
 const wasteCategories = [
     'POLYTHENEBAG',
     'PLASTIC',
@@ -63,6 +64,8 @@ const RegisterWasteForSale = () => {
     };
 
     return (
+        <div>
+            <Navbar/>
         <div className={styles.registerWasteForSale}>
             <h1>Register Waste for Sale</h1>
             <form onSubmit={handleSubmit} className={styles.registerWasteForSaleForm}>
@@ -109,6 +112,7 @@ const RegisterWasteForSale = () => {
                     <p>{error}</p>
                 </div>
             )}
+        </div>
         </div>
     );
 };

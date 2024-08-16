@@ -101,12 +101,12 @@ export const ROUTES = [
                 path: '/registerAgent',
                 element: <RegisterAgents/>,
             },
-            {
-                path: '/registerWaste',
-                element: <RegisterWasteForSale/>,
-            },
         ]
-    }
+    },
+    {
+        path: '/registerWaste',
+        element: <RegisterWasteForSale/>,
+    },
     // {
     //     path: '*',
     //     element: <NotFound /> // Assuming you have a NotFound component

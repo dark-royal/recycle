@@ -1,69 +1,87 @@
 .registerWasteForSale {
     max-width: 600px;
     margin: 0 auto;
+    margin-top: 10%;
+    width: 50%;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .registerWasteForSale h1 {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 26px;
     color: #333;
+    font-weight: 700;
 }
 
-.registerWasteForSaleForm .formGroup {
-    margin-bottom: 15px;
+.registerWasteForSaleForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .registerWasteForSaleForm label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #555;
+    font-weight: 600;
+    color: #333;
 }
 
+.registerWasteForSaleForm select,
 .registerWasteForSaleForm input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     box-sizing: border-box;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 6px;
     font-size: 16px;
     background-color: #fff;
 }
 
+.registerWasteForSaleForm select:focus,
+.registerWasteForSaleForm input:focus {
+    border-color: #9CC026;
+    outline: none;
+}
+
 .registerWasteForSaleSubmit {
     width: 100%;
-    padding: 10px;
-    background-color: green;
+    padding: 12px;
+    background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
 }
 
 .registerWasteForSaleSubmit:hover {
-    background-color: gray;
+    background-color: #45a049;
 }
 
 .responseMessage,
 .errorMessage {
     margin-top: 20px;
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 6px;
     font-size: 16px;
+    line-height: 1.5;
 }
 
 .responseMessage {
-    background-color: #e2e3e5;
-    color: #383d41;
-    border: 1px solid #d6d8db;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
 }
 
 .errorMessage {
