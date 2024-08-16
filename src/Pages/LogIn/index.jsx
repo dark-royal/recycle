@@ -1,145 +1,144 @@
-import React, { useState } from 'react';
-import { Formik, Form, Field } from 'formik';
+import React, { useState, useEffect } from 'react';
+import { Formik, Form, Field, ErrorMessage as FormikErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import style from './index.module.css';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
-import { Icon } from '@iconify/react';
-import loadingLoop from '@iconify/icons-line-md/loading-loop';
+import { useNavigate } from 'react-router-dom';
+// import { EyeIcon, EyeOffIcon } from '@heroicons/react/solid';
 import Navbar from "../../Components/Navbar";
+import { loginApi } from "../../api";
+import {EyeIcon, EyeSlashIcon} from "@heroicons/react/24/solid";
 
+const SignIn = () => {
+    const [loading, setLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
 
-const LogIn = () => {
-    const [isLoading, setIsLoading] = useState(false);
+    const initialValues = {
+        username: '',
+        password: '',
+    };
 
-    const validationSchema = Yup.object().shape({
-        email: Yup.string()
-            .email('Invalid email address')
-            .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Must be a valid email address')
-            .required('Email Address is required'),
-        password: Yup.string()
-            .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, 'Password must be at least 8 characters long.')
-            .required('Password is required'),
-
+    const validationSchema = Yup.object({
+        username: Yup.string().required('Username is required'),
+        password: Yup.string().required('Password is required'),
     });
 
-    const handleSubscribe = async (values, { resetForm }) => {
-        setIsLoading(true);
-        try {
-            const payload = {
-                email_address: values.email,
-                status: 'LogIn',
-                merge_fields: {
-                    PASSWORD: values.password,
-                },
-            };
-            const response = await axios.post("", payload);
+    const handleSubmit = async (values) => {
+        setLoading(true);
+        setErrorMessage('');
 
-            if (response.data.success) {
-                toast.success(`Hi ${values.username}, You are now a citizen`, {
-                    position: 'top-right',
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-                resetForm();
-            } else {
-                toast.error('Subscription failed. Please try again', {
-                    position: 'top-right',
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-            }
+        try {
+            const response = await loginApi(values);
+
+            const successMessage = response.data?.message || 'Login successful!';
+            console.log('Response data:', response.data);
+            localStorage.getItem('userId');
+
+
+            // Store both tokens
+            const { token, refreshToken } = response.data.data;
+
+            localStorage.setItem('accessToken', token);
+            localStorage.setItem('refreshToken', refreshToken);
+            console.log('Access token:', token);
+
+            setTimeout(() => {
+                navigate('/dashboard');
+            }, 2000);
         } catch (error) {
-            console.error('Error during subscription:', error);
-            toast.error('Subscription failed. Please try again', {
-                position: 'top-right',
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            if (error.response && error.response.data) {
+                const backendMessage = error.response.data.message;
+                setErrorMessage(backendMessage);
+            } else {
+                setErrorMessage('An unexpected error occurred. Please try again.');
+            }
         } finally {
-            setIsLoading(false);
+            setLoading(false);
         }
     };
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
+    useEffect(() => {
+        if (errorMessage) {
+            const timer = setTimeout(() => {
+                setErrorMessage('');
+            }, 3000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [errorMessage]);
+
     return (
         <div>
-            <Navbar/>
-        <div className={style.mainContainer}>
-            <Formik
-                initialValues={{ email: '', password: ''}}
-                validationSchema={validationSchema}
-                onSubmit={handleSubscribe}
-            >
-                {({values, errors, touched, handleChange, handleBlur}) => (
-                    <Form className={style.formOverlay}>
-                        <div className={style.subCont}>
-                            <div className={style.innerCont}>
-                                <div className={style.contentCont}>
-                                    <div className={style.contentSection}>
-                                        <p className={style.topic}>Glad to see you again!</p>
-                                    </div>
+            <Navbar />
+            <div className="fixed top-14 right-5 m-10 p-5 h-[100%] z-50">
+                {errorMessage && (
+                    <div className="bg-white text-xl text-red-700 p-5 h-20 rounded-xl shadow-md">
+                        {errorMessage}
+                    </div>
+                )}
+            </div>
+            <div className="flex items-center justify-center min-h-screen bg-customGreen">
+                <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 w-[90%] sm:w-[70%] md:w-[50%] lg:w-[30%]">
+                    <h2 className="text-2xl font-bold text-center mb-6">Sign In</h2>
+                    <Formik
+                        initialValues={initialValues}
+                        validationSchema={validationSchema}
+                        onSubmit={handleSubmit}
+                    >
+                        {() => (
+                            <Form>
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium text-gray-700">Username</label>
+                                    <Field
+                                        name="username"
+                                        type="text"
+                                        className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                                    />
+                                    <FormikErrorMessage name="username" component="div" className="text-red-500 text-sm" />
                                 </div>
-                                <div className={style.inputSection}>
-                                    <div>
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium text-gray-700">Password</label>
+                                    <div className="relative">
                                         <Field
-                                            type="email"
-                                            name="email"
-                                            placeholder="Enter Email Address"
-                                            value={values.email}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            className={errors.email && touched.email ? style.errorInput : ''}
-                                        />
-                                        {errors.email && touched.email &&
-                                            <div className={style.error}>{errors.email}</div>}
-                                    </div>
-                                    <div>
-                                        <Field
-                                            type="password"
                                             name="password"
-                                            placeholder="Enter password"
-                                            value={values.password}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            className={errors.password && touched.password ? style.errorInput : ''}
+                                            type={showPassword ? 'text' : 'password'}
+                                            className="mt-1 block w-full border border-gray-300 rounded-md p-2 pr-10"
                                         />
-                                        {errors.password && touched.password &&
-                                            <div className={style.error}>{errors.password}</div>}
-                                    </div>
-                                    <div className={style.btn}>
-                                        <button type="submit" className={style.btn} disabled={isLoading}>
-                                            {isLoading ? (
-                                                <div className="flex items-center justify-center">
-                                                    <Icon width={24} height={24} icon={loadingLoop}/>
-                                                </div>
+                                        <button
+                                            type="button"
+                                            onClick={togglePasswordVisibility}
+                                            className="absolute inset-y-0 right-0 flex bg-transparent p-0 -translate-y-1 hover:bg-transparent translate-x-[90%] items-center pr-3"
+                                        >
+                                            {showPassword ? (
+                                                <EyeSlashIcon className="h-5 w-5 bg-transparent text-gray-500" />
                                             ) : (
-                                                'Sign In'
+                                                <EyeIcon className="h-5 w-5 text-gray-500" />
                                             )}
                                         </button>
+                                        <FormikErrorMessage name="password" component="div" className="text-red-500 text-sm" />
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </Form>
-                )}
-            </Formik>
-            <ToastContainer/>
-        </div>
+                                <button
+                                    type="submit"
+                                    className={`w-full bg-green-500 text-white font-bold py-2 rounded-md ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-green-600'}`}
+                                    disabled={loading}
+                                >
+                                    {loading ? 'Loading...' : 'Sign In'}
+                                </button>
+                            </Form>
+                        )}
+                    </Formik>
+                    <p className="mt-4 text-center text-sm text-gray-600">
+                        Don't have an account? <a href="/signup" className="text-green-500">Sign Up</a>
+                    </p>
+                </div>
+            </div>
         </div>
     );
 };
 
-export default LogIn;
+export default SignIn;

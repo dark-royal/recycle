@@ -1,178 +1,171 @@
-import React, { useState } from 'react';
-import { Formik, Form, Field } from 'formik';
+import React, { useState, useEffect } from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import style from './index.module.css';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
-import { Icon } from '@iconify/react';
-import loadingLoop from '@iconify/icons-line-md/loading-loop';
-import shape from './assert/Rectangle 5 (1).png';
-import shape1 from './assert/Rectangle 6.png';
+import { useNavigate } from 'react-router-dom';
+import {EyeIcon, EyeSlashIcon} from "@heroicons/react/24/solid";
 import Navbar from "../../Components/Navbar";
+import { signupApi } from "../../api";
 
 const SignUp = () => {
-    const [isLoading, setIsLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
 
-    const validationSchema = Yup.object().shape({
-        username: Yup.string()
-            .matches(/^[a-zA-Z\s]+$/, 'Name should only contain letters and spaces')
-            .required('Username is required'),
-        email: Yup.string()
-            .email('Invalid email address')
-            .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Must be a valid email address')
-            .required('Email Address is required'),
-        password: Yup.string()
-            .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, 'Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one number, and one special character')
-            .required('Password is required'),
-        phoneNumber: Yup.string()
-            .matches(/^(\+?\d{1,3})?[-.\s]?(\(?\d{1,4}?\)?[-.\s]?)?(\d{1,4}[-.\s]?){1,3}\d{1,4}$/, 'Must be a valid phone number')
-            .required('Phone Number is required')
+    const initialValues = {
+        username: '',
+        phoneNumber: '',
+        email: '',
+        password: '',
+    };
+
+    const validationSchema = Yup.object({
+        username: Yup.string().required('Username is required'),
+        phoneNumber: Yup.string().required('Phone number is required'),
+        email: Yup.string().email('Invalid email address').required('Email is required'),
+        password: Yup.string().required('Password is required'),
     });
 
-    const handleSubscribe = async (values, { resetForm }) => {
-        setIsLoading(true);
-        try {
-            const payload = {
-                email_address: values.email,
-                status: 'SignUp',
-                merge_fields: {
-                    USERNAME: values.username,
-                },
-            };
-            const response = await axios.post("", payload);
+    const handleSubmit = async (values) => {
+        setLoading(true);
+        setSuccessMessage('');
+        setErrorMessage('');
 
-            if (response.data.success) {
-                toast.success(`Hi ${values.username}, You are now a citizen`, {
-                    position: 'top-right',
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-                resetForm();
-            } else {
-                toast.error('Subscription failed. Please try again', {
-                    position: 'top-right',
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-            }
+        try {
+            console.log("OLODO DAYO")
+            const response = await signupApi(values);
+            console.log("OLODO MICHEAL")
+
+            const successMessage = response.data?.message || 'Registration successful!';
+            setSuccessMessage(successMessage);
+
+            console.log('Response data:', response.data);
+
+            localStorage.setItem('userId', response.data.user_id);
+            localStorage.setItem('username', response.data.username);
+
+            setTimeout(() => {
+                navigate('/login');
+            }, 2000);
         } catch (error) {
-            console.error('Error during subscription:', error);
-            toast.error('Subscription failed. Please try again', {
-                position: 'top-right',
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            if (error.response && error.response.data) {
+                const backendMessage = error.response.data.message;
+                setErrorMessage(backendMessage);
+            } else {
+                setErrorMessage('An unexpected error occurred. Please try again.');
+            }
         } finally {
-            setIsLoading(false);
+            setLoading(false);
         }
     };
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
+    // Automatically clear the success and error messages after 3 seconds
+    useEffect(() => {
+        if (successMessage || errorMessage) {
+            const timer = setTimeout(() => {
+                setSuccessMessage('');
+                setErrorMessage('');
+            }, 3000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [successMessage, errorMessage]);
+
     return (
         <div>
-            <Navbar/>
-
-        <div className={style.mainContainer}>
-            <img src={shape} alt="shape" className={style.shape}/>
-            <img src={shape1} alt="shape1" className={style.shape1}/>
-            <Formik
-                initialValues={{username: '', email: '', password: '', phoneNumber: ''}}
-                validationSchema={validationSchema}
-                onSubmit={handleSubscribe}
-            >
-                {({values, errors, touched, handleChange, handleBlur}) => (
-                    <Form className={style.formOverlay}>
-                        <div className={style.subCont}>
-                            <div className={style.innerCont}>
-                                <div className={style.contentCont}>
-                                    <div className={style.contentSection}>
-                                        <p className={style.topic}>Create an Account</p>
-                                    </div>
+            <Navbar />
+            {/* Container for messages */}
+            <div className="fixed top-14 right-5 m-10 p-3 h-[100%] z-50">
+                {successMessage && (
+                    <div className="bg-customWhite text-lg text-green-500 p-3 h-20 rounded-xl shadow-md">
+                        {successMessage}
+                    </div>
+                )}
+                {errorMessage && (
+                    <div className="bg-white text-xl text-red-600 p-5 h-20 rounded-xl shadow-md">
+                        {errorMessage}
+                    </div>
+                )}
+            </div>
+            <div className="flex items-center justify-center min-h-screen bg-customGreen">
+                <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 w-[90%] sm:w-[70%] md:w-[50%] lg:w-[30%]">
+                    <h2 className="text-2xl font-bold text-center mb-6">Create an account</h2>
+                    <Formik
+                        initialValues={initialValues}
+                        validationSchema={validationSchema}
+                        onSubmit={handleSubmit}
+                    >
+                        {() => (
+                            <Form>
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium text-gray-700">Username</label>
+                                    <Field
+                                        name="username"
+                                        type="text"
+                                        className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                                    />
+                                    <ErrorMessage name="username" component="div" className="text-red-500 text-sm" />
                                 </div>
-                                <div className={style.inputSection}>
-                                    <div>
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium text-gray-700">Phone Number</label>
+                                    <Field
+                                        name="phoneNumber"
+                                        type="tel"
+                                        className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                                    />
+                                    <ErrorMessage name="phoneNumber" component="div" className="text-red-500 text-sm" />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium text-gray-700">Email</label>
+                                    <Field
+                                        name="email"
+                                        type="email"
+                                        className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                                    />
+                                    <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium text-gray-700">Password</label>
+                                    <div className="relative">
                                         <Field
-                                            type="text"
-                                            name="username"
-                                            placeholder="Enter username"
-                                            value={values.username}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            className={errors.username && touched.username ? style.errorInput : ''}
-                                        />
-                                        {errors.username && touched.username &&
-                                            <div className={style.error}>{errors.username}</div>}
-                                    </div>
-                                    <div>
-                                        <Field
-                                            type="email"
-                                            name="email"
-                                            placeholder="Enter Email Address"
-                                            value={values.email}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            className={errors.email && touched.email ? style.errorInput : ''}
-                                        />
-                                        {errors.email && touched.email &&
-                                            <div className={style.error}>{errors.email}</div>}
-                                    </div>
-                                    <div>
-                                        <Field
-                                            type="password"
                                             name="password"
-                                            placeholder="Enter password"
-                                            value={values.password}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            className={errors.password && touched.password ? style.errorInput : ''}
+                                            type={showPassword ? 'text' : 'password'}
+                                            className="mt-1 block w-full border border-gray-300 rounded-md p-2 pr-10"
                                         />
-                                        {errors.password && touched.password &&
-                                            <div className={style.error}>{errors.password}</div>}
-                                    </div>
-                                    <div>
-                                        <Field
-                                            type="text"
-                                            name="phoneNumber"
-                                            placeholder="Enter phone number"
-                                            value={values.phoneNumber}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            className={errors.phoneNumber && touched.phoneNumber ? style.errorInput : ''}
-                                        />
-                                        {errors.phoneNumber && touched.phoneNumber &&
-                                            <div className={style.error}>{errors.phoneNumber}</div>}
-                                    </div>
-                                    <div className={style.btn}>
-                                        <button type="submit" className={style.btn} disabled={isLoading}>
-                                            {isLoading ? (
-                                                <div className="flex items-center justify-center">
-                                                    <Icon width={24} height={24} icon={loadingLoop}/>
-                                                </div>
+                                        <button
+                                            type="button"
+                                            onClick={togglePasswordVisibility}
+                                            className="absolute inset-y-0 right-0 flex bg-transparent p-0 -translate-y-1 hover:bg-transparent translate-x-[90%] items-center pr-3"
+                                        >
+                                            {showPassword ? (
+                                                <EyeSlashIcon className="h-5 w-5 bg-transparent text-gray-500" />
                                             ) : (
-                                                'Sign Up'
+                                                <EyeIcon className="h-5 w-5 text-gray-500" />
                                             )}
                                         </button>
+                                        <ErrorMessage name="password" component="div" className="text-red-500 text-sm" />
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </Form>
-                )}
-            </Formik>
-            <ToastContainer/>
-        </div>
+                                <button
+                                    type="submit"
+                                    className={`w-full bg-green-500 text-white font-bold py-2 rounded-md ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-green-600'}`}
+                                    disabled={loading}
+                                >
+                                    {loading ? 'Loading...' : 'Sign Up'}
+                                </button>
+                            </Form>
+                        )}
+                    </Formik>
+                    <p className="mt-4 text-center text-sm text-gray-600">
+                        Already have an account? <a href="/login" className="text-green-500">Sign in</a>
+                    </p>
+                </div>
+            </div>
         </div>
     );
 };
