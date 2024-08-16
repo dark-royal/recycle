@@ -32,13 +32,15 @@ const SignIn = () => {
 
             const successMessage = response.data?.message || 'Login successful!';
             console.log('Response data:', response.data);
+            localStorage.getItem('userId');
+
 
             // Store both tokens
-            const { token, userId, refreshToken } = response.data.data;
+            const { token, refreshToken } = response.data.data;
+
             localStorage.setItem('accessToken', token);
             localStorage.setItem('refreshToken', refreshToken);
             console.log('Access token:', token);
-            localStorage.setItem('userId', userId);
 
             setTimeout(() => {
                 navigate('/dashboard');

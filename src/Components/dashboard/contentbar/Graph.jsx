@@ -1,50 +1,32 @@
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 Chart.register(...registerables);
 
 const Graph = () => {
   const [userContribution, setUserContribution] = useState([]);
   const [totalPoints, setTotalPoints] = useState(0);
-  const [accumulatedWaste, setAccumulatedWaste] = useState(0); // State for accumulated waste
-  const [loadingWasteData, setLoadingWasteData] = useState(true);
-  const [loadingUserPoints, setLoadingUserPoints] = useState(true);
+  const [accumulatedWaste, setAccumulatedWaste] = useState(0);
 
   useEffect(() => {
-    const fetchAccumulatedWaste = async () => {
-      try {
-        const userId = localStorage.getItem('userId');
-        if (!userId) {
-          throw new Error("User ID not found. Please log in.");
-        }
+    const fetchLocalData = () => {
+      // Fetch accumulated waste from localStorage
+      const weight = localStorage.getItem('wasteQuantity');
+      const weightNumber = parseFloat(weight) || 0;
+      setAccumulatedWaste(weightNumber);
 
-        const response = await axios.get(`http://localhost:8080/api/v1/user/totalWeight/${userId}`);
+      // Fetch accumulated points from localStorage
+      const points = localStorage.getItem('userPoints');
+      const pointsNumber = parseFloat(points) || 0;
+      setTotalPoints(pointsNumber);
 
-        setAccumulatedWaste(response.data.weight);
-      } catch (error) {
-        console.error("Error fetching accumulated waste data: ", error);
-      } finally {
-        setLoadingWasteData(false);
-      }
+      // For demonstration purposes, assume contributions are daily points over the last 7 days
+      const pointsArray = Array(7).fill(pointsNumber / 7); // Divide points evenly across 7 days
+      setUserContribution(pointsArray);
     };
-    fetchAccumulatedWaste();
-  }, []);
 
-  useEffect(() => {
-    const fetchUserPoints = async () => {
-      try {
-        const userId = 1; // Replace with the actual user ID
-        const response = await axios.get(`/api/points/${userId}`);
-        setTotalPoints(response.data.totalPoints);
-      } catch (error) {
-        console.error("Error fetching user points: ", error);
-      } finally {
-        setLoadingUserPoints(false);
-      }
-    };
-    fetchUserPoints();
+    fetchLocalData();
   }, []);
 
   const eWasteDataChart = {
@@ -52,7 +34,7 @@ const Graph = () => {
     datasets: [
       {
         label: 'E-Waste Collected (kg)',
-        data: Array(7).fill(accumulatedWaste), // Display the accumulated waste
+        data: Array(7).fill(accumulatedWaste),
         backgroundColor: 'rgba(75, 122, 192, 0.5)',
         borderColor: 'rgba(75, 192, 192, 1)',
       },
@@ -85,26 +67,16 @@ const Graph = () => {
 
   return (
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-12 p-6">
-        <div
-            className="flex-1 p-4 bg-customWhite w-full md:w-80 shadow-md flex flex-col items-start rounded-2xl"> {/* Changed items-baseline to items-start */}
+        <div className="flex-1 p-4 bg-customWhite w-full md:w-80 shadow-md flex flex-col items-start rounded-2xl">
           <h2 className="text-lg font-extralight">E-Waste Collected</h2>
           <h3 className="text-lg font-semibold mt-4">{accumulatedWaste} kg</h3>
-          {loadingWasteData ? (
-              <p>Loading...</p>
-          ) : (
-              <Bar data={eWasteDataChart} options={options}/>
-          )}
+          <Bar data={eWasteDataChart} options={options} />
         </div>
 
-        <div
-            className="flex-1 p-4 bg-customWhite w-full md:w-80 shadow-md flex flex-col items-start rounded-2xl"> {/* Changed items-baseline to items-start */}
+        <div className="flex-1 p-4 bg-customWhite w-full md:w-80 shadow-md flex flex-col items-start rounded-2xl">
           <h2 className="text-lg font-extralight">User Contribution</h2>
           <h3 className="text-lg font-semibold mt-5">{totalPoints} points</h3>
-          {loadingUserPoints ? (
-              <p>Loading...</p>
-          ) : (
-              <Bar data={contributionChart} options={options}/>
-          )}
+          <Bar data={contributionChart} options={options} />
         </div>
       </div>
   );

@@ -40,6 +40,9 @@ const SignUp = () => {
 
             console.log('Response data:', response.data);
 
+            localStorage.setItem('userId', response.data.user_id);
+            localStorage.setItem('username', response.data.username);
+
             setTimeout(() => {
                 navigate('/login');
             }, 2000);
