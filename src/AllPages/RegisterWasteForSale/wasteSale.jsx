@@ -3,11 +3,28 @@ import axios from 'axios';
 import styles from './index.module.css';
 import Navbar from "../Navbar/Navbar";
 
+// Define waste categories
 const wasteCategories = [
     'POLYTHENEBAG',
     'PLASTIC',
     'PAPER',
 ];
+
+// Function to store data in localStorage
+const storeUserData = (weight, points) => {
+    const getDayKey = (daysAgo = 0) => {
+        const date = new Date();
+        date.setDate(date.getDate() - daysAgo);
+        return date.toISOString().split('T')[0]; // YYYY-MM-DD format
+    };
+
+    const dayKey = getDayKey();
+    const existingWeight = parseFloat(localStorage.getItem(`${dayKey}_wasteQuantity`)) || 0;
+    const existingPoints = parseFloat(localStorage.getItem(`${dayKey}_points`)) || 0;
+
+    localStorage.setItem(`${dayKey}_wasteQuantity`, (existingWeight + weight).toString());
+    localStorage.setItem(`${dayKey}_points`, (existingPoints + points).toString());
+};
 
 const RegisterWasteForSale = () => {
     const [wasteType, setWasteType] = useState('');
@@ -44,15 +61,8 @@ const RegisterWasteForSale = () => {
             // Calculate points (e.g., 1 point per kg)
             const pointsEarned = quantityNumber;
 
-            // Accumulate waste quantity
-            let accumulatedWaste = parseFloat(localStorage.getItem('wasteQuantity') || '0');
-            accumulatedWaste += quantityNumber;
-            localStorage.setItem('wasteQuantity', accumulatedWaste.toString());
-
-            // Accumulate points
-            let totalPoints = parseFloat(localStorage.getItem('userPoints') || '0');
-            totalPoints += pointsEarned;
-            localStorage.setItem('userPoints', totalPoints.toString());
+            // Store data in localStorage
+            storeUserData(quantityNumber, pointsEarned);
 
             // Optional: Send to backend
             const token = localStorage.getItem('accessToken');

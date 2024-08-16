@@ -47,7 +47,6 @@ const DSidebar = () => {
                             <img src={logo} alt="logo" className="w-8 h-8 md:w-12 md:h-12"/>
                             <h4 className="text-green-500 font-bold text-xl ml-2 md:text-2xl">g-cycle</h4>
                         </div>
-                        <p className="text-green-500 text-sm md:text-base">Michael</p>
                     </div>
                 )}
                 <div className="flex flex-col flex-grow bg-ash rounded-lg p-3 md:p-5 shadow-lg shadow-gray-900 md:bg-transparent">
