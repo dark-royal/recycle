@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-import { EyeIcon, EyeOffIcon } from '@heroicons/react/solid';
+import {EyeIcon, EyeSlashIcon} from "@heroicons/react/24/solid";
 import Navbar from "../../Components/Navbar";
 import { signupApi } from "../../api";
 
@@ -138,7 +138,7 @@ const SignUp = () => {
                                             className="absolute inset-y-0 right-0 flex bg-transparent p-0 -translate-y-1 hover:bg-transparent translate-x-[90%] items-center pr-3"
                                         >
                                             {showPassword ? (
-                                                <EyeOffIcon className="h-5 w-5 bg-transparent text-gray-500" />
+                                                <EyeSlashIcon className="h-5 w-5 bg-transparent text-gray-500" />
                                             ) : (
                                                 <EyeIcon className="h-5 w-5 text-gray-500" />
                                             )}

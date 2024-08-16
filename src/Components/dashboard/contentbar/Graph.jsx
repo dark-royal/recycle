@@ -84,26 +84,26 @@ const Graph = () => {
   };
 
   return (
-      <div className="flex space-x-12 p-6">
-        <div className="flex-1 p-4 bg-customWhite w-80 shadow-md flex flex-col items-baseline rounded-2xl">
+      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-12 p-6">
+        <div
+            className="flex-1 p-4 bg-customWhite w-full md:w-80 shadow-md flex flex-col items-start rounded-2xl"> {/* Changed items-baseline to items-start */}
           <h2 className="text-lg font-extralight">E-Waste Collected</h2>
-          <h3 className="text-lg font-semibold mt-4">
-            {accumulatedWaste} kg
-          </h3>
+          <h3 className="text-lg font-semibold mt-4">{accumulatedWaste} kg</h3>
           {loadingWasteData ? (
               <p>Loading...</p>
           ) : (
-              <Bar data={eWasteDataChart} options={options} />
+              <Bar data={eWasteDataChart} options={options}/>
           )}
         </div>
 
-        <div className="flex-1 p-4 bg-customWhite w-80 shadow-md flex flex-col items-baseline rounded-2xl">
+        <div
+            className="flex-1 p-4 bg-customWhite w-full md:w-80 shadow-md flex flex-col items-start rounded-2xl"> {/* Changed items-baseline to items-start */}
           <h2 className="text-lg font-extralight">User Contribution</h2>
           <h3 className="text-lg font-semibold mt-5">{totalPoints} points</h3>
           {loadingUserPoints ? (
               <p>Loading...</p>
           ) : (
-              <Bar data={contributionChart} options={options} />
+              <Bar data={contributionChart} options={options}/>
           )}
         </div>
       </div>

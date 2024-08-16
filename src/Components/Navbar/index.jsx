@@ -51,12 +51,12 @@ const Navbar = () => {
                         <Link to="/blog" className="text-green-500">{t("Blog")}</Link>
                     </p>
                     <Link to="/login">
-                        <button className="text-green-600 border-2 p-2 rounded-full bg-white shadow-md hover:bg-white">
+                        <button className="text-green-600 border-2 p-4 rounded-full bg-white shadow-md hover:bg-white">
                             SIGN IN
                         </button>
                     </Link>
                     <Link to="/signup">
-                        <button className="bg-green-500 text-amber-50 rounded-full p-2">REGISTER</button>
+                        <button className="bg-green-500 text-amber-50 rounded-full p-4">REGISTER</button>
                     </Link>
                     <select className="bg-white border rounded-md p-1 mt-2 md:mt-0" onChange={(e) => changeLanguage(e.target.value)}>
                         <option value="en">English</option>
