@@ -71,7 +71,7 @@ const RegisterWasteForSale = () => {
                     'Authorization': `Bearer ${token}`,
                 }
             };
-            const res = await axios.post('http://localhost:8080/api/v1/user/sellWaste', sellWasteRequest, config);
+            const res = await axios.post('https://g-cycle-latest-1.onrender.com/api/v1/user/sellWaste', sellWasteRequest, config);
 
             setResponse({ message: res.data.message, waste: sellWasteRequest });
             setError(null);
