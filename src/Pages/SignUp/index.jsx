@@ -33,7 +33,9 @@ const SignUp = () => {
         setErrorMessage('');
 
         try {
+            console.log("OLODO DAYO")
             const response = await signupApi(values);
+            console.log("OLODO MICHEAL")
 
             const successMessage = response.data?.message || 'Registration successful!';
             setSuccessMessage(successMessage);

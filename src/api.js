@@ -9,6 +9,7 @@ export const signupApi = async (userData) => {
         },
         body: JSON.stringify(userData),
     });
+    console.log("OLODO PRAISE")
 
     if (!response.ok) {
         const errorData = await response.json();
