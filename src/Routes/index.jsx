@@ -111,4 +111,6 @@ export const ROUTES = [
     //     path: '*',
     //     element: <NotFound /> // Assuming you have a NotFound component
     // }
+    //
+    // trying things
 ]
