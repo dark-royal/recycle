@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import Navbar from "../Navbar";
 
-const Earnings = () => {
-    const [points, setPoints] = useState(1200);
+const Earnings = ({ points = 0 }) => {
     const [withdrawAmount, setWithdrawAmount] = useState('');
     const [message, setMessage] = useState('');
-    const userId = 1; // Replace this with the actual method to get the current user's ID
+    const userId = 1;
 
     const handleWithdraw = async () => {
         const amount = parseInt(withdrawAmount, 10);
@@ -30,7 +29,6 @@ const Earnings = () => {
             const data = await response.json();
 
             if (response.ok) {
-                setPoints(points - amount); // Update local points
                 setMessage(`Withdrawal Successful! ${amount} points have been deducted from your balance.`);
             } else {
                 setMessage(data.message || 'Withdrawal failed. Please try again.');
@@ -45,31 +43,39 @@ const Earnings = () => {
     return (
         <div>
             <Navbar />
-            <div className="max-w-md mx-auto mt-48 p-5 bg-white shadow-md rounded-lg">
-                <h1 className="text-2xl font-bold mb-4">Earn Rewards</h1>
-                <p className="text-lg">Total Points: <span className="font-semibold">{points}</span></p>
-                <h2 className="mt-6 text-xl font-semibold">Withdraw Points</h2>
-                <p className="mb-4">You have {points} points available to withdraw.</p>
-                <div className="mb-4">
-                    <input
-                        type="number"
-                        value={withdrawAmount}
-                        onChange={(e) => setWithdrawAmount(e.target.value)}
-                        placeholder="Enter amount to withdraw"
-                        className="border border-gray-300 p-2 rounded w-full"
-                    />
+            <div className="min-h-screen  flex items-center justify-center">
+                <div className="w-full max-w-lg bg-white p-8 shadow-lg rounded-lg">
+                    <h1 className="text-3xl font-bold text-gray-800 text-center mb-6">Earn Rewards</h1>
+                    <p className="text-xl text-gray-600 text-center mb-8">Total Points: <span className="font-semibold text-gray-800">{points}</span></p>
+
+                    <div className="text-center mb-8">
+                        <h2 className="text-2xl font-semibold text-gray-800">Withdraw Points</h2>
+                        <p className="text-gray-600">You have <span className="font-semibold">{points}</span> points available to withdraw.</p>
+                    </div>
+
+                    <div className="mb-6">
+                        <input
+                            type="number"
+                            value={withdrawAmount}
+                            onChange={(e) => setWithdrawAmount(e.target.value)}
+                            placeholder="Enter amount to withdraw"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        />
+                    </div>
+
+                    <button
+                        onClick={handleWithdraw}
+                        className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all duration-300"
+                    >
+                        Confirm Withdrawal
+                    </button>
+
+                    {message && (
+                        <p className={`mt-6 text-center ${message.includes('Successful') ? 'text-green-500' : 'text-red-500'}`}>
+                            {message}
+                        </p>
+                    )}
                 </div>
-                <button
-                    onClick={handleWithdraw}
-                    className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-700 transition"
-                >
-                    Confirm Withdrawal
-                </button>
-                {message && (
-                    <p className={`mt-4 ${message.includes('Successful') ? 'text-green-500' : 'text-red-500'}`}>
-                        {message}
-                    </p>
-                )}
             </div>
         </div>
     );

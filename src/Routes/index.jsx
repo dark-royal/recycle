@@ -16,6 +16,7 @@ import AssignWasteToAgent from "../AllPages/AssignWatseToAgent/assignToAnent";
 import WasteReport from "../AllPages/wasteReport";
 import RegisterAgents from "../AllPages/RegisterAgent/registerAgent";
 import RegisterWasteForSale from "../AllPages/RegisterWasteForSale/wasteSale";
+import AdminBar from "../Components/adminDashboard/AdminBar";
 
 export const ROUTES = [
     {
@@ -48,6 +49,10 @@ export const ROUTES = [
         path: 'about',
         element: <About />
     },
+    {
+        path: '/adminDashboard',
+        element: <AdminBar/>,
+    },
 
     {
         path: '/information',
@@ -57,6 +62,7 @@ export const ROUTES = [
                 path: '',
                 element: <Client />
             },
+
         ]
     },
     {
@@ -66,6 +72,7 @@ export const ROUTES = [
                 path: '/size',
                 element: <TrashSize />
             },
+
         ]
     },
 
@@ -101,6 +108,7 @@ export const ROUTES = [
                 path: '/registerAgent',
                 element: <RegisterAgents/>,
             },
+
         ]
     },
     {

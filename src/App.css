@@ -12,6 +12,29 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  @apply bg-customGreen
+}
+.no-global-button {
+  all: unset;
+  display: inline-block;
+  background-color: inherit; /* Ensures the background is consistent */
+  color: inherit; /* Ensures the text color is consistent */
+  padding: 8px 16px; /* Adjust padding as needed */
+  border-radius: 4px; /* Set a border radius */
+  font: inherit; /* Inherit the font settings */
+  cursor: pointer; /* Add cursor pointer */
+  text-align: center; /* Center text */
+  border: 1px solid currentColor; /* Optional: border for better visibility */
+}
+.rounded-bottom-only {
+  border-radius: 0 0 1rem 1rem; /* Adjust the values as needed */
+}
+
 
 .App-header {
   background-color: #282c34;
