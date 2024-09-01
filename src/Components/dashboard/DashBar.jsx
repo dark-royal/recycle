@@ -13,4 +13,4 @@ const DashBar = () => {
         </>
     )
 }
-export default DashBar
+export default DashBar;
