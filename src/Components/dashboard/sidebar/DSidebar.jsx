@@ -23,7 +23,7 @@ const DSidebar = () => {
     const handleLogout = () => {
         fetch("https://g-cycle-latest-1.onrender.com/api/v1/auth/logout", {
             method: "POST",
-            credentials: "include", // Include cookies, like tokens
+            credentials: "include",
         })
             .then(response => {
                 if (response.ok) {
