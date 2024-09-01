@@ -4,13 +4,18 @@ import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import Navbar from "../../Components/Navbar";
 import { loginApi } from "../../api";
-import {EyeIcon, EyeSlashIcon} from "@heroicons/react/24/solid";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 
 const SignIn = () => {
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+
+    const adminCredentials = {
+        email: "admin@gmail.com",
+        password: "michaeladmin",
+    };
 
     const initialValues = {
         username: '',
@@ -26,20 +31,27 @@ const SignIn = () => {
         setLoading(true);
         setErrorMessage('');
 
+        // Check if the user is an admin
+        const isAdmin = values.username === adminCredentials.email && values.password === adminCredentials.password;
+
+        if (isAdmin) {
+            // Redirect to the admin dashboard if the credentials match
+            navigate('/adminDashboard');
+            setLoading(false);
+            return;
+        }
+
         try {
             const response = await loginApi(values);
 
             const successMessage = response.data?.message || 'Login successful!';
             console.log('Response data:', response.data);
-            localStorage.getItem('userId');
-
 
             // Store both tokens
             const { token, refreshToken } = response.data.data;
 
             localStorage.setItem('accessToken', token);
             localStorage.setItem('refreshToken', refreshToken);
-            console.log('Access token:', token);
 
             setTimeout(() => {
                 navigate('/dashboard');
