@@ -16,6 +16,13 @@ import AssignWasteToAgent from "../AllPages/AssignWatseToAgent/assignToAnent";
 import WasteReport from "../AllPages/wasteReport";
 import RegisterAgents from "../AllPages/RegisterAgent/registerAgent";
 import RegisterWasteForSale from "../AllPages/RegisterWasteForSale/wasteSale";
+import AdminBar from "../Components/adminDashboard/AdminBar";
+import ProtectedRoute from "./ProtectedRoute";
+
+// Example authentication check function
+const isAuthenticated = () => {
+    return !!localStorage.getItem("accessToken");
+};
 
 export const ROUTES = [
     {
@@ -38,17 +45,20 @@ export const ROUTES = [
     },
     {
         path: '/dashboard',
-        element: <DashBar />
+        element: <ProtectedRoute element={DashBar} isAuthenticated={isAuthenticated()} />
     },
     {
         path: '/earnings',
-        element: <Earnings />
+        element: <ProtectedRoute element={Earnings} isAuthenticated={isAuthenticated()} />
     },
     {
         path: 'about',
         element: <About />
     },
-
+    {
+        path: '/adminDashboard',
+        element: <ProtectedRoute element={AdminBar} isAuthenticated={isAuthenticated()} />,
+    },
     {
         path: '/information',
         element: <Layouts />,
@@ -68,7 +78,6 @@ export const ROUTES = [
             },
         ]
     },
-
     {
         element: <Layouts/>,
         children: [
@@ -78,39 +87,36 @@ export const ROUTES = [
             },
             {
                 path: '/submitted-images',
-                element: <SubmittedImages />,
+                element: <ProtectedRoute element={SubmittedImages} isAuthenticated={isAuthenticated()} />,
             },
             {
                 path: '/manage-users',
-                element: <ManageUsers />,
+                element: <ProtectedRoute element={ManageUsers} isAuthenticated={isAuthenticated()} />,
             },
             {
                 path: '/viewAll',
-                element: <View/>,
+                element: <ProtectedRoute element={View} isAuthenticated={isAuthenticated()} />,
             },
             {
                 path: '/assign',
-                element: <AssignWasteToAgent/>,
+                element: <ProtectedRoute element={AssignWasteToAgent} isAuthenticated={isAuthenticated()} />,
             },
             {
                 path: '/wasteReport',
-                element: <WasteReport/>,
+                element: <ProtectedRoute element={WasteReport} isAuthenticated={isAuthenticated()} />,
             },
-
             {
                 path: '/registerAgent',
-                element: <RegisterAgents/>,
+                element: <ProtectedRoute element={RegisterAgents} isAuthenticated={isAuthenticated()} />,
             },
         ]
     },
     {
         path: '/registerWaste',
-        element: <RegisterWasteForSale/>,
+        element: <ProtectedRoute element={RegisterWasteForSale} isAuthenticated={isAuthenticated()} />,
     },
     // {
     //     path: '*',
     //     element: <NotFound /> // Assuming you have a NotFound component
     // }
-    //
-    // trying things
-]
+];
