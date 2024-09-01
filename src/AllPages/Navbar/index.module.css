@@ -1,0 +1,140 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #E3F2E1;
+    margin-top: -10px;
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-right: 16px;
+    margin-left: 50px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    color: green;
+}
+
+.sectionsWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 20px;
+    position: relative; /* Ensure sections are positioned relative to this container */
+}
+
+.section,
+.section1 {
+    display: flex;
+    margin-left: 20%;
+}
+
+.section {
+    flex-grow: 1;
+    gap: 30px;
+}
+
+.section p {
+    margin: 0;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: green;
+    transition: transform 0.3s ease;
+}
+
+.section p:hover {
+    transform: scale(1.05);
+}
+
+.section1 {
+    flex-grow: 1;
+    gap: 20px;
+}
+
+.section1 p {
+    cursor: pointer;
+    border-radius: 20px;
+    color: white;
+    border: #9CC026;
+    padding: 10px 20px;
+    font-size: 19px;
+    background-color: #9CC026;
+    transition: transform 0.3s ease;
+}
+
+.section1 p:hover {
+    transform: scale(1.05);
+}
+
+/* Hamburger Menu Styling */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 20px;
+    z-index: 50; /* Ensure it's on top */
+}
+
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background-color: green;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .sectionsWrapper {
+        flex-direction: column; /* Change to column on mobile */
+        align-items: flex-start; /* Center items */
+        margin: 0;
+    }
+
+    .logo {
+        margin-left: 0; /* Adjust for mobile */
+        width: 80px;
+        height: 80px;
+    }
+
+    .title {
+        font-size: 24px;
+        margin-left: 0; /* Adjust for mobile */
+    }
+
+    .section,
+    .section1 {
+        flex-direction: column;
+        gap: 10px; /* Reduced gap for a more compact view */
+        margin-left: 0;
+        width: 100%; /* Make sure it takes full width */
+        display: none; /* Hidden by default */
+        background-color: #E3F2E1; /* Match background color */
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .menuActive .section,
+    .menuActive .section1 {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: 20px; /* Adjust top position */
+        right: 20px; /* Adjust right position */
+    }
+
+    .hamburger div {
+        background-color: green;
+    }
+}

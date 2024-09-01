@@ -1,0 +1,103 @@
+.keysContainer {
+    display: flex;
+    align-items: flex-start;
+    margin-left: 220px;
+    width: 120%;
+    background-color: #71BC68;
+}
+
+
+.key, .key1, .key2 {
+    padding: 30px;
+    font-size: 19px;
+    width: 20%;
+    animation: slideIn 2s ease-in-out;
+}
+
+
+.key {
+    color: white;
+    border: 12px solid #007932;
+    background-color: #007932;
+    height: 220px;
+
+}
+
+.key1 {
+
+    border: 2px solid #E5E5E5;
+    background-color: #E5E5E5;
+    height: 220px;
+
+}
+.reduce {
+    font-weight: bold;
+}
+
+.key2 {
+    border: 12px solid #FFFFFF;
+    background-color: #FFFFFF;
+    height: 220px;
+}
+
+.highlight {
+    color: #007932;
+    font-weight: bold;
+
+
+}
+
+.recycle {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #007932;
+    margin-top: -34px;
+}
+
+
+.key, .select, .logo10, .key1, .upload, .key2, .quizOption {
+    transition: transform 0.3s ease;
+}
+
+.key:hover, .upload:hover, .logo10:hover, .key1:hover, .key2:hover, .select:hover, .quizOption:hover {
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+    .keysContainer {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .key, .key1, .key2 {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .key {
+        border: 8px solid #007932;
+        background-color: #007932;
+    }
+
+    .key1 {
+        border: 2px solid #E5E5E5;
+        background-color: #E5E5E5;
+    }
+
+    .key2 {
+        border: 8px solid #FFFFFF;
+        background-color: #FFFFFF;
+    }
+
+    .highlight {
+        font-size: 20px;
+    }
+
+    .recycle {
+        font-size:18px;
+    }
+}

@@ -1,6 +1,7 @@
 import image1 from '../Hero/asset/image 2.png';
 import image2 from '../Hero/asset/image 3.png';
 import image3 from '../Hero/asset/image 5.png';
+import {Link} from "react-router-dom";
 
 const HeroHeading = () => {
     return (
@@ -12,12 +13,16 @@ const HeroHeading = () => {
                         What We Do
                         <br /> With Your Waste
                     </h3>
-                    <button className="bg-green-500 text-white p-3 rounded-2xl mb-5">
-                        Learn More
-                    </button>
+                    <Link to="/information">
+                        <button className="bg-green-500 text-white p-4 rounded-2xl mb-5">
+                            Learn More
+                        </button>
+                    </Link>
+
                 </div>
 
-                <div className="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-[50px] justify-center md:justify-end mt-10">
+                <div
+                    className="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-[50px] justify-center md:justify-end mt-10">
                     <div className="text-center">
                         <img src={image1} alt="image1" className="w-[150px] md:w-[200px]" />
                         <p className="text-green-500 mt-2">Collection</p>

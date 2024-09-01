@@ -1,17 +1,14 @@
 
 import {Outlet} from 'react-router-dom'
-import Footer from "../Footer";
+import Home from "../../Pages/Home";
 
 const Layout = ()=>{
 
 
     return(
-
         <>
-
-        <Footer/>
+            <Home/>
         <Outlet/>
-
         </>
     )
 
