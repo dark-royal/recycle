@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage as FormikErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-// import { EyeIcon, EyeOffIcon } from '@heroicons/react/solid';
 import Navbar from "../../Components/Navbar";
 import { loginApi } from "../../api";
 import {EyeIcon, EyeSlashIcon} from "@heroicons/react/24/solid";
