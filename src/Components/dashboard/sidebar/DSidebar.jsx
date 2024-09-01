@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import logo from "../../asset/Preview-removebg-preview.png";
 import logo2 from "../../asset/grapgh.png";
@@ -14,9 +14,27 @@ import logos from "../../asset/signout.png";
 
 const DSidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
+    };
+
+    const handleLogout = () => {
+        fetch("http://localhost:8080/api/v1/auth/logout", {
+            method: "POST",
+            credentials: "include", // Include cookies, like tokens
+        })
+            .then(response => {
+                if (response.ok) {
+                    navigate("/login");
+                } else {
+                    console.error("Logout failed");
+                }
+            })
+            .catch(error => {
+                console.error("An error occurred during logout:", error);
+            });
     };
 
     return (
@@ -34,7 +52,6 @@ const DSidebar = () => {
                 />
             </button>
 
-            {/* Sidebar */}
             <div
                 className={`fixed top-0 left-0 h-full w-80 p-6 bg-transparent flex flex-col z-40 transform transition-transform duration-300 ease-in-out sidebar ${
                     isOpen ? "translate-x-0" : "-translate-x-full"
@@ -157,7 +174,7 @@ const DSidebar = () => {
                         </NavLink>
                     </div>
                     <NavLink
-                        to="/signup"
+                        to="#"
                         className={({ isActive }) =>
                             `flex gap-2 md:gap-3 items-center mt-auto p-3 md:p-3 rounded-lg md:rounded-2xl transition-colors duration-300 ${
                                 isActive
@@ -165,6 +182,10 @@ const DSidebar = () => {
                                     : "bg-ash text-black hover:bg-green-200 hover:text-black"
                             }`
                         }
+                        onClick={(e) => {
+                            e.preventDefault(); // Prevent default link behavior
+                            handleLogout(); // Call the logout function
+                        }}
                     >
                         <img src={logos} alt="Sign Out" width={28} height={28} className="md:w-9 md:h-9" />
                         <span className="font-light text-xs md:text-sm">Sign Out</span>
