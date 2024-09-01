@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import logo from '../asset/Preview-removebg-preview.png';
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import {FaBars, FaTimes} from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="flex items-center justify-between p-4 bg-white md:rounded-2xl md:flex-row">
+            <div className="flex items-center justify-between p-4 bg-white md:rounded-2xl md:flex-row sticky top-0 z-50 shadow-md">
                 {/* Logo Section */}
                 <div className="flex items-center">
                     <img src={logo} alt="logo" className="w-8 h-8 md:w-12 md:h-12" />
