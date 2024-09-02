@@ -174,7 +174,7 @@ const DSidebar = () => {
                         </NavLink>
                     </div>
                     <NavLink
-                        to="#"
+                        to="/login"
                         className={({ isActive }) =>
                             `flex gap-2 md:gap-3 items-center mt-auto p-3 md:p-3 rounded-lg md:rounded-2xl transition-colors duration-300 ${
                                 isActive
