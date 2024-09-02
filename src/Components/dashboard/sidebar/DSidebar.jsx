@@ -21,10 +21,12 @@ const DSidebar = () => {
     };
 
     const handleLogout = () => {
+        const token = localStorage.getItem('accessToken');
         fetch("https://g-cycle-latest-1.onrender.com/api/v1/auth/logout", {
             method: "POST",
             credentials: "include",
             headers: {
+                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json',
             },
         })
@@ -36,11 +38,7 @@ const DSidebar = () => {
                 return response.text();
             })
             .then(data => {
-                if (data) {
-                    console.log("Logout successful:", data);
-                } else {
-                    console.log("Logout successful with empty response");
-                }
+                console.log("Logout successful:", data);
                 navigate("/login");
             })
             .catch(error => {
