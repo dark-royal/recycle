@@ -21,17 +21,24 @@ const DSidebar = () => {
     };
 
     const handleLogout = () => {
-        fetch('https://g-cycle-latest-1.onrender.com/api/v1/auth/logout', {
+        fetch("https://g-cycle-latest-1.onrender.com/api/v1/auth/logout", {
             method: "POST",
             credentials: "include",
+            headers: {
+                'Content-Type': 'application/json',
+            },
         })
-            .then(response => response.json().then(data => ({ status: response.status, body: data })))
-            .then(({ status, body }) => {
-                if (status === 200) {
-                    navigate("/login");
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
                 } else {
-                    console.error("Logout failed", status, body);
+                    console.error(`Logout failed with status: ${response.status}`);
+                    return Promise.reject(`Failed with status: ${response.status}`);
                 }
+            })
+            .then(data => {
+                console.log("Logout successful:", data);
+                navigate("/login");
             })
             .catch(error => {
                 console.error("An error occurred during logout:", error);
