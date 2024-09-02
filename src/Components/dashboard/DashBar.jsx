@@ -5,7 +5,7 @@ import RightSidebar from "./sidebar/RightSidebar";
 
 const DashBar = () => {
     return (
-        <div style={{ width: '80%', maxWidth: '80vw', margin: '0 auto' }}>
+        <div style={{ width: '80%', maxWidth: '80vw'}}>
             <DNavbar />
                 <DSidebar />
                 <DashBarView />
