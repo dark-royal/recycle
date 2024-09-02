@@ -25,18 +25,18 @@ const DSidebar = () => {
             method: "POST",
             credentials: "include",
         })
-            .then(response => {
-                if (response.ok) {
+            .then(response => response.json().then(data => ({ status: response.status, body: data })))
+            .then(({ status, body }) => {
+                if (status === 200) {
                     navigate("/login");
                 } else {
-                    console.error("Logout failed");
+                    console.error("Logout failed", status, body);
                 }
             })
             .catch(error => {
                 console.error("An error occurred during logout:", error);
             });
     };
-
     return (
         <>
             {/* Arrow Button */}
