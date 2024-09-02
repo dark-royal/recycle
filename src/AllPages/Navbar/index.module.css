@@ -3,19 +3,20 @@
     flex-direction: column;
     align-items: center;
     background: #E3F2E1;
-    margin-top: -10px;
+    margin-top: 4rem; /* Changed to rem */
+   height: fit-content;
 }
 
 .logo {
-    width: 120px;
-    height: 120px;
+    width: 5rem; /* Changed to rem */
+    height: 5rem; /* Changed to rem */
     object-fit: contain;
-    margin-right: 16px;
-    margin-left: 50px;
+    margin-right: 1rem; /* Changed to rem */
+    margin-left: -2rem; /* Changed to rem */
 }
 
 .title {
-    font-size: 30px;
+    font-size: 2rem; /* Changed to rem */
     font-weight: bold;
     color: green;
 }
@@ -24,26 +25,31 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    margin: 0 20px;
-    position: relative; /* Ensure sections are positioned relative to this container */
+    width: 100%; /* Changed to 100% */
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #E3F2E1;
+    z-index: 100;
+    padding: 0 2rem; /* Changed to rem */
 }
 
 .section,
 .section1 {
     display: flex;
-    margin-left: 20%;
+    margin-left: 14%; /* Changed to percentage */
 }
 
 .section {
     flex-grow: 1;
-    gap: 30px;
+    gap: 2rem; /* Changed to rem */
 }
 
 .section p {
     margin: 0;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 1.5rem; /* Changed to rem */
     font-weight: bold;
     color: green;
     transition: transform 0.3s ease;
@@ -55,16 +61,16 @@
 
 .section1 {
     flex-grow: 1;
-    gap: 20px;
+    gap: 1.5rem; /* Changed to rem */
 }
 
 .section1 p {
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 1rem; /* Changed to rem */
     color: white;
     border: #9CC026;
-    padding: 10px 20px;
-    font-size: 19px;
+    padding: 0.5rem 1rem; /* Changed to rem */
+    font-size: 1.2rem; /* Changed to rem */
     background-color: #9CC026;
     transition: transform 0.3s ease;
 }
@@ -78,15 +84,15 @@
     display: none;
     cursor: pointer;
     margin-left: auto;
-    margin-right: 20px;
+    margin-right: 2rem; /* Changed to rem */
     z-index: 50; /* Ensure it's on top */
 }
 
 .hamburger div {
-    width: 30px;
-    height: 3px;
+    width: 2rem; /* Changed to rem */
+    height: 0.2rem; /* Changed to rem */
     background-color: green;
-    margin: 5px 0;
+    margin: 0.5rem 0; /* Changed to rem */
     transition: 0.4s;
 }
 
@@ -100,26 +106,26 @@
 
     .logo {
         margin-left: 0; /* Adjust for mobile */
-        width: 80px;
-        height: 80px;
+        width: 8rem; /* Changed to rem */
+        height: 8rem; /* Changed to rem */
     }
 
     .title {
-        font-size: 24px;
+        font-size: 1.8rem; /* Changed to rem */
         margin-left: 0; /* Adjust for mobile */
     }
 
     .section,
     .section1 {
         flex-direction: column;
-        gap: 10px; /* Reduced gap for a more compact view */
+        gap: 1rem; /* Changed to rem */
         margin-left: 0;
         width: 100%; /* Make sure it takes full width */
         display: none; /* Hidden by default */
         background-color: #E3F2E1; /* Match background color */
-        padding: 10px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 1rem; /* Changed to rem */
+        border-radius: 0.5rem; /* Changed to rem */
+        box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2); /* Changed to rem */
     }
 
     .menuActive .section,
@@ -130,8 +136,8 @@
     .hamburger {
         display: block;
         position: absolute;
-        top: 20px; /* Adjust top position */
-        right: 20px; /* Adjust right position */
+        top: 2rem; /* Changed to rem */
+        right: 2rem; /* Changed to rem */
     }
 
     .hamburger div {
