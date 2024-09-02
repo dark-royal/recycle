@@ -29,15 +29,18 @@ const DSidebar = () => {
             },
         })
             .then(response => {
-                if (response.ok) {
-                    return response.text();
-                } else {
+                if (!response.ok) {
                     console.error(`Logout failed with status: ${response.status}`);
                     return Promise.reject(`Failed with status: ${response.status}`);
                 }
+                return response.text();
             })
             .then(data => {
-                console.log("Logout successful:", data);
+                if (data) {
+                    console.log("Logout successful:", data);
+                } else {
+                    console.log("Logout successful with empty response");
+                }
                 navigate("/login");
             })
             .catch(error => {
