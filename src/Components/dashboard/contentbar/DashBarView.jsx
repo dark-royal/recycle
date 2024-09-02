@@ -17,7 +17,7 @@ const DashBarView = () => {
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-start min-h-screen p-6">
+        <div className="flex flex-col items-center justify-start min-h-screen p-6" style={{ width: '80%', maxWidth: '80vw', margin: '0 auto' }}>
             <div className="text-center w-full mt-10 md:mr-96">
                 <p className="text-white font-bold text-xl text-left md:text-2xl md:text-center md:mr-52">
                     Welcome back, {username}!

@@ -1,3 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  @apply bg-green-800
+}
 .App {
   text-align: center;
 }
@@ -12,13 +19,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-body{
-  @apply bg-customGreen
-}
 .no-global-button {
   all: unset;
   display: inline-block;
