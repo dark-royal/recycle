@@ -59,7 +59,7 @@ const DANavbar = () => {
                     <Link to="/size" className={`${darkMode ? 'text-black' : 'text-green-500'}`}>{t("Locate")}</Link>
                 </p>
                 <p className={`${darkMode ? 'text-black' : 'text-green-500'}`}>
-                    <Link to="/dashboard" className={`${darkMode ? 'text-black' : 'text-green-500'}`}>{t("Dashboard")}</Link>
+                    <Link to="/adminDashboard" className={`${darkMode ? 'text-black' : 'text-green-500'}`}>{t("Dashboard")}</Link>
                 </p>
                 <p className={`${darkMode ? 'text-white' : 'text-green-500'}`}>
                     <Link to="/about" className={`${darkMode ? 'text-black' : 'text-green-500'}`}>{t("About")}</Link>

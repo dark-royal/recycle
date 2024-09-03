@@ -18,6 +18,7 @@ import RegisterAgents from "../AllPages/RegisterAgent/registerAgent";
 import RegisterWasteForSale from "../AllPages/RegisterWasteForSale/wasteSale";
 import AdminBar from "../Components/adminDashboard/AdminBar";
 import ProtectedRoute from "./ProtectedRoute";
+import BlogPage from "../Components/blog/BlogPage";
 
 // Example authentication check function
 const isAuthenticated = () => {
@@ -44,6 +45,11 @@ export const ROUTES = [
         element: <LogIn/>
     },
     {
+        path: '/blog',
+        element: <BlogPage/>
+    },
+
+    {
         path: '/dashboard',
         element: <ProtectedRoute element={DashBar} isAuthenticated={isAuthenticated()} />
     },
@@ -57,7 +63,7 @@ export const ROUTES = [
     },
     {
         path: '/adminDashboard',
-        element: <ProtectedRoute element={AdminBar} isAuthenticated={isAuthenticated()} />,
+        element: <AdminBar />,
     },
     {
         path: '/information',

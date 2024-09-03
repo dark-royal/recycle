@@ -21,22 +21,30 @@ const DSidebar = () => {
     };
 
     const handleLogout = () => {
-        fetch("http://localhost:8080/api/v1/auth/logout", {
+        const token = localStorage.getItem('accessToken');
+        fetch("https://g-cycle-latest-1.onrender.com/api/v1/auth/logout", {
             method: "POST",
-            credentials: "include", // Include cookies, like tokens
+            credentials: "include",
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
         })
             .then(response => {
-                if (response.ok) {
-                    navigate("/login");
-                } else {
-                    console.error("Logout failed");
+                if (!response.ok) {
+                    console.error(`Logout failed with status: ${response.status}`);
+                    return Promise.reject(`Failed with status: ${response.status}`);
                 }
+                return response.text();
+            })
+            .then(data => {
+                console.log("Logout successful:", data);
+                navigate("/login");
             })
             .catch(error => {
                 console.error("An error occurred during logout:", error);
             });
     };
-
     return (
         <>
             {/* Arrow Button */}
@@ -174,7 +182,7 @@ const DSidebar = () => {
                         </NavLink>
                     </div>
                     <NavLink
-                        to="#"
+                        to="/login"
                         className={({ isActive }) =>
                             `flex gap-2 md:gap-3 items-center mt-auto p-3 md:p-3 rounded-lg md:rounded-2xl transition-colors duration-300 ${
                                 isActive

@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 body{
-    @apply bg-customGreen
+    @apply bg-green-800
 }
 
