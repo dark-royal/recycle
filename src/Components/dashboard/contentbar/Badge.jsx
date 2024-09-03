@@ -1,6 +1,7 @@
 import image from "../../asset/badge1.png";
 
 const Badge = () => {
+
     return (
         <div className="flex-1 p-4 md:p-10 bg-customWhite w-[75%] shadow-md flex flex-col items-baseline rounded-2xl">
             <p className="text-sm md:text-base">Badges Collected</p>
