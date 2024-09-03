@@ -125,7 +125,7 @@ const SignIn = () => {
                                             style={{
                                                 backgroundColor: 'transparent',
                                                 padding: '0',
-                                                transform: 'translateX(75%) translateY(-10%)',
+                                                transform: 'translateX(50%) translateY(-10%)',
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 justifyContent: 'center',
