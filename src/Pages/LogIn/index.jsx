@@ -52,6 +52,7 @@ const SignIn = () => {
 
             localStorage.setItem('accessToken', token);
             localStorage.setItem('refreshToken', refreshToken);
+            localStorage.setItem('username', values.username);
 
             setTimeout(() => {
                 navigate('/dashboard');
