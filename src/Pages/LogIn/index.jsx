@@ -122,15 +122,17 @@ const SignIn = () => {
                                         <button
                                             type="button"
                                             onClick={togglePasswordVisibility}
-                                            className="absolute inset-y-0 right-0 flex bg-transparent p-0 -translate-y-1 hover:bg-transparent translate-x-[90%] items-center pr-3"
+                                            className="absolute inset-y-0 right-0 flex !bg-transparent p-0 -translate-y-1 hover:!bg-transparent translate-x-[90%] items-center pr-3 !text-gray-500 !h-5 !w-5"
                                         >
                                             {showPassword ? (
-                                                <EyeSlashIcon className="h-5 w-5 bg-transparent text-gray-500" />
+                                                <EyeSlashIcon className="!bg-transparent !text-gray-500 !h-5 !w-5"/>
                                             ) : (
-                                                <EyeIcon className="h-5 w-5 text-gray-500" />
+                                                <EyeIcon className="!bg-transparent !text-gray-500 !h-5 !w-5"/>
                                             )}
                                         </button>
-                                        <FormikErrorMessage name="password" component="div" className="text-red-500 text-sm" />
+
+                                        <FormikErrorMessage name="password" component="div"
+                                                            className="text-red-500 text-sm"/>
                                     </div>
                                 </div>
                                 <button
