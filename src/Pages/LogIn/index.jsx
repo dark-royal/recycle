@@ -125,7 +125,7 @@ const SignIn = () => {
                                             style={{
                                                 backgroundColor: 'transparent',
                                                 padding: '0',
-                                                transform: 'translateX(90%) translateY(-10%)',
+                                                transform: 'translateX(-10%) translateY(-10%)', // Shift to the left
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 justifyContent: 'center',
@@ -133,15 +133,19 @@ const SignIn = () => {
                                                 width: '50px',
                                                 color: '#6B7280', // Tailwind's gray-500 color
                                             }}
-                                            className="absolute inset-y-0 right-0 pr-3"
+                                            className="absolute inset-y-0 left-0 pl-3" // Adjusted from right-0 to left-0
                                         >
                                             {showPassword ? (
                                                 <EyeSlashIcon
-                                                    style={{height: '50px', width: '50px', color: '#6B7280'}}/>
+                                                    style={{height: '50px', width: '50px', color: '#6B7280'}}
+                                                />
                                             ) : (
-                                                <EyeIcon style={{height: '50px', width: '50px', color: '#6B7280'}}/>
+                                                <EyeIcon
+                                                    style={{height: '50px', width: '50px', color: '#6B7280'}}
+                                                />
                                             )}
                                         </button>
+
 
                                         <FormikErrorMessage name="password" component="div"
                                                             className="text-red-500 text-sm"/>
