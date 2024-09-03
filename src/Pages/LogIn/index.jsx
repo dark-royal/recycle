@@ -124,20 +124,25 @@ const SignIn = () => {
                                             onClick={togglePasswordVisibility}
                                             style={{
                                                 backgroundColor: 'transparent',
-                                                padding: '0',
-                                                transform: 'translateX(25%) translateY(-10%)',
+                                                padding: '1px',
+                                                position: 'absolute',
+                                                right: '0',
+                                                top: '50%',
+                                                transform: 'translateY(-90%)',
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 justifyContent: 'center',
                                                 height: '20px',
                                                 width: '20px',
                                                 color: '#6B7280', // Tailwind's gray-500 color
+                                                zIndex: 10, // Ensure the button is clickable and above other elements
                                             }}
-                                            className="absolute inset-y-0 right-0 pr-3"
+                                            className="pr-3" // Removed absolute positioning and transform from Tailwind
                                         >
                                             {showPassword ? (
                                                 <EyeSlashIcon
-                                                    style={{height: '20px', width: '20px', color: '#6B7280'}}/>
+                                                    style={{height: '20px', width: '20px', color: '#6B7280'}}
+                                                />
                                             ) : (
                                                 <EyeIcon style={{height: '20px', width: '20px', color: '#6B7280'}}/>
                                             )}
