@@ -12,6 +12,6 @@ const Badge = () => {
         </div>
     );
 };
-//changes added
+//changes added check
 
 export default Badge;
