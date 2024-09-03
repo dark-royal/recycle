@@ -21,7 +21,7 @@ const DashBarView = () => {
              style={{width: '80%', maxWidth: '80vw', margin: '0 auto'}}>
             <div className="w-full mt-4 md:mt-10 text-left md:text-center">
                 <p className="text-white font-bold text-xl md:text-2xl">
-                    Welcome back, {username}!
+                    Welcome, {username}!
                 </p>
             </div>
             <div className="flex flex-wrap mt-6 md:mt-10 gap-2 md:gap-8 justify-center">
