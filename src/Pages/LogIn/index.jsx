@@ -129,17 +129,17 @@ const SignIn = () => {
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 justifyContent: 'center',
-                                                height: '50px',
-                                                width: '50px',
+                                                height: '20px',
+                                                width: '20px',
                                                 color: '#6B7280', // Tailwind's gray-500 color
                                             }}
                                             className="absolute inset-y-0 right-0 pr-3"
                                         >
                                             {showPassword ? (
                                                 <EyeSlashIcon
-                                                    style={{height: '50px', width: '50px', color: '#6B7280'}}/>
+                                                    style={{height: '20px', width: '20px', color: '#6B7280'}}/>
                                             ) : (
-                                                <EyeIcon style={{height: '50px', width: '50px', color: '#6B7280'}}/>
+                                                <EyeIcon style={{height: '20px', width: '20px', color: '#6B7280'}}/>
                                             )}
                                         </button>
 
