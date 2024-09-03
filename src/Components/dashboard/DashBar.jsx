@@ -4,13 +4,14 @@ import DashBarView from "./contentbar/DashBarView";
 import RightSidebar from "./sidebar/RightSidebar";
 
 const DashBar = () => {
-    return(
+    return (
         <>
-            <DNavbar/>
-            <DSidebar/>
-            <DashBarView/>
-            <RightSidebar/>
+            <DNavbar />
+                <DSidebar />
+                <DashBarView />
+                <RightSidebar />
         </>
-    )
+    );
 }
+
 export default DashBar;

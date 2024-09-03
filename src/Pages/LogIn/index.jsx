@@ -52,6 +52,7 @@ const SignIn = () => {
 
             localStorage.setItem('accessToken', token);
             localStorage.setItem('refreshToken', refreshToken);
+            localStorage.setItem('username', values.username);
 
             setTimeout(() => {
                 navigate('/dashboard');
@@ -93,7 +94,7 @@ const SignIn = () => {
                 )}
             </div>
             <div className="flex items-center justify-center min-h-screen bg-customGreen">
-                <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 w-[90%] sm:w-[70%] md:w-[50%] lg:w-[30%]">
+                <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 fixed w-[90%] sm:w-[70%] md:w-[50%] lg:w-[30%]">
                     <h2 className="text-2xl font-bold text-center mb-6">Sign In</h2>
                     <Formik
                         initialValues={initialValues}
@@ -122,15 +123,34 @@ const SignIn = () => {
                                         <button
                                             type="button"
                                             onClick={togglePasswordVisibility}
-                                            className="absolute inset-y-0 right-0 flex bg-transparent p-0 -translate-y-1 hover:bg-transparent translate-x-[90%] items-center pr-3"
+                                            style={{
+                                                backgroundColor: 'transparent',
+                                                padding: '1px',
+                                                position: 'absolute',
+                                                right: '0',
+                                                top: '50%',
+                                                transform: 'translateY(-90%)',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                height: '20px',
+                                                width: '20px',
+                                                color: '#6B7280', // Tailwind's gray-500 color
+                                                zIndex: 10, // Ensure the button is clickable and above other elements
+                                            }}
+                                            className="pr-3" // Removed absolute positioning and transform from Tailwind
                                         >
                                             {showPassword ? (
-                                                <EyeSlashIcon className="h-5 w-5 bg-transparent text-gray-500" />
+                                                <EyeSlashIcon
+                                                    style={{height: '20px', width: '20px', color: '#6B7280'}}
+                                                />
                                             ) : (
-                                                <EyeIcon className="h-5 w-5 text-gray-500" />
+                                                <EyeIcon style={{height: '20px', width: '20px', color: '#6B7280'}}/>
                                             )}
                                         </button>
-                                        <FormikErrorMessage name="password" component="div" className="text-red-500 text-sm" />
+
+                                        <FormikErrorMessage name="password" component="div"
+                                                            className="text-red-500 text-sm"/>
                                     </div>
                                 </div>
                                 <button
