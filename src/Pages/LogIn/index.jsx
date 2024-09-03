@@ -122,12 +122,24 @@ const SignIn = () => {
                                         <button
                                             type="button"
                                             onClick={togglePasswordVisibility}
-                                            className="absolute inset-y-0 right-0 flex !bg-transparent p-0 -translate-y-1 hover:!bg-transparent translate-x-[90%] items-center pr-3 !text-gray-500 !h-5 !w-5"
+                                            style={{
+                                                backgroundColor: 'transparent',
+                                                padding: '0',
+                                                transform: 'translateX(90%) translateY(-10%)',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                height: '20px',
+                                                width: '20px',
+                                                color: '#6B7280', // Tailwind's gray-500 color
+                                            }}
+                                            className="absolute inset-y-0 right-0 pr-3"
                                         >
                                             {showPassword ? (
-                                                <EyeSlashIcon className="!bg-transparent !text-gray-500 !h-5 !w-5"/>
+                                                <EyeSlashIcon
+                                                    style={{height: '20px', width: '20px', color: '#6B7280'}}/>
                                             ) : (
-                                                <EyeIcon className="!bg-transparent !text-gray-500 !h-5 !w-5"/>
+                                                <EyeIcon style={{height: '20px', width: '20px', color: '#6B7280'}}/>
                                             )}
                                         </button>
 
