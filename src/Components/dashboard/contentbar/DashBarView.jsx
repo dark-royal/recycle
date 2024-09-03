@@ -28,7 +28,7 @@ const DashBarView = () => {
                 <div
                     className="p-2 bg-white w-24 h-20 md:w-48 md:h-36 shadow-md flex flex-col items-center rounded-full">
                     <img src={image} alt="transfer" className="mb-2 w-8 h-8 md:w-12 md:h-12"/>
-                    <p className="text-green-500 text-xs md:text-sm text-center">Transfer via<br/>Rewards</p>
+                    <p className="text-green-500 text-xs md:text-sm text-center">Transfer</p>
                     <p className="text-green-500 font-bold text-sm md:text-lg">₦ 0.0</p>
                 </div>
                 <div
