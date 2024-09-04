@@ -31,7 +31,6 @@ const DNavbar = () => {
                 </button>
             </div>
 
-            {/* Navigation Links */}
             <div
                 className={`flex-col md:flex-row items-center gap-4 mt-4 md:mt-0 md:ml-auto ${
                     isOpen ? 'flex absolute top-16 right-4 bg-white p-4 rounded-lg shadow-lg w-[200px] text-sm' : 'hidden'
