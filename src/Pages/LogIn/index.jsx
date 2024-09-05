@@ -12,9 +12,15 @@ const SignIn = () => {
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
+    // Define credentials for both admin and agent roles
     const adminCredentials = {
         email: "admin@gmail.com",
         password: "michaeladmin",
+    };
+
+    const agentCredentials = {
+        email: "agent@gmail.com",
+        password: "agent123",
     };
 
     const initialValues = {
@@ -33,10 +39,16 @@ const SignIn = () => {
 
         // Check if the user is an admin
         const isAdmin = values.username === adminCredentials.email && values.password === adminCredentials.password;
-
         if (isAdmin) {
-            // Redirect to the admin dashboard if the credentials match
             navigate('/adminDashboard');
+            setLoading(false);
+            return;
+        }
+
+        // Check if the user is an agent
+        const isAgent = values.username === agentCredentials.email && values.password === agentCredentials.password;
+        if (isAgent) {
+            navigate('/agentDashboard');
             setLoading(false);
             return;
         }
@@ -138,7 +150,7 @@ const SignIn = () => {
                                                 color: '#6B7280', // Tailwind's gray-500 color
                                                 zIndex: 10, // Ensure the button is clickable and above other elements
                                             }}
-                                            className="pr-3" // Removed absolute positioning and transform from Tailwind
+                                            className="pr-3"
                                         >
                                             {showPassword ? (
                                                 <EyeSlashIcon

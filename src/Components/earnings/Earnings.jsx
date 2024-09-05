@@ -1,49 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from "../Navbar";
 
-const Earnings = ({ points = 0 }) => {
+const Earnings = ({ points = 0, withdrawalThreshold = 1000 }) => {
     const [withdrawAmount, setWithdrawAmount] = useState('');
     const [message, setMessage] = useState('');
-    const userId = 1;
+    const [userId, setUserId] = useState(null);
+    const [username, setUsername] = useState('');
+
+    useEffect(() => {
+        // Retrieve user ID and username from localStorage
+        const storedUserId = localStorage.getItem('userId');
+        const storedUsername = localStorage.getItem('username');
+
+        if (storedUserId) {
+            setUserId(storedUserId);
+        }
+        if (storedUsername) {
+            setUsername(storedUsername);
+        }
+    }, []);
 
     const handleWithdraw = async () => {
         const amount = parseInt(withdrawAmount, 10);
         if (!amount || amount <= 0) {
-            setMessage('Please enter a valid amount');
+            setMessage('Please enter a valid amount.');
             return;
         }
         if (amount > points) {
-            setMessage('Insufficient Points');
+            setMessage('Insufficient Points.');
+            return;
+        }
+        if (points < withdrawalThreshold) {
+            setMessage(`You need a minimum of ${withdrawalThreshold} points to withdraw.`);
             return;
         }
 
-        try {
-            const response = await fetch('/api/withdraw', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ userId, amount })
-            });
+        // Notify admin with user-specific information
+        setMessage(`Withdrawal request from ${username} (User ID: ${userId}) for ${amount} points submitted. payment pending......`);
 
-            const data = await response.json();
-
-            if (response.ok) {
-                setMessage(`Withdrawal Successful! ${amount} points have been deducted from your balance.`);
-            } else {
-                setMessage(data.message || 'Withdrawal failed. Please try again.');
-            }
-        } catch (error) {
-            setMessage('An error occurred. Please try again later.');
-        }
-
+        // Reset the input field
         setWithdrawAmount('');
     };
 
     return (
         <div>
             <Navbar />
-            <div className="min-h-screen  flex items-center justify-center">
+            <div className="min-h-screen flex items-center justify-center">
                 <div className="w-full max-w-lg bg-white p-8 shadow-lg rounded-lg">
                     <h1 className="text-3xl font-bold text-gray-800 text-center mb-6">Earn Rewards</h1>
                     <p className="text-xl text-gray-600 text-center mb-8">Total Points: <span className="font-semibold text-gray-800">{points}</span></p>
@@ -71,7 +73,7 @@ const Earnings = ({ points = 0 }) => {
                     </button>
 
                     {message && (
-                        <p className={`mt-6 text-center ${message.includes('Successful') ? 'text-green-500' : 'text-red-500'}`}>
+                        <p className={`mt-6 text-center ${message.includes('submitted') ? 'text-green-500' : 'text-red-500'}`}>
                             {message}
                         </p>
                     )}
