@@ -50,12 +50,13 @@ const RegisterWasteForSale = () => {
         }
 
         const quantityNumber = parseFloat(quantity);
-        const userId = localStorage.getItem('userId');
+        const username = localStorage.getItem('username');
 
         try {
             const sellWasteRequest = {
                 type: wasteType,
                 quantity: quantityNumber,
+                username: username, // Include username in the request
             };
 
             // Calculate points (e.g., 1 point per kg)
