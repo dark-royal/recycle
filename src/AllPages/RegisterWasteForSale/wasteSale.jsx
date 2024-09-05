@@ -3,12 +3,8 @@ import axios from 'axios';
 import styles from './index.module.css';
 import Navbar from "../Navbar/Navbar";
 
-// Define waste categories
-const wasteCategories = [
-    'POLYTHENEBAG',
-    'PLASTIC',
-    'PAPER',
-];
+// Waste categories
+const wasteCategories = ['POLYTHENEBAG', 'PLASTIC', 'PAPER'];
 
 // Function to store data in localStorage
 const storeUserData = (weight, points) => {
@@ -27,36 +23,57 @@ const storeUserData = (weight, points) => {
 };
 
 const RegisterWasteForSale = () => {
-    const [wasteType, setWasteType] = useState('');
-    const [quantity, setQuantity] = useState('');
-    const [response, setResponse] = useState(null);
-    const [error, setError] = useState(null);
+    const [username, setUsername] = useState(''); // Username state
+    const [wasteType, setWasteType] = useState(''); // Waste type state
+    const [quantity, setQuantity] = useState(''); // Quantity state
+    const [response, setResponse] = useState(null); // Response state
+    const [error, setError] = useState(null); // Error state
 
-    const handleWasteTypeChange = (event) => {
-        setWasteType(event.target.value);
-    };
+    // Handle input changes
+    const handleUsernameChange = (event) => setUsername(event.target.value);
+    const handleWasteTypeChange = (event) => setWasteType(event.target.value);
+    const handleQuantityChange = (event) => setQuantity(event.target.value);
 
-    const handleQuantityChange = (event) => {
-        setQuantity(event.target.value);
-    };
-
+    // Handle form submission
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if (!wasteType || !quantity) {
+        if (!username || !wasteType || !quantity) {
             setError('All fields are required.');
             setResponse(null);
             return;
         }
 
         const quantityNumber = parseFloat(quantity);
-        const username = localStorage.getItem('username');
+
+        if (isNaN(quantityNumber) || quantityNumber <= 0) {
+            setError('Please enter a valid quantity.');
+            setResponse(null);
+            return;
+        }
 
         try {
+            // Fetch user ID by username
+            const token = localStorage.getItem('accessToken');
+            const config = {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                }
+            };
+
+            const userResponse = await axios.get('https://g-cycle-latest-1.onrender.com/api/v1/user/id', config);
+
+            if (!userResponse.data || !userResponse.data.user_id) {
+                throw new Error('User not found.');
+            }
+
+            const userId = userResponse.data.user_id;
+
+            // Create request payload with userId
             const sellWasteRequest = {
                 type: wasteType,
                 quantity: quantityNumber,
-                username: username, // Include username in the request
+                userId: userId,  // Include userId instead of username
             };
 
             // Calculate points (e.g., 1 point per kg)
@@ -65,13 +82,7 @@ const RegisterWasteForSale = () => {
             // Store data in localStorage
             storeUserData(quantityNumber, pointsEarned);
 
-            // Optional: Send to backend
-            const token = localStorage.getItem('accessToken');
-            const config = {
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                }
-            };
+            // Send the sellWaste request to backend
             const res = await axios.post('https://g-cycle-latest-1.onrender.com/api/v1/user/sellWaste', sellWasteRequest, config);
 
             setResponse({ message: res.data.message, waste: sellWasteRequest });
@@ -88,6 +99,16 @@ const RegisterWasteForSale = () => {
             <div className={styles.registerWasteForSale}>
                 <h1>Register Waste for Sale</h1>
                 <form onSubmit={handleSubmit} className={styles.registerWasteForSaleForm}>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="username">Username:</label>
+                        <input
+                            type="text"
+                            id="username"
+                            value={username}
+                            onChange={handleUsernameChange}
+                            required
+                        />
+                    </div>
                     <div className={styles.formGroup}>
                         <label htmlFor="wasteType">Waste Type:</label>
                         <select
@@ -115,7 +136,9 @@ const RegisterWasteForSale = () => {
                         />
                     </div>
 
-                    <button type="submit" className={styles.registerWasteForSaleSubmit}>Register Waste</button>
+                    <button type="submit" className={styles.registerWasteForSaleSubmit}>
+                        Register Waste
+                    </button>
                 </form>
 
                 {response && (
@@ -125,6 +148,7 @@ const RegisterWasteForSale = () => {
                         <p><strong>Quantity:</strong> {response.waste.quantity} kg</p>
                     </div>
                 )}
+
                 {error && (
                     <div className={styles.errorMessage}>
                         <h3>Error:</h3>
