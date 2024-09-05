@@ -118,7 +118,7 @@ export const ROUTES = [
         ]
     },
     {
-        path: '/registerWaste',
+        path: '/agentDashboard',
         element: <ProtectedRoute element={RegisterWasteForSale} isAuthenticated={isAuthenticated()} />,
     },
     // {
