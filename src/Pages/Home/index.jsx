@@ -5,24 +5,19 @@ import Flame from "./Flame";
 import Navbar from "../../Components/Navbar";
 import Footer from "./Footer";
 
+const Home = () => {
+    return (
+        <div className="bg-customGreen min-h-screen flex flex-col">
+            <Navbar />
+            <div className="flex-grow">
+                <Hero />
+                <HeroHeading />
+                <HeroHeadingRight />
+                <Flame />
+            </div>
+            <Footer className="mt-auto" />
+        </div>
+    );
+};
 
-
-
-const Home = ()=>{
-
-
-
-    return(
-        <>
-                <Navbar />
-                <Hero/>
-                <HeroHeading/>
-                <HeroHeadingRight/>
-                <Flame/>
-                <Footer/>
-        </>
-    )
-
-}
-
-export default Home
+export default Home;

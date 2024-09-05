@@ -6,10 +6,10 @@ const Layout = ()=>{
 
 
     return(
-        <>
+        <div className="bg-customGreen min-h-screen p-4">
             <Home/>
-        <Outlet/>
-        </>
+            <Outlet/>
+        </div>
     )
 
 

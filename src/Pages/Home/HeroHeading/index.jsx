@@ -14,7 +14,7 @@ const HeroHeading = () => {
                         <br /> With Your Waste
                     </h3>
                     <Link to="/information">
-                        <button className="bg-green-500 text-white p-4 rounded-2xl mb-5">
+                        <button className="bg-customG text-white p-4 rounded-2xl mb-5">
                             Learn More
                         </button>
                     </Link>

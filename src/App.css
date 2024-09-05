@@ -1,10 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 body{
-  @apply bg-green-800
+  background: #0d190d;
 }
+
 .App {
   text-align: center;
 }

@@ -7,11 +7,11 @@ module.exports = {
   theme: {
     extend: {
         colors: {
-            customGreen: '#71BC68',
+            customGreen: '#0d190d',
             customBlue: '#5D5FEF',
             ash: '#DAF0Df',
             customWhite: '#E3F2E1',
-            customG: 'rgb(154,205,76)',
+            customG: '#164718',
             customOrange: 'rgb(227, 111, 52)',
 
     },
