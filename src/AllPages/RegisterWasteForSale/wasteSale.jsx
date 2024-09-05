@@ -61,13 +61,16 @@ const RegisterWasteForSale = () => {
                 }
             };
 
-            const userResponse = await axios.get('https://g-cycle-latest-1.onrender.com/api/v1/user/id', config);
+            const userResponse = await axios.get(`https://g-cycle-latest-1.onrender.com/api/v1/user/id`, {
+                params: { username: username },
+                ...config
+            });
 
-            if (!userResponse.data || !userResponse.data.user_id) {
+            if (!userResponse.data || !userResponse.data.id) {
                 throw new Error('User not found.');
             }
 
-            const userId = userResponse.data.user_id;
+            const userId = userResponse.data.id;
 
             // Create request payload with userId
             const sellWasteRequest = {
@@ -88,6 +91,7 @@ const RegisterWasteForSale = () => {
             setResponse({ message: res.data.message, waste: sellWasteRequest });
             setError(null);
         } catch (err) {
+            console.error('Error details:', err); // Log the error details for better debugging
             setError('Failed to register waste: ' + (err.response?.data?.message || err.message));
             setResponse(null);
         }
