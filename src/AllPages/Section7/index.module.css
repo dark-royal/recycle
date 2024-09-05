@@ -5,26 +5,27 @@
     text-align: center;
     border-radius: 20px;
     border: 4px solid #FFFFFF;
-    padding: 15px 30px;
+    padding: 15px 12px;
     background-color: white;
+    width: 20rem;
     cursor: pointer;
     margin: 10px;
     display: inline-block;
     line-height: 1.9;
-    margin-left: 56px; /* Adjusted for desktop view */
+    margin-left: -196px; /* Adjusted for desktop view */
 }
 
 .pickup {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    margin-left: 200px; /* Adjusted for desktop view */
+    gap: 10px;
+    margin-left: 300px;
     width: fit-content;
 }
 
 .plant {
-    margin-left: 759px; /* Adjusted for desktop view */
+    margin-left: 499px; /* Adjusted for desktop view */
 }
 
 .main {

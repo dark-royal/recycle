@@ -1,4 +1,5 @@
 import styles from './index.module.css'
+import {Link} from "react-router-dom";
 const Section7 = () => {
     return (
         <div className={styles.main}>
@@ -6,7 +7,9 @@ const Section7 = () => {
                 <p className={styles.give}>CHOOSE HOW TO GIVE YOUR TRASH</p>
             </div>
             <div className={styles.pickup}>
+                <Link to="/pickup">
                 <p className={styles.door}>Door Step Or Pickup</p>
+                    </Link>
                 <p className={styles.plant}>Door At Plant</p>
             </div>
             <div className={styles.details}>

@@ -1,9 +1,10 @@
 .text {
     font-weight: bold;
-    font-size: 30px;
+    font-size: 1.875rem;
     color: white;
     text-align: center;
-    margin-left: -90px; /* Adjusted for alignment */
+    margin-left: 12rem;
+    margin-top: 6.25rem;
 }
 
 @keyframes slideIn {
@@ -23,17 +24,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 120px;
-    max-width: 100%; /* Changed to 100% to ensure full width usage */
+    gap: 7.5rem;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 20px; /* Added padding for better spacing */
+    padding: 1.25rem;
 }
 
 .money,
 .bike,
 .truck {
-    max-width: 100px; /* Maintained consistent image size */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 6.25rem;
+    height: auto;
 }
 
 .pics {
@@ -41,50 +42,50 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px; /* Adjusted gap for better spacing */
-    max-width: 100%; /* Adjusted to ensure responsiveness */
-    margin-left: 20%; /* Center the container */
+    gap: 1.25rem;
+    max-width: 100%;
+    margin-left: 9rem;
     animation: slideIn 2s ease-in-out;
 }
 
 .map {
-    width: 100%; /* Adjusted width to fit container */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    height: auto;
     object-fit: cover;
-    margin-left: 10%;
-    margin-top: 20px; /* Adjust margin for spacing */
+    margin-right: 9rem;
+    margin-top: 1.25rem;
     animation: slideIn 2s ease-in-out;
 }
 
-/* Media query for mobile responsiveness */
+
 @media (max-width: 768px) {
     .mainContainer {
         flex-direction: column;
         align-items: center;
-        gap: 20px;
-        padding: 10px; /* Adjusted padding for mobile */
+        gap: 1.25rem;
+        padding: 0.625rem;
     }
 
     .pics {
         flex-direction: column;
-        gap: 20px;
+        gap: 1.25rem;
         margin-left: 0;
     }
 
     .money,
     .bike,
     .truck {
-        max-width: 80px; /* Adjusted size for mobile */
+        max-width: 5rem;
     }
 
     .text {
-        font-size: 24px;
-        margin-left: 0; /* Reset margin for mobile */
+        font-size: 1.5rem;
+        margin-left: 0;
     }
 
     .map {
-        width: 100%; /* Ensure map fits the screen width */
-        height: auto; /* Adjust height to maintain aspect ratio */
-        margin-left: 0; /* Reset margin for mobile */
+        width: 100%;
+        height: auto;
+        margin-left: 0;
     }
 }
