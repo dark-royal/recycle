@@ -61,7 +61,7 @@ const RegisterWasteForSale = () => {
                 }
             };
 
-            const userResponse = await axios.get(`https://g-cycle-latest-1.onrender.com/api/v1/user/id`, {
+            const userResponse = await axios.get('https://g-cycle-latest-1.onrender.com/api/v1/user/id', {
                 params: { username: username },
                 ...config
             });
