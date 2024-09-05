@@ -1,4 +1,3 @@
-import image1 from "../../Components/asset/Preview-removebg-preview.png"
 import image2 from "../../Components/asset/Facebook.png"
 import image3 from "../../Components/asset/Instagram.png"
 import image4 from "../../Components/asset/LinkedIn.png"

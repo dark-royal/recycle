@@ -1,4 +1,3 @@
-import image1 from "../../../Components/asset/Preview-removebg-preview.png"
 import image2 from "../../../Components/asset/Facebook.png"
 import image3 from "../../../Components/asset/Instagram.png"
 import image4 from "../../../Components/asset/LinkedIn.png"
@@ -7,7 +6,7 @@ import image from "../../../Components/asset/Preview-removebg-preview.png";
 
 const Footer = () => {
     return(
-        <div className="p-5 md:p-20 ">
+        <div className="p-5 md:p-20 bg-customGreen">
             <div className="flex flex-col md:flex-row">
                 <div className="flex flex-col md:flex-row ml-4 md:ml-20 gap-5">
                     <div className="flex items-center">

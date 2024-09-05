@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    @apply bg-green-800
+@layer components {
+    body {
+        @apply bg-customGreen
+    }
 }
 
