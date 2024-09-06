@@ -33,7 +33,7 @@ const Earnings = () => {
             return;
         }
         if (amount > points) {
-            setMessage('Insufficient Points.');
+            setMessage('Insufficient Points. At least 1000 points');
             return;
         }
         if (points < withdrawalThreshold) {
