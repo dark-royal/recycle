@@ -54,16 +54,8 @@ const RegisterWasteForSale = () => {
 
         try {
             // Fetch user ID by username
-            const token = localStorage.getItem('accessToken');
-            const config = {
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                }
-            };
-
-            const userResponse = await axios.get('https://g-cycle-latest-1.onrender.com/api/v1/user/id', {
-                params: { username: username },
-                ...config
+            const userResponse = await axios.get('https://g-cycle-latest-1.onrender.com/api/v1/agent/id', {
+                params: { username: username }
             });
 
             if (!userResponse.data || !userResponse.data.id) {
@@ -86,7 +78,7 @@ const RegisterWasteForSale = () => {
             storeUserData(quantityNumber, pointsEarned);
 
             // Send the sellWaste request to backend
-            const res = await axios.post('https://g-cycle-latest-1.onrender.com/api/v1/user/sellWaste', sellWasteRequest, config);
+            const res = await axios.post('https://g-cycle-latest-1.onrender.com/api/v1/user/sellWaste', sellWasteRequest);
 
             setResponse({ message: res.data.message, waste: sellWasteRequest });
             setError(null);
