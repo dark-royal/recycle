@@ -40,6 +40,8 @@ const Graph = () => {
     setWasteArray(wasteArray); // Update state with reversed wasteArray
     setAccumulatedWaste(totalWaste);
     setTotalPoints(totalPoints);
+    localStorage.setItem('totalPoints', totalPoints.toString());
+
   };
 
   const storeUserData = (weight, points) => {

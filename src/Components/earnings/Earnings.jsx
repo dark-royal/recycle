@@ -13,7 +13,7 @@ const Earnings = () => {
         // Retrieve user ID, username, and total points from localStorage
         const storedUserId = localStorage.getItem('userId');
         const storedUsername = localStorage.getItem('username');
-        const totalPoints = localStorage.getItem('total_points') || 0; // Get the cumulative total points from localStorage
+        const totalPoints = localStorage.getItem('totalPoints') || 0; // Get the cumulative total points from localStorage
 
         if (storedUserId) {
             setUserId(storedUserId);
