@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './index.module.css';
-import Navbar from "../Navbar/Navbar";
+import NavbarAdmin from "./NavbarAdmin";
 
 // Waste categories
 const wasteCategories = ['POLYTHENEBAG', 'PLASTIC', 'PAPER'];
@@ -85,7 +85,7 @@ const RegisterWasteForSale = () => {
 
     return (
         <div>
-            <Navbar />
+            <NavbarAdmin />
             <div className={styles.registerWasteForSale}>
                 <h1>Register Waste for Sale</h1>
                 <form onSubmit={handleSubmit} className={styles.registerWasteForSaleForm}>

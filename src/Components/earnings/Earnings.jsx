@@ -1,22 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from "../Navbar";
 
-const Earnings = ({ points = 0, withdrawalThreshold = 1000 }) => {
+const Earnings = () => {
     const [withdrawAmount, setWithdrawAmount] = useState('');
     const [message, setMessage] = useState('');
     const [userId, setUserId] = useState(null);
     const [username, setUsername] = useState('');
+    const [points, setPoints] = useState(0); // State for points
+    const withdrawalThreshold = 1000;
 
     useEffect(() => {
-        // Retrieve user ID and username from localStorage
+        // Retrieve user ID, username, and total points from localStorage
         const storedUserId = localStorage.getItem('userId');
         const storedUsername = localStorage.getItem('username');
+        const totalPoints = localStorage.getItem('total_points') || 0; // Get the cumulative total points from localStorage
 
         if (storedUserId) {
             setUserId(storedUserId);
         }
         if (storedUsername) {
             setUsername(storedUsername);
+        }
+        if (totalPoints) {
+            setPoints(parseInt(totalPoints, 10) || 0); // Parse and set the total points
         }
     }, []);
 
@@ -36,7 +42,7 @@ const Earnings = ({ points = 0, withdrawalThreshold = 1000 }) => {
         }
 
         // Notify admin with user-specific information
-        setMessage(`Withdrawal request from ${username} (User ID: ${userId}) for ${amount} points submitted. payment pending......`);
+        setMessage(`Withdrawal request from ${username} (User ID: ${userId}) for ${amount} points submitted. Payment pending...`);
 
         // Reset the input field
         setWithdrawAmount('');
