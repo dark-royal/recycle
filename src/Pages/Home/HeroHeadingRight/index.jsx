@@ -20,15 +20,15 @@ const HeroHeadingRight = () => {
                     {/* First Image and Text */}
                     <div className="text-center justify-center">
                         <img src={image1} alt="image1" className="w-[150px] md:w-[200px] mx-auto md:ml-7" />
-                        <p className="mt-5 md:mt-10">Clean your home from g-cycle</p>
-                        <p className="mt-3">Clean your home from the piles<br /> of g-cycle without worry</p>
+                        <p className="mt-5 md:mt-10">Clean your home from G-cycle</p>
+                        <p className="mt-3">Clean your home from the piles<br /> of G-cycle without worry</p>
                     </div>
 
                     {/* Second Image and Text */}
                     <div className="text-center justify-center">
                         <img src={image2} alt="image2" className="w-[150px] md:w-[200px] mx-auto md:ml-7" />
                         <p className="mt-5 md:mt-12">Earn rewards and cash</p>
-                        <p className="mt-3">Collect points from your g-cycle<br /> and turn into cash and vouchers</p>
+                        <p className="mt-3">Collect points from your G-cycle<br /> and turn into cash and vouchers</p>
                     </div>
 
                     {/* Third Image and Text */}

@@ -22,7 +22,7 @@ const Navbar = () => {
                 {/* Logo Section */}
                 <div className="flex items-center">
                     <img src={logo} alt="logo" className="w-8 h-8 md:w-12 md:h-12" />
-                    <h4 className="text-green-500 font-bold text-lg md:text-2xl ml-2">g-cycle</h4>
+                    <h4 className="text-green-500 font-bold text-lg md:text-2xl ml-2">G-cycle</h4>
                 </div>
 
                 {/* Hamburger Icon */}
