@@ -58,17 +58,14 @@ const Flame = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col md:flex-row items-center">
+                <div className="flex flex-col md:flex-row items-center md:ml-[250px]">
                     <div>
                         <img src={search} alt="search" className="ml-1 bg-customGreen translate-y-7"/>
-                        <input placeholder="search" className="bg-customGreen mr-6 p-2 rounded placeholder-white "/>
-
-                    </div>
-                    <div className="flex flex-row items-center mt-4 md:mt-0">
-                        <img src={maps} alt="maps" className="w-[250px] md:w-[350px] mt-7"/>
-
+                        <input placeholder="search" className="bg-customGreen md:mr-6 p-2 rounded placeholder-white"/>
+                        <img src={maps} alt="maps" className="w-full md:w-[350px] mt-7"/>
                     </div>
                 </div>
+
             </div>
             <div className="bg-customGreen rounded-2xl p-14">
 
@@ -137,8 +134,8 @@ const Flame = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-center items-center mt-10">
-                    <div className="mb-6 md:w-1/2 p-4">
+                <div className="flex flex-col md:flex-row mt-10 p-10 justify-center items-center">
+                    <div className="mt-5 md:w-1/3 p-4">
                         <div className="flex justify-center">
                             <img src={link4} alt="link4"/>
                         </div>
@@ -153,7 +150,7 @@ const Flame = () => {
                         </div>
                     </div>
 
-                    <div className="mb-6 md:w-1/2 p-4">
+                    <div className="mb-7 md:w-1/3 p-4">
                         <div className="flex justify-center">
                             <img src={link5} alt="link5"/>
                         </div>
@@ -167,24 +164,24 @@ const Flame = () => {
                             </p>
                         </div>
 
-                </div>
+                    </div>
 
-                    <div className="flex flex-col md:flex-row justify-center items-center mt-10">
-                        <div className="mb-6 md:w-1/3 p-4">
-                            <div className="flex justify-center">
+
+                    <div className="mb-1 md:w-1/3 p-4">
+                        <div className="flex justify-center">
                                 <img src={link6} alt="link6"/>
-                            </div>
-                            <div>
+                        </div>
+                        <div>
                                 <h4 className="text-center text-white mt-5">Refurbishing</h4>
-                            </div>
-                            <div>
+                        </div>
+                        <div>
                                 <p className="text-center text-white mt-5">Envirocare has its own Repair and Refurbishing centre
                                     for E-waste received from generator. We have a skilled team of
                                     Engineers Technicians.</p>
-                            </div>
                         </div>
-
                     </div>
+
+
                 </div>
             </div>
         </div>

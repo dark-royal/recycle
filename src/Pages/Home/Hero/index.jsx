@@ -14,7 +14,7 @@ const Hero = () => {
                     </div>
                     <div>
                         <p className="text-white md:ml-[90px] text-left">
-                            Sustainable Dispose, Earn Rewards: Discover the nearest g- <br />
+                            Sustainable Dispose, Earn Rewards: Discover the nearest G- <br />
                             Cycle collection center, Learn About the Impact, and Earn <br />
                             Credits for Reasonable Recycling
                         </p>
