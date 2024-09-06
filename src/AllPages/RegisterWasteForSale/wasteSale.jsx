@@ -53,22 +53,11 @@ const RegisterWasteForSale = () => {
         }
 
         try {
-            // Fetch user ID by username
-            const userResponse = await axios.get('https://g-cycle-latest-1.onrender.com/api/v1/agent/id', {
-                params: { username: username }
-            });
-
-            if (!userResponse.data || !userResponse.data.user_id) {
-                throw new Error('User not found.');
-            }
-
-            const userId = userResponse.data.user_id;
-
-            // Create request payload with userId
+            // Create request payload with username
             const sellWasteRequest = {
+                username: username,
                 type: wasteType,
                 quantity: quantityNumber,
-                userId: userId,  // Include userId instead of username
             };
 
             // Calculate points (e.g., 1 point per kg)
