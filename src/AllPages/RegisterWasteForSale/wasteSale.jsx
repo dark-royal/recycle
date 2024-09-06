@@ -58,11 +58,11 @@ const RegisterWasteForSale = () => {
                 params: { username: username }
             });
 
-            if (!userResponse.data || !userResponse.data.id) {
+            if (!userResponse.data || !userResponse.data.user_id) {
                 throw new Error('User not found.');
             }
 
-            const userId = userResponse.data.id;
+            const userId = userResponse.data.user_id;
 
             // Create request payload with userId
             const sellWasteRequest = {
@@ -80,8 +80,13 @@ const RegisterWasteForSale = () => {
             // Send the sellWaste request to backend
             const res = await axios.post('https://g-cycle-latest-1.onrender.com/api/v1/user/sellWaste', sellWasteRequest);
 
-            setResponse({ message: res.data.message, waste: sellWasteRequest });
-            setError(null);
+            // Check for successful response
+            if (res.status === 200) {
+                setResponse({ message: res.data.message, waste: sellWasteRequest });
+                setError(null);
+            } else {
+                throw new Error('Failed to register waste. Status code: ' + res.status);
+            }
         } catch (err) {
             console.error('Error details:', err); // Log the error details for better debugging
             setError('Failed to register waste: ' + (err.response?.data?.message || err.message));
