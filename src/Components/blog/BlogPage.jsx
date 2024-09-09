@@ -3,13 +3,13 @@ import BlogCard from "./Blogcard";
 
 const blogPosts = [
     {
-        title: 'Blog Post 1',
-        description: 'This is a short description of blog post 1.',
+        title: 'Plastic',
+        description: 'plastic ',
         image: 'https://via.placeholder.com/600x400',
     },
     {
-        title: 'Blog Post 2',
-        description: 'This is a short description of blog post 2.',
+        title: 'Metal',
+        description: '',
         image: 'https://via.placeholder.com/600x400',
     },
     {
