@@ -1,29 +1,39 @@
 import React from 'react';
-import BlogCard from "./Blogcard";
+import BlogCard from './Blogcard';
 
 const blogPosts = [
     {
         title: 'Plastic',
-        description: 'plastic ',
-        image: 'https://via.placeholder.com/600x400',
+        description: 'Plastic waste and its impact on the environment.',
+        image: require(''),
     },
     {
         title: 'Metal',
-        description: '',
-        image: 'https://via.placeholder.com/600x400',
+        description: 'Recycling metal is crucial for reducing waste.',
+        image: require(''),
     },
     {
-        title: 'Blog Post 3',
-        description: 'This is a short description of blog post 3.',
-        image: 'https://via.placeholder.com/600x400',
+        title: 'e-Waste',
+        description: 'The rising problem of e-waste and how to tackle it.',
+        image: require(''),
+    },
+    {
+        title: 'Agent',
+        description: 'Agents helping to pick waste materials for recycling.',
+        image: require(''),
+    },
+    {
+        title: 'Plastic',
+        description: 'More about plastic waste and recycling efforts.',
+        image: require(''),
     },
 ];
 
 const Blog = () => {
     return (
-        <div className="bg-gray-100 min-h-screen">
+        <div className="min-h-screen bg-green-900 text-white"> {/* Carbon-green background */}
             <div className="container mx-auto p-8">
-                <h1 className="text-4xl font-bold mb-8 text-center">My Blog</h1>
+                <h1 className="text-4xl font-bold mb-8 text-center">G-Cycle Blog</h1>
                 <div className="flex flex-wrap justify-center">
                     {blogPosts.map((post, index) => (
                         <BlogCard
