@@ -1,52 +1,54 @@
 import React from 'react';
-import BlogCard from './Blogcard';
+import plasticImage from './assestBlog/plastic.jpeg';
+import ewasteImage from './assestBlog/ewaste.jpeg';
+import metalImage from './assestBlog/metal.jpeg';
 
 const blogPosts = [
     {
-        title: 'Plastic',
-        description: 'Plastic waste and its impact on the environment.',
-        image: require(''),
+        title: 'The Future of Plastic Recycling',
+        description: 'How innovations are changing plastic recycling processes.',
+        image: plasticImage,
     },
     {
-        title: 'Metal',
-        description: 'Recycling metal is crucial for reducing waste.',
-        image: require(''),
+        title: 'Understanding e-Waste Management',
+        description: 'Why e-waste is a growing concern and how to tackle it.',
+        image: ewasteImage,
     },
     {
-        title: 'e-Waste',
-        description: 'The rising problem of e-waste and how to tackle it.',
-        image: require(''),
-    },
-    {
-        title: 'Agent',
-        description: 'Agents helping to pick waste materials for recycling.',
-        image: require(''),
-    },
-    {
-        title: 'Plastic',
-        description: 'More about plastic waste and recycling efforts.',
-        image: require(''),
+        title: 'Recycling Metal for a Greener World',
+        description: 'The importance of recycling metals to reduce mining.',
+        image: metalImage,
     },
 ];
 
-const Blog = () => {
+const BlogCard = ({ title, description, image }) => {
     return (
-        <div className="min-h-screen bg-green-900 text-white"> {/* Carbon-green background */}
-            <div className="container mx-auto p-8">
-                <h1 className="text-4xl font-bold mb-8 text-center">G-Cycle Blog</h1>
-                <div className="flex flex-wrap justify-center">
-                    {blogPosts.map((post, index) => (
-                        <BlogCard
-                            key={index}
-                            title={post.title}
-                            description={post.description}
-                            image={post.image}
-                        />
-                    ))}
-                </div>
+        <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white m-4">
+            <img className="w-full" src={image} alt={title} />
+            <div className="px-6 py-4">
+                <div className="font-bold text-xl mb-2">{title}</div>
+                <p className="text-gray-700 text-base">{description}</p>
             </div>
         </div>
     );
 };
 
-export default Blog;
+const BlogPage = () => {
+    return (
+        <div className="bg-gray-100 min-h-screen p-4">
+            <h1 className="text-4xl text-center font-bold my-8 text-green-800">G-Cycle Blog</h1>
+            <div className="flex flex-wrap justify-center">
+                {blogPosts.map((post, index) => (
+                    <BlogCard
+                        key={index}
+                        title={post.title}
+                        description={post.description}
+                        image={post.image}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default BlogPage;
