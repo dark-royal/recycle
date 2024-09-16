@@ -5,8 +5,8 @@ export const keys = [
         title: 'Reduce',
         description:'A key part of waste "reduction" is\n' +
             '                      "conservation"—using natural resources\n' +
-            '                      wisely, and using less than usual in order\n' +
-            '                      avoid waste.',
+            '                      wisely, and using avoid waste.',
+
         className: styles.key,
         textClassName: styles.reduce,
 
