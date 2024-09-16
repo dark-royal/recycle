@@ -1,19 +1,21 @@
 .logos {
     display: flex;
     overflow: hidden;
-    width: 119%;
+    width: 110%;
     justify-content: center;
     position: relative;
     height: 440px;
     padding: 0 20px;
 
 }
-.waste{
-
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .logos img {
-    width: 100%;
+    width: 200%;
     height: 100%;
     object-fit: cover;
     position: absolute;
