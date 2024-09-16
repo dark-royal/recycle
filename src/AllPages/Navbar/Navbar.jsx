@@ -14,7 +14,7 @@ const Navb = () => {
         <div className={styles.mainContainer}>
             <div className={`${styles.sectionsWrapper} ${menuActive ? styles.menuActive : ''}`}>
                 <img src={logo1} alt="logo1" className={styles.logo} />
-                <h1 className={styles.title}>g-Cycle</h1>
+                <h1 className={styles.title}>G-Cycle</h1>
                 <div className={styles.hamburger} onClick={toggleMenu}>
                     <div></div>
                     <div></div>

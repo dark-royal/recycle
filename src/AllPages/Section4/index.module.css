@@ -2,7 +2,7 @@
     font-size: 40px;
     color: white;
     font-weight: bold;
-    margin-left: 491px;
+    margin-left: 291px;
     transition: transform 0.3s ease;
     margin-top: 100px; /* Adjusted to reduce top margin */
 }
@@ -31,7 +31,8 @@
     margin-top: 20px; /* Reduced the margin to bring images closer */
     animation: slideIn 2s ease-in-out;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 120px;
+
 }
 
 img {
@@ -49,7 +50,7 @@ img:hover {
     font-size: 40px;
     color: white;
     font-weight: bold;
-    margin-left: -115px;
+    margin-left: -155px;
     text-align: center; /* Centers the text */
     margin-top: 30px; /* Adjusted to reduce top margin */
 }

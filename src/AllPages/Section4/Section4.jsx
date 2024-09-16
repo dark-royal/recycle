@@ -14,7 +14,7 @@ import Item9 from '../../Components/asset/Item (8).png'
 const Section4 = () => {
     return (
         <div className={styles.type}>
-            <p className={styles.select}>SELECT THE TYPE OF E-WASTE</p>
+            <p className={styles.select}>SELECT THE TYPE OF G-WASTE</p>
             <div className={styles.images}>
                 <img src={Item1} alt="Item1" className="Item1"/>
                 <img src={Item2} alt="Item2" className="Item2"/>
