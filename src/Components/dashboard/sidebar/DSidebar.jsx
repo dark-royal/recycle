@@ -129,32 +129,6 @@ const DSidebar = () => {
                             <span className="font-light text-xs md:text-sm">Dispatch Status</span>
                         </NavLink>
                         <NavLink
-                            to="/cart"
-                            className={({ isActive }) =>
-                                `flex items-center gap-2 md:gap-4 w-full p-3 rounded-lg md:rounded-2xl transition-colors duration-300 ${
-                                    isActive
-                                        ? "bg-green-300 text-black"
-                                        : "bg-ash text-black hover:bg-green-200 hover:text-black"
-                                }`
-                            }
-                        >
-                            <img src={logo6} alt="Cart" width={20} height={20} className="md:w-6 md:h-6" />
-                            <span className="font-light text-xs md:text-sm">Cart</span>
-                        </NavLink>
-                        <NavLink
-                            to="/badge"
-                            className={({ isActive }) =>
-                                `flex items-center gap-2 md:gap-4 w-full p-3 rounded-lg md:rounded-2xl transition-colors duration-300 ${
-                                    isActive
-                                        ? "bg-green-300 text-black"
-                                        : "bg-ash text-black hover:bg-green-200 hover:text-black"
-                                }`
-                            }
-                        >
-                            <img src={logo7} alt="Badge" width={20} height={20} className="md:w-6 md:h-6" />
-                            <span className="font-light text-xs md:text-sm">Badge</span>
-                        </NavLink>
-                        <NavLink
                             to="/shop"
                             className={({ isActive }) =>
                                 `flex items-center gap-2 md:gap-4 w-full p-3 rounded-lg md:rounded-2xl transition-colors duration-300 ${

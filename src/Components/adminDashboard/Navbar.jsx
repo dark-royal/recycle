@@ -52,24 +52,7 @@ const DANavbar = () => {
                     isOpen ? 'flex absolute top-16 right-4 bg-white p-4 rounded-lg shadow-lg w-[200px] text-sm' : 'hidden'
                 } md:flex`}
             >
-                <p className={`${darkMode ? 'text-black' : 'text-green-500'}`}>
-                    <Link to="/" className={`${darkMode ? 'text-black' : 'text-green-500'}`}>{t("Home")}</Link>
-                </p>
-                <p className={`${darkMode ? 'text-black' : 'text-green-500'}`}>
-                    <Link to="/size" className={`${darkMode ? 'text-black' : 'text-green-500'}`}>{t("Locate")}</Link>
-                </p>
-                <p className={`${darkMode ? 'text-black' : 'text-green-500'}`}>
-                    <Link to="/adminDashboard" className={`${darkMode ? 'text-black' : 'text-green-500'}`}>{t("Dashboard")}</Link>
-                </p>
-                <p className={`${darkMode ? 'text-white' : 'text-green-500'}`}>
-                    <Link to="/about" className={`${darkMode ? 'text-black' : 'text-green-500'}`}>{t("About")}</Link>
-                </p>
 
-                <Link to="/earnings">
-                    <button className={`${darkMode ? 'bg-gray-700 text-black' : 'bg-green-500 text-amber-50'} rounded-2xl p-4 no-global`}>
-                        EARNINGS
-                    </button>
-                </Link>
                 <select className={`${darkMode ? 'bg-gray-700 text-white' : 'bg-white'} border rounded-md p-1 mt-2 md:mt-0`}
                         onChange={(e) => changeLanguage(e.target.value)}>
                     <option value="en">English</option>

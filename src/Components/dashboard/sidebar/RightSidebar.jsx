@@ -4,10 +4,10 @@ import image3 from "../../asset/eclipse.png";
 
 const RightSidebar = () => {
     return (
-        <div className="fixed top-0 right-0 h-auto w-full max-w-sm p-4 bg-white flex flex-col rounded-2xl shadow-lg hidden md:block md:w-80 md:top-28 md:right-3 md:h-[70%]">
+        <div className="fixed top-0 right-0 h-auto w-full max-w-sm p-4 bg-white flex flex-col rounded-2xl shadow-lg hidden md:block md:w-60 md:top-28 md:right-3 md:h-[75%]">
             <p className="font-extralight text-green-500 italic flex items-center justify-between mb-4 md:gap-28">
                 LEADERBOARD
-                <img src={image} alt="" className="w-6 h-6" />
+                <img src={image} alt="" className="w-5 -ml-5 h-6" />
             </p>
 
             <div className="flex flex-col items-center text-center mb-4">
