@@ -35,8 +35,10 @@ const BlogCard = ({ title, description, image }) => {
 
 const BlogPage = () => {
     return (
-        <div className="bg-gray-100 min-h-screen p-4">
-            <h1 className="text-4xl text-center font-bold my-8 text-green-800">G-Cycle Blog</h1>
+        <div className="bg-green-900 min-h-screen p-4"> {/* Updated background color to carbon green */}
+            <h1 className="text-4xl text-center font-bold my-8 text-white"> {/* Changed text color to white */}
+                G-Cycle Blog
+            </h1>
             <div className="flex flex-wrap justify-center">
                 {blogPosts.map((post, index) => (
                     <BlogCard
