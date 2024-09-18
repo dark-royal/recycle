@@ -40,7 +40,7 @@ const Footer = () => {
             </div>
 
             <hr className="border-t-2 border-white my-10 md:my-20"/>
-            <div className="flex justify-center md:justify-end ml-0 md:ml-[90%] gap-4">
+            <div className="flex justify-center md:justify-end ml-0 md:ml-[83%] gap-[20px]">
                 <a href="https://www.facebook.com/banjo.ayomide.73" target="_blank" rel="noopener noreferrer">
                     <img src={image2} alt="Facebook" className="w-8 h-8 md:w-10 md:h-10"/>
                 </a>
