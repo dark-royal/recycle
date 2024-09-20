@@ -36,7 +36,7 @@ root.render(
                     <App />
                 </UserProvider>
               </DarkModeProvider>
-          </I18nextProvider>,
+          </I18nextProvider>
       </BrowserRouter>
   </React.StrictMode>
 );

@@ -19,6 +19,8 @@ import RegisterWasteForSale from "../AllPages/RegisterWasteForSale/wasteSale";
 import AdminBar from "../Components/adminDashboard/AdminBar";
 import ProtectedRoute from "./ProtectedRoute";
 import BlogPage from "../Components/blog/BlogPage";
+import ManageUser from "../Components/adminDashboard/MangeUsers";
+import ManageWaste from "../Components/adminDashboard/ManageWaste";
 
 // Example authentication check function
 const isAuthenticated = () => {
@@ -120,6 +122,14 @@ export const ROUTES = [
     {
         path: '/agentDashboard',
         element: <RegisterWasteForSale/>,
+    },
+    {
+        path: '/manageUsers',
+        element: <ManageUser/>,
+    },
+    {
+        path: '/manageWaste',
+        element: <ManageWaste/>,
     },
     // {
     //     path: '*',
